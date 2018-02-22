@@ -28,8 +28,10 @@
     font-weight: bold;
 }
 
-div.companyLogo {}
-
 .navImage {
     cursor: pointer;
+}
+
+#expandUHRC {
+    width: 300px;
 }
