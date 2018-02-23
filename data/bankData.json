@@ -1,0 +1,254 @@
+{
+    "bankData": [
+        {
+            "bankName": "Blacksmith Bank",
+            "bankLogoName": "images/swords-crossed.png",
+            "companyType": [
+                {
+                    "compType": "Bank",
+                    "redFlag": "false"
+                }
+            ],
+            "companyTypeInfo": "We identified company type via KYC Swift Registry.",
+            "countryOfIncorporation": [
+                {
+                    "country": "Singapore",
+                    "redFlag": "false"
+                }
+            ],
+            "countryOfIncorporationInfo": "We identified <bankName>'s country of incorporation via data provided by MAS.",
+            "industry": [
+                {
+                    "industry": "Banking/Financial Institution",
+                    "redFlag": "false"
+                }
+            ],
+            "industryInfo": "We identified <bankName>'s industry via Bankers Almanc.",
+            "products": [
+                {
+                    "name": "Retail Banking",
+                    "redFlag": "false"
+                },
+                {
+                    "name": "Savings",
+                    "redFlag": "false"
+                },
+                {
+                    "name": "Loans",
+                    "redFlag": "false"
+                }
+            ],
+            "productsInfo": "We identified <bankName>'s products via their website and via their in-house API.",
+            "ubo": [
+                {
+                    "ubo": "Identified",
+                    "redFlag": "false"
+                }
+            ],
+            "uboInfo": "We identified the UBO's via ACRA and KYC Swift Registry.",
+            "nameScreening": [
+                {
+                    "nameScreening": "0 Matches",
+                    "redFlag": "false"
+                }
+            ],
+            "nameScreeningInfo": "We searched Thompson Reuters World Check, N Blacklist providers, and your independently provided internal black list and found no positive results regarding Name Screening.",
+            "peps": [
+                {
+                    "peps": "0 Matches",
+                    "redFlag": "false"
+                }
+            ],
+            "pepsInfo": "We searched N PEP screening services but found no evidence of any Politically Exposed Persons.",
+            "sanctions": [
+                {
+                    "sanctions": "0 Matches",
+                    "redFlag": "false"
+                }
+            ],
+            "sanctionsInfo": "We searched N sanction screen services but found no positive results regarding Sactions Screening.",
+            "adverseNews": [
+                {
+                    "adverseNews": "0 Matches",
+                    "redFlag": "false"
+                }
+            ],
+            "adverseNewsInfo": "We searched Google News, Bloomberg, and Reuters but found no evidence of any relevant adverse news stories.",
+            "uhrc": [
+                {
+                    "uhrc": "0 Matches",
+                    "redFlag": "false"
+                }
+            ],
+            "uhrcInfo": "We searched Golden Source A, B, and C but found no evidence of operation in Ultra High Risk Countries."
+    },
+        {
+            "bankName": "YFGC Bank",
+            "bankLogoName": "images/swords-crossed.png",
+            "companyType": [
+                {
+                    "compType": "Bank",
+                    "redFlag": "false"
+                }
+            ],
+            "companyTypeInfo": "We identified company type via KYC Swift Registry.",
+            "countryOfIncorporation": [
+                {
+                    "country": "Singapore",
+                    "redFlag": "false"
+                }
+            ],
+            "countryOfIncorporationInfo": "We identified <bankName>'s country of incorporation via data provided by MAS.",
+            "industry": [
+                {
+                    "industry": "Banking/Financial Institution",
+                    "redFlag": "false"
+                }
+            ],
+            "industryInfo": "We identified <bankName>'s industry via Bankers Almanc.",
+            "products": [
+                {
+                    "name": "Trade Finance",
+                    "redFlag": "true"
+                },
+                {
+                    "name": "Retail Banking",
+                    "redFlag": "false"
+                },
+                {
+                    "name": "Loans",
+                    "redFlag": "false"
+                }
+            ],
+            "productsInfo": "We identified <bankName>'s products via their website and via their in-house API.",
+            "ubo": [
+                {
+                    "ubo": "Identified",
+                    "redFlag": "false"
+                }
+            ],
+            "uboInfo": "We identified the UBO's via ACRA and KYC Swift Registry.",
+            "nameScreening": [
+                {
+                    "nameScreening": "0 Matches",
+                    "redFlag": "false"
+                }
+            ],
+            "nameScreeningInfo": "We searched Thompson Reuters Work Check, N Blacklist providers, and your independently provided internal black list and found no positive results regarding Name Screening.",
+            "peps": [
+                {
+                    "peps": "0 Matches",
+                    "redFlag": "false"
+                }
+            ],
+            "pepsInfo": "We searched N PEP screening services but found no evidence of any Politically Exposed Persons.",
+            "sanctions": [
+                {
+                    "sanctions": "0 Matches",
+                    "redFlag": "false"
+                }
+            ],
+            "sanctionsInfo": "We searched N sanction screen services but found no positive results regarding Sactions Screening.",
+            "adverseNews": [
+                {
+                    "adverseNews": "0 Matches",
+                    "redFlag": "false"
+                }
+            ],
+            "adverseNewsInfo": "We searched Google News, Bloomberg, and Reuters but found no evidence of any relevant adverse news stories.",
+            "uhrc": [
+                {
+                    "uhrc": "0 Matches",
+                    "redFlag": "false"
+                }
+            ],
+            "uhrcInfo": "We searched Golden Source A, B, and C but found no evidence of operation in Ultra High Risk Countries."
+    },
+        {
+            "bankName": "Bank of Narnia",
+            "bankLogoName": "images/swords-crossed.png",
+            "companyType": [
+                {
+                    "compType": "Bank",
+                    "redFlag": "false"
+                }
+            ],
+            "companyTypeInfo": "We identified company type via KYC Swift Registry.",
+            "countryOfIncorporation": [
+                {
+                    "country": "Narnia",
+                    "redFlag": "true"
+                }
+            ],
+            "countryOfIncorporationInfo": "We identified <bankName>'s country of incorporation via data provided by the Narnian Government.",
+            "industry": [
+                {
+                    "industry": "Banking/Financial Institution",
+                    "redFlag": "false"
+                }
+            ],
+            "industryInfo": "We identified <bankName>'s industry via Bankers Almanc.",
+            "products": [
+                {
+                    "name": "Trade Finance",
+                    "redFlag": "true"
+                },
+                {
+                    "name": "Offshore Banking",
+                    "redFlag": "true"
+                },
+                {
+                    "name": "Correspondent Banking",
+                    "redFlag": "true"
+                },
+                {
+                    "name": "Funds",
+                    "redFlag": "true"
+                }
+            ],
+            "productsInfo": "We identified <bankName>'s products via their website.",
+            "ubo": [
+                {
+                    "ubo": "Identified",
+                    "redFlag": "false"
+                }
+            ],
+            "uboInfo": "We identified the UBO's via ACRA and KYC Swift Registry.",
+            "nameScreening": [
+                {
+                    "nameScreening": "3 Matches",
+                    "redFlag": "true"
+                }
+            ],
+            "nameScreeningInfo": "We found 2 matches on Thompson Reuters World Check, 0 matches with N Blacklist providers, and 1 match using your independently provided internal black list.",
+            "peps": [
+                {
+                    "peps": "1 Match",
+                    "redFlag": "true"
+                }
+            ],
+            "pepsInfo": "We searched 4 PEP screening services 1 match to possible evidence of a Politically Exposed Persons.",
+            "sanctions": [
+                {
+                    "sanctions": "0 Matches",
+                    "redFlag": "false"
+                }
+            ],
+            "sanctionsInfo": "We searched 1 sanction screen service but found no positive results regarding Sactions Screening.",
+            "adverseNews": [
+                {
+                    "adverseNews": "25 Matches",
+                    "redFlag": "true"
+                }
+            ],
+            "adverseNewsInfo": "We searched Google News, Bloomberg, and Reuters and found 25 possible adverse news stories. If <name> provide you with consent to view we can provide an assessment of why those news stories could affect your KYC decision.",
+            "uhrc": [
+                {
+                    "uhrc": "1 Matches",
+                    "redFlag": "true"
+                }
+            ],
+            "uhrcInfo": "We searched Golden Sources and found evidence of operation in Ultra High Risk Countries. If <name> provide you with consent to view we can provide an assessment of why those news stories could affect your KYC decision."
+    }
+]
+}
