@@ -1,5 +1,6 @@
 .table {
     display: table;
+    width: 100%;
 }
 
 .row {
@@ -21,15 +22,21 @@
 
 .cellContents {
     color: darkgray;
+    width: 25%;
 }
 
 .companyName {
     font-size: 30px;
     font-weight: bold;
+    width: 22%
 }
 
 .navImage {
     cursor: pointer;
+}
+
+.expandInfo {
+    width: 3.5%;
 }
 
 #expandUHRC {

@@ -12,74 +12,98 @@
 <body>
     <div class="table">
         <div class="row">
-            <div class="cell companyName">DBS Bank <img src="images/DBSLogo.jpg" alt="Company Logo" width="50" height="20"></div>
+            <div class="cell companyName"><img src="images/swords-crossed.png" alt="Company Logo" width="40" height="30"> Blacksmith Bank</div>
+            <div class="cell"></div>
         </div>
         <div class="row">
             <div class="cell cellheader">Company Type:</div>
             <div class="cell cellContents">Bank</div>
             <div class="cell expandInfo"><img class="navImage" src="images/plus-icon.png" alt="Company Logo" width="20" height="20"></div>
-            <div class="cell expandedInfoText"></div>
+            <div id="expandCompanyType" class="cell expandedInfoText"></div>
         </div>
         <div class="row">
             <div class="cell cellheader">Country of Incorporation:</div>
             <div class="cell cellContents">Singapore</div>
             <div class="cell expandInfo"><img class="navImage" src="images/plus-icon.png" alt="Company Logo" width="20" height="20"></div>
-            <div class="cell expandedInfoText"></div>
+            <div id="expandCountryOfIncorporation" class="cell expandedInfoText"></div>
         </div>
         <div class="row">
             <div class="cell cellheader">Industry:</div>
             <div class="cell cellContents">Banking/Financial Institution</div>
             <div class="cell expandInfo"><img class="navImage" src="images/plus-icon.png" alt="Company Logo" width="20" height="20"></div>
-            <div class="cell expandedInfoText"></div>
+            <div id="expandIndustry" class="cell expandedInfoText"></div>
         </div>
         <div class="row">
             <div class="cell cellheader">Products:</div>
             <div class="cell cellContents">Trade Finance, Loans, Savings, Whatever</div>
             <div class="cell expandInfo"><img class="navImage" src="images/plus-icon.png" alt="Company Logo" width="20" height="20"></div>
-            <div class="cell expandedInfoText"></div>
+            <div id="expandProducts" class="cell expandedInfoText"></div>
         </div>
         <div class="row">
             <div class="cell cellheader">Ultimate Beneficial Owner:</div>
             <div class="cell cellContents">Identified</div>
             <div class="cell expandInfo"><img class="navImage" src="images/plus-icon.png" alt="Company Logo" width="20" height="20"></div>
-            <div class="cell expandedInfoText"></div>
+            <div id="expandUBO" class="cell expandedInfoText"></div>
         </div>
         <div class="row">
             <div class="cell cellheader">Name Screening:</div>
             <div class="cell cellContents">No Red Flags</div>
             <div class="cell expandInfo"><img class="navImage" src="images/plus-icon.png" alt="Company Logo" width="20" height="20"></div>
-            <div class="cell expandedInfoText"></div>
+            <div id="expandNameScreening" class="cell expandedInfoText"></div>
         </div>
         <div class="row">
             <div class="cell cellheader">Politically Exposed Persons Screening:</div>
             <div class="cell cellContents">No Red Flags</div>
             <div class="cell expandInfo"><img class="navImage" src="images/plus-icon.png" alt="Company Logo" width="20" height="20"></div>
-            <div class="cell expandedInfoText"></div>
+            <div id="expandPEPS" class="cell expandedInfoText"></div>
         </div>
         <div class="row">
             <div class="cell cellheader">Sanction Screening:</div>
             <div class="cell cellContents">No Red Flags</div>
             <div class="cell expandInfo"><img class="navImage" src="images/plus-icon.png" alt="Company Logo" width="20" height="20"></div>
-            <div class="cell expandedInfoText"></div>
+            <div id="expandSanctionScreening" class="cell expandedInfoText"></div>
         </div>
         <div class="row">
             <div class="cell cellheader">Adverse News:</div>
             <div class="cell cellContents">No Red Flags</div>
             <div class="cell expandInfo"><img class="navImage" src="images/plus-icon.png" alt="Company Logo" width="20" height="20"></div>
-            <div class="cell expandedInfoText"></div>
+            <div id="expandAdverseNews" class="cell expandedInfoText"></div>
         </div>
         <div class="row">
             <div class="cell cellheader">Ultra High Risk Countries:</div>
             <div class="cell cellContents">No Red Flags</div>
-            <div class="cell expandInfo"><img class="navImage" src="images/plus-icon.png" alt="Company Logo" width="20" height="20" onclick="expandUHRC()"></div>
+            <div class="cell expandInfo"><img class="navImage" src="images/plus-icon.png" alt="Company Logo" width="20" height="20"></div>
             <div id="expandUHRC" class="cell expandedInfoText"></div>
         </div>
     </div>
+
+    <script>
+        $(document).ready(function() {
+            $(".navImage").click(function() {
+                var src = '';
+                if ($(this).attr('src').includes("images/plus-icon.png") > 0) {
+                    src = 'images/minus-icon.png';
+                } else {
+                    //$(this).attr('src', 'images/plus-icon.png');
+                    src = 'images/plus-icon.png';
+                }
+
+                var image = $(this);
+                image.fadeOut('fast', function() {
+                    image.attr('src', src);
+                    image.fadeIn('fast');
+                });
+            });
+        });
+    </script>
+
     <script lang="text/javascript">
         function expandUHRC() {
+            /*
             //clearAllExpandedCells();
             document.getElementById("expandUHRC").innerHTML = "We searched Golden Source A, Golden Source B, and Golden Source C and did not find any evidence of operations in any Ultra High Risk Countries.";
             document.getElementById
+            */
         }
 
         /*
