@@ -12,7 +12,7 @@
 <body>
     <div class="table">
         <div class="row">
-            <div class="cell companyName"><img src="images/swords-crossed.png" alt="Company Logo" width="40" height="30"> Blacksmith Bank</div>
+            <div class="cell companyName">Blacksmith Bank <img src="images/swords-crossed.png" alt="Company Logo" width="40" height="30"></div>
             <div class="cell"></div>
         </div>
         <div class="row">
@@ -35,7 +35,7 @@
         </div>
         <div class="row">
             <div class="cell cellheader">Products:</div>
-            <div class="cell cellContents">Trade Finance, Loans, Savings, Whatever</div>
+            <div class="cell cellContents">Trade Finance, Loans, Savings, and Retail Banking</div>
             <div class="cell expandInfo"><img id="imgexpandProducts" class="navImage" src="images/plus-icon.png" alt="More Info" width="20" height="20"></div>
             <div id="expandProducts" class="cell expandedInfoText">We identified Blacksmith Bank's products via their website and via their in-house API.</div>
         </div>
@@ -85,10 +85,10 @@
                 var infoID = '#' + rawInfoID.substring(3, rawInfoID.length);
                 if ($(this).attr('src').includes("images/plus-icon.png") > 0) {
                     src = 'images/minus-icon.png';
-                    $(infoID).show();
+                    $(infoID).show('slow');
                 } else {
                     src = 'images/plus-icon.png';
-                    $(infoID).hide();
+                    $(infoID).hide('slow');
                 }
 
                 var image = $(this);
