@@ -1,0 +1,109 @@
+<html>
+
+<head>
+    <title>Blacksmith KYC</title>
+    <link rel="icon" href="images/sword.png">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Patua+One|Permanent+Marker" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div class="table">
+        <div class="row">
+            <div class="cell companyName">Blacksmith Bank <img src="images/swords-crossed.png" alt="Company Logo" width="40" height="30"></div>
+            <div class="cell"></div>
+        </div>
+        <div class="row">
+            <div class="cell cellheader">Company Type:</div>
+            <div class="cell cellContents">Bank</div>
+            <div class="cell expandInfo"><img id="imgexpandCompanyType" class="navImage" src="images/plus-icon.png" alt="More Info" width="20" height="20"></div>
+            <div id="expandCompanyType" class="cell expandedInfoText">We identified company type via KYC Swift Registry.</div>
+        </div>
+        <div class="row">
+            <div class="cell cellheader">Country of Incorporation:</div>
+            <div class="cell cellContents">Singapore</div>
+            <div class="cell expandInfo"><img id="imgexpandCountryOfIncorporation" class="navImage" src="images/plus-icon.png" alt="More Info" width="20" height="20"></div>
+            <div id="expandCountryOfIncorporation" class="cell expandedInfoText">We identified Blacksmith Bank's country of incorporation via data provided by MAS.</div>
+        </div>
+        <div class="row">
+            <div class="cell cellheader">Industry:</div>
+            <div class="cell cellContents">Banking/Financial Institution</div>
+            <div class="cell expandInfo"><img id="imgexpandIndustry" class="navImage" src="images/plus-icon.png" alt="More Info" width="20" height="20"></div>
+            <div id="expandIndustry" class="cell expandedInfoText">We identified Blacksmith Bank's industry via Bankers Almanac.</div>
+        </div>
+        <div class="row">
+            <div class="cell cellheader">Products:</div>
+            <div class="cell cellContents">Trade Finance, Loans, Savings, and Retail Banking</div>
+            <div class="cell expandInfo"><img id="imgexpandProducts" class="navImage" src="images/plus-icon.png" alt="More Info" width="20" height="20"></div>
+            <div id="expandProducts" class="cell expandedInfoText">We identified Blacksmith Bank's products via their website and via their in-house API.</div>
+        </div>
+        <div class="row">
+            <div class="cell cellheader">Ultimate Beneficial Owner:</div>
+            <div class="cell cellContents">Identified</div>
+            <div class="cell expandInfo"><img id="imgexpandUBO" class="navImage" src="images/plus-icon.png" alt="More Info" width="20" height="20"></div>
+            <div id="expandUBO" class="cell expandedInfoText">We identified the UBO's via ACRA and KYC Swift Registry.</div>
+        </div>
+        <div class="row">
+            <div class="cell cellheader">Name Screening:</div>
+            <div class="cell cellContents">No Red Flags</div>
+            <div class="cell expandInfo"><img id="imgexpandNameScreening" class="navImage" src="images/plus-icon.png" alt="More Info" width="20" height="20"></div>
+            <div id="expandNameScreening" class="cell expandedInfoText">We searched Thompson Reuters Work Check, N Blacklist providers, and your independently provided internal black list and found no positive results regarding Name Screening.</div>
+        </div>
+        <div class="row">
+            <div class="cell cellheader">Politically Exposed Persons Screening:</div>
+            <div class="cell cellContents">No Red Flags</div>
+            <div class="cell expandInfo"><img id="imgexpandPEPS" class="navImage" src="images/plus-icon.png" alt="More Info" width="20" height="20"></div>
+            <div id="expandPEPS" class="cell expandedInfoText">We searched N Number of PEP screening services but found no evidence of any Politicall Exposed Persons.</div>
+        </div>
+        <div class="row">
+            <div class="cell cellheader">Sanction Screening:</div>
+            <div class="cell cellContents">No Red Flags</div>
+            <div class="cell expandInfo"><img id="imgexpandSanctionScreening" class="navImage" src="images/plus-icon.png" alt="More Info" width="20" height="20"></div>
+            <div id="expandSanctionScreening" class="cell expandedInfoText">We searched N number of sanction screen services but found no positive results regarding Sactions Screening.</div>
+        </div>
+        <div class="row">
+            <div class="cell cellheader">Adverse News:</div>
+            <div class="cell cellContents">No Red Flags</div>
+            <div class="cell expandInfo"><img id="imgexpandAdverseNews" class="navImage" src="images/plus-icon.png" alt="More Info" width="20" height="20"></div>
+            <div id="expandAdverseNews" class="cell expandedInfoText">We searched Google News, Bloomberg, and Reuters but found no evidence of any relevant adverse news stories.</div>
+        </div>
+        <div class="row">
+            <div class="cell cellheader">Ultra High Risk Countries:</div>
+            <div class="cell cellContents">No Red Flags</div>
+            <div class="cell expandInfo"><img id="imgexpandUHRC" class="navImage" src="images/plus-icon.png" alt="More Info" width="20" height="20"></div>
+            <div id="expandUHRC" class="cell expandedInfoText">We searched Golden Source A, B, and C but found no evidence of operation in Ultra High Risk Countries.</div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $(".navImage").click(function() {
+                var src = '';
+                var rawInfoID = $(this).attr('id');
+                var infoID = '#' + rawInfoID.substring(3, rawInfoID.length);
+                if ($(this).attr('src').includes("images/plus-icon.png") > 0) {
+                    src = 'images/minus-icon.png';
+                    $(infoID).show('slow');
+                } else {
+                    src = 'images/plus-icon.png';
+                    $(infoID).hide('slow');
+                }
+
+                var image = $(this);
+                image.fadeOut('fast', function() {
+                    image.attr('src', src);
+                    image.fadeIn('fast');
+                });
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $(".expandedInfoText").hide();
+        });
+    </script>
+</body>
+
+</html>

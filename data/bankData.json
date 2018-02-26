@@ -23,7 +23,7 @@
                     "redFlag": "false"
                 }
             ],
-            "industryInfo": "We identified <bankName>'s industry via Bankers Almanc.",
+            "industryInfo": "We identified <bankName>'s industry via Bankers Almanac.",
             "products": [
                 {
                     "name": "Retail Banking",
@@ -105,7 +105,7 @@
                     "redFlag": "false"
                 }
             ],
-            "industryInfo": "We identified <bankName>'s industry via Bankers Almanc.",
+            "industryInfo": "We identified <bankName>'s industry via Bankers Almanac.",
             "products": [
                 {
                     "name": "Trade Finance",
@@ -187,7 +187,7 @@
                     "redFlag": "false"
                 }
             ],
-            "industryInfo": "We identified <bankName>'s industry via Bankers Almanc.",
+            "industryInfo": "We identified <bankName>'s industry via Bankers Almanac.",
             "products": [
                 {
                     "name": "Trade Finance",
