@@ -25,7 +25,7 @@
     width: 30%;
 }
 
-.companyName {
+#companyName {
     font-size: 30px;
     font-weight: bold;
     width: 22%;
@@ -41,4 +41,20 @@
 
 #expandUHRC {
     width: 300px;
+}
+
+.flag {
+    color: red;
+}
+
+.badAssessment {
+    color: red;
+}
+
+.averageAssessment {
+    color: gold;
+}
+
+.goodAssessment {
+    color: green;
 }

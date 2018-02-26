@@ -10,35 +10,437 @@
 </head>
 
 <body>
-    <select id="myselect" onchange="change_myselect(this.value)">
-        <option value="0">Choose an option:</option>
-        <option value="1">Blacksmith Bank</option>
-        <option value="2">YFGC Bank</option>
-        <option value="3">Bank of Narnia</option>
-    </select>
+    <div class="table">
+        <div class="row">
+            <div id="companyName" class="cell">Placeholder</div>
+            <div id="assessment" class="cell">Standard Due Dilligence; Normal Risk</div>
+        </div>
+        <div class="row">
+            <div class="cell cellheader">Company Type:</div>
+            <div id="companyType" class="cell cellContents">Placeholder</div>
+            <div class="cell expandInfo"><img id="imgexpandCompanyType" class="navImage" src="images/plus-icon.png" alt="More Info" width="20" height="20"></div>
+            <div id="expandCompanyType" class="cell expandedInfoText">We identified company type via KYC Swift Registry.</div>
+        </div>
+        <div class="row">
+            <div class="cell"></div>
+            <div id="companyTypeFlag" class="cell cellContents flag"></div>
+        </div>
+        <div class="row">
+            <div class="cell cellheader">Country of Incorporation:</div>
+            <div id="countryOfIncorporation" class="cell cellContents">Placeholder</div>
+            <div class="cell expandInfo"><img id="imgexpandCountryOfIncorporation" class="navImage" src="images/plus-icon.png" alt="More Info" width="20" height="20"></div>
+            <div id="expandCountryOfIncorporation" class="cell expandedInfoText">We identified Blacksmith Bank's country of incorporation via data provided by MAS.</div>
+        </div>
+        <div class="row">
+            <div class="cell"></div>
+            <div id="countryofIncorporationFlag" class="cell cellContents flag"></div>
+        </div>
+        <div class="row">
+            <div class="cell cellheader">Industry:</div>
+            <div id="industry" class="cell cellContents">Placeholder</div>
+            <div class="cell expandInfo"><img id="imgexpandIndustry" class="navImage" src="images/plus-icon.png" alt="More Info" width="20" height="20"></div>
+            <div id="expandIndustry" class="cell expandedInfoText">We identified Blacksmith Bank's industry via Bankers Almanac.</div>
+        </div>
+        <div class="row">
+            <div class="cell"></div>
+            <div id="industryFlag" class="cell cellContents"></div>
+        </div>
+        <div class="row">
+            <div class="cell cellheader">Products:</div>
+            <div id="products" class="cell cellContents">Placeholder</div>
+            <div class="cell expandInfo"><img id="imgexpandProducts" class="navImage" src="images/plus-icon.png" alt="More Info" width="20" height="20"></div>
+            <div id="expandProducts" class="cell expandedInfoText">We identified Blacksmith Bank's products via their website and via their in-house API.</div>
+        </div>
+        <div class="row">
+            <div class="cell"></div>
+            <div id="productsFlag" class="cell cellContents flag"></div>
+        </div>
+        <div class="row">
+            <div class="cell cellheader">Ultimate Beneficial Owner:</div>
+            <div id="ubo" class="cell cellContents">Placeholder</div>
+            <div class="cell expandInfo"><img id="imgexpandUBO" class="navImage" src="images/plus-icon.png" alt="More Info" width="20" height="20"></div>
+            <div id="expandUBO" class="cell expandedInfoText">We identified the UBO's via ACRA and KYC Swift Registry.</div>
+        </div>
+        <div class="row">
+            <div class="cell"></div>
+            <div id="uboFlag" class="cell cellContents flag"></div>
+        </div>
+        <div class="row">
+            <div class="cell cellheader">Name Screening:</div>
+            <div id="nameScreening" class="cell cellContents">Placeholder</div>
+            <div class="cell expandInfo"><img id="imgexpandNameScreening" class="navImage" src="images/plus-icon.png" alt="More Info" width="20" height="20"></div>
+            <div id="expandNameScreening" class="cell expandedInfoText">We searched Thompson Reuters Work Check, N Blacklist providers, and your independently provided internal black list and found no positive results regarding Name Screening.</div>
+        </div>
+        <div class="row">
+            <div class="cell"></div>
+            <div id="nameScreeningFlag" class="cell cellContents flag"></div>
+        </div>
+        <div class="row">
+            <div class="cell cellheader">Politically Exposed Persons Screening:</div>
+            <div id="peps" class="cell cellContents">Placeholder</div>
+            <div class="cell expandInfo"><img id="imgexpandPEPS" class="navImage" src="images/plus-icon.png" alt="More Info" width="20" height="20"></div>
+            <div id="expandPEPS" class="cell expandedInfoText">We searched N Number of PEP screening services but found no evidence of any Politicall Exposed Persons.</div>
+        </div>
+        <div class="row">
+            <div class="cell"></div>
+            <div id="pepsFlag" class="cell cellContents flag"></div>
+        </div>
+        <div class="row">
+            <div class="cell cellheader">Sanction Screening:</div>
+            <div id="sanctions" class="cell cellContents">Placeholder</div>
+            <div class="cell expandInfo"><img id="imgexpandSanctionScreening" class="navImage" src="images/plus-icon.png" alt="More Info" width="20" height="20"></div>
+            <div id="expandSanctionScreening" class="cell expandedInfoText">We searched N number of sanction screen services but found no positive results regarding Sactions Screening.</div>
+        </div>
+        <div class="row">
+            <div class="cell"></div>
+            <div id="sanctionsFlag" class="cell cellContents flag"></div>
+        </div>
+        <div class="row">
+            <div class="cell cellheader">Adverse News:</div>
+            <div id="adverseNews" class="cell cellContents">Placeholder</div>
+            <div class="cell expandInfo"><img id="imgexpandAdverseNews" class="navImage" src="images/plus-icon.png" alt="More Info" width="20" height="20"></div>
+            <div id="expandAdverseNews" class="cell expandedInfoText">We searched Google News, Bloomberg, and Reuters but found no evidence of any relevant adverse news stories.</div>
+        </div>
+        <div class="row">
+            <div class="cell"></div>
+            <div id="adverseNewsFlag" class="cell cellContents flag"></div>
+        </div>
+        <div class="row">
+            <div class="cell cellheader">Ultra High Risk Countries:</div>
+            <div id="uhrc" class="cell cellContents">Placeholder</div>
+            <div class="cell expandInfo"><img id="imgexpandUHRC" class="navImage" src="images/plus-icon.png" alt="More Info" width="20" height="20"></div>
+            <div id="expandUHRC" class="cell expandedInfoText">We searched Golden Source A, B, and C but found no evidence of operation in Ultra High Risk Countries.</div>
+        </div>
+        <div class="row">
+            <div class="cell"></div>
+            <div id="uhrcFlag" class="cell cellContents flag"></div>
+        </div>
+    </div>
 
-    <p id="demo"></p>
     <script>
-        function change_myselect(sel) {
-            var obj, dbParam, xmlhttp, myObj, x, txt = "";
-            //get the data from www.gratuityp.com/Blacksmith/data/bankData.json
-            xmlhttp = new XMLHttpRequest();
-            xmlhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    myObj = JSON.parse(this.responseText);
-                    for (x in myObj) {
-                        //Do some stuff with the JSON
-                        txt = x;
-                    }
-                    document.getElementById("demo").innerHTML = txt;
+        $(document).ready(function() {
+            $(".navImage").click(function() {
+                var src = '';
+                var rawInfoID = $(this).attr('id');
+                var infoID = '#' + rawInfoID.substring(3, rawInfoID.length);
+                if ($(this).attr('src').includes("images/plus-icon.png") > 0) {
+                    src = 'images/minus-icon.png';
+                    $(infoID).show('slow');
+                } else {
+                    src = 'images/plus-icon.png';
+                    $(infoID).hide('slow');
                 }
+
+                var image = $(this);
+                image.fadeOut('fast', function() {
+                    image.attr('src', src);
+                    image.fadeIn('fast');
+                });
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $(".expandedInfoText").hide();
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            var myObj;
+            myObj = {
+                "bankData": [{
+                        "bankName": "Blacksmith Bank",
+                        "bankLogoName": "images/swords-crossed.png",
+                        "assessment": "Standard Due Dilligence; Normal Risk",
+                        "assessmentColor": "good",
+                        "companyType": {
+                            "compType": "Bank",
+                            "redFlag": "false"
+                        },
+                        "companyTypeInfo": "We identified company type via KYC Swift Registry.",
+                        "countryOfIncorporation": {
+                            "country": "Singapore",
+                            "redFlag": "false"
+                        },
+                        "countryOfIncorporationInfo": "We identified <bankName>'s country of incorporation via data provided by MAS.",
+                        "industry": {
+                            "industry": "Banking/Financial Institution",
+                            "redFlag": "false"
+                        },
+                        "industryInfo": "We identified <bankName>'s industry via Bankers Almanac.",
+                        "products": [{
+                                "name": "Retail Banking",
+                                "redFlag": "false"
+                            },
+                            {
+                                "name": "Savings",
+                                "redFlag": "false"
+                            },
+                            {
+                                "name": "Loans",
+                                "redFlag": "false"
+                            }
+                        ],
+                        "productsInfo": "We identified <bankName>'s products via their website and via their in-house API.",
+                        "ubo": {
+                            "ubo": "Identified",
+                            "redFlag": "false"
+                        },
+                        "uboInfo": "We identified the UBO's via ACRA and KYC Swift Registry.",
+                        "nameScreening": {
+                            "nameScreening": "0 Matches",
+                            "redFlag": "false"
+                        },
+                        "nameScreeningInfo": "We searched Thompson Reuters World Check, N Blacklist providers, and your independently provided internal black list and found no positive results regarding Name Screening.",
+                        "peps": {
+                            "peps": "0 Matches",
+                            "redFlag": "false"
+                        },
+                        "pepsInfo": "We searched N PEP screening services but found no evidence of any Politically Exposed Persons.",
+                        "sanctions": {
+                            "sanctions": "0 Matches",
+                            "redFlag": "false"
+                        },
+                        "sanctionsInfo": "We searched N sanction screen services but found no positive results regarding Sactions Screening.",
+                        "adverseNews": {
+                            "adverseNews": "0 Matches",
+                            "redFlag": "false"
+                        },
+                        "adverseNewsInfo": "We searched Google News, Bloomberg, and Reuters but found no evidence of any relevant adverse news stories.",
+                        "uhrc": {
+                            "uhrc": "0 Matches",
+                            "redFlag": "false"
+                        },
+                        "uhrcInfo": "We searched Golden Source A, B, and C but found no evidence of operation in Ultra High Risk Countries."
+                    },
+                    {
+                        "bankName": "YFGC Bank",
+                        "bankLogoName": "images/general_bank_colour_2.png",
+                        "assessment": "Enhanced Due Dilligence; High Risk",
+                        "assessmentColor": "average",
+                        "companyType": {
+                            "compType": "Bank",
+                            "redFlag": "false"
+                        },
+                        "companyTypeInfo": "We identified company type via KYC Swift Registry.",
+                        "countryOfIncorporation": {
+                            "country": "Singapore",
+                            "redFlag": "false"
+                        },
+                        "countryOfIncorporationInfo": "We identified <bankName>'s country of incorporation via data provided by MAS.",
+                        "industry": {
+                            "industry": "Banking/Financial Institution",
+                            "redFlag": "false"
+                        },
+                        "industryInfo": "We identified <bankName>'s industry via Bankers Almanac.",
+                        "products": [{
+                                "name": "Trade Finance",
+                                "redFlag": "true"
+                            },
+                            {
+                                "name": "Retail Banking",
+                                "redFlag": "false"
+                            },
+                            {
+                                "name": "Loans",
+                                "redFlag": "false"
+                            }
+                        ],
+                        "productsInfo": "We identified <bankName>'s products via their website and via their in-house API.",
+                        "ubo": {
+                            "ubo": "Identified",
+                            "redFlag": "false"
+                        },
+                        "uboInfo": "We identified the UBO's via ACRA and KYC Swift Registry.",
+                        "nameScreening": {
+                            "nameScreening": "0 Matches",
+                            "redFlag": "false"
+                        },
+                        "nameScreeningInfo": "We searched Thompson Reuters Work Check, N Blacklist providers, and your independently provided internal black list and found no positive results regarding Name Screening.",
+                        "peps": {
+                            "peps": "0 Matches",
+                            "redFlag": "false"
+                        },
+                        "pepsInfo": "We searched N PEP screening services but found no evidence of any Politically Exposed Persons.",
+                        "sanctions": {
+                            "sanctions": "0 Matches",
+                            "redFlag": "false"
+                        },
+                        "sanctionsInfo": "We searched N sanction screen services but found no positive results regarding Sactions Screening.",
+                        "adverseNews": {
+                            "adverseNews": "0 Matches",
+                            "redFlag": "false"
+                        },
+                        "adverseNewsInfo": "We searched Google News, Bloomberg, and Reuters but found no evidence of any relevant adverse news stories.",
+                        "uhrc": {
+                            "uhrc": "0 Matches",
+                            "redFlag": "false"
+                        },
+                        "uhrcInfo": "We searched Golden Source A, B, and C but found no evidence of operation in Ultra High Risk Countries."
+                    },
+                    {
+                        "bankName": "Bank of Narnia",
+                        "bankLogoName": "images/venom-head.png",
+                        "assessment": "Unacceptable Flags Raised; Offboard Customer",
+                        "assessmentColor": "bad",
+                        "companyType": {
+                            "compType": "Bank",
+                            "redFlag": "false"
+                        },
+                        "companyTypeInfo": "We identified company type via KYC Swift Registry.",
+                        "countryOfIncorporation": {
+                            "country": "Narnia",
+                            "redFlag": "true"
+                        },
+                        "countryOfIncorporationInfo": "We identified <bankName>'s country of incorporation via data provided by the Narnian Government.",
+                        "industry": {
+                            "industry": "Banking/Financial Institution",
+                            "redFlag": "false"
+                        },
+                        "industryInfo": "We identified <bankName>'s industry via Bankers Almanac.",
+                        "products": [{
+                                "name": "Trade Finance",
+                                "redFlag": "true"
+                            },
+                            {
+                                "name": "Offshore Banking",
+                                "redFlag": "true"
+                            },
+                            {
+                                "name": "Correspondent Banking",
+                                "redFlag": "true"
+                            },
+                            {
+                                "name": "Funds",
+                                "redFlag": "true"
+                            }
+                        ],
+                        "productsInfo": "We identified <bankName>'s products via their website.",
+                        "ubo": {
+                            "ubo": "Identified",
+                            "redFlag": "false"
+                        },
+                        "uboInfo": "We identified the UBO's via ACRA and KYC Swift Registry.",
+                        "nameScreening": {
+                            "nameScreening": "3 Matches",
+                            "redFlag": "true"
+                        },
+                        "nameScreeningInfo": "We found 2 matches on Thompson Reuters World Check, 0 matches with N Blacklist providers, and 1 match using your independently provided internal black list.",
+                        "peps": {
+                            "peps": "1 Match",
+                            "redFlag": "true"
+                        },
+                        "pepsInfo": "We searched 4 PEP screening services 1 match to possible evidence of a Politically Exposed Persons.",
+                        "sanctions": {
+                            "sanctions": "0 Matches",
+                            "redFlag": "false"
+                        },
+                        "sanctionsInfo": "We searched 1 sanction screen service but found no positive results regarding Sactions Screening.",
+                        "adverseNews": {
+                            "adverseNews": "25 Matches",
+                            "redFlag": "true"
+                        },
+                        "adverseNewsInfo": "We searched Google News, Bloomberg, and Reuters and found 25 possible adverse news stories. If <name> provide you with consent to view we can provide an assessment of why those news stories could affect your KYC decision.",
+                        "uhrc": {
+                            "uhrc": "1 Matches",
+                            "redFlag": "true"
+                        },
+                        "uhrcInfo": "We searched Golden Sources and found evidence of operation in Ultra High Risk Countries. If <name> provide you with consent to view we can provide an assessment of why those news stories could affect your KYC decision."
+                    }
+                ]
             };
-            xmlhttp.open("POST", "http://www.gratuityp.com/Blacksmith/data/bankData.json", true);
-            //xmlhttp.open("POST", "data/bankData.json", true);
-            xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            //xmlhttp.send("x=" + dbParam);
-            xmlhttp.send();
-        }
+
+            //Initial vars
+            var bankID = 1;
+            var flagCounter = 0;
+
+            //Bank Name
+            document.getElementById("companyName").innerHTML = myObj.bankData[bankID].bankName + " ";
+
+            var imgElement = document.createElement("img");
+            imgElement.setAttribute("height", "30");
+            imgElement.setAttribute("width", "40");
+            imgElement.setAttribute("alt", "Company Logo");
+            imgElement.setAttribute("id", "companyLogo");
+            imgElement.setAttribute("src", myObj.bankData[bankID].bankLogoName);
+            document.getElementById("companyName").appendChild(imgElement);
+
+            //CompanyType
+            document.getElementById("companyType").innerHTML = myObj.bankData[bankID].companyType.compType;
+
+            //Assessment
+            var currentClass = document.getElementById("assessment").getAttribute("class");
+            document.getElementById("assessment").setAttribute("class", currentClass + " " + myObj.bankData[bankID].assessmentColor + "assessment");
+
+            //countryOfIncorporation
+            document.getElementById("countryOfIncorporation").innerHTML = myObj.bankData[bankID].countryOfIncorporation.country;
+
+            //industry
+            document.getElementById("industry").innerHTML = myObj.bankData[bankID].industry.industry;
+
+            //products
+            flagCounter = 0;
+            var productsText = "";
+            var productsCount = myObj.bankData[bankID].products.length - 1;
+            var counter = 0;
+
+            for (myIndex in myObj.bankData[bankID].products) {
+                productsText += myObj.bankData[bankID].products[myIndex].name;
+                if (counter < productsCount) {
+                    productsText += ", ";
+                }
+                if (myObj.bankData[bankID].products[myIndex].redFlag == "true") {
+                    flagCounter = flagCounter + 1;
+                }
+                counter = counter + 1;
+            }
+
+            document.getElementById("products").innerHTML = productsText;
+            if (flagCounter > 0) {
+                if (flagCounter == 1) {
+                    document.getElementById("productsFlag").innerHTML = "1 Red Flag";
+                } else {
+                    document.getElementById("productsFlag").innerHTML = flagCounter + " Red Flags";
+                }
+            }
+
+            //Ultimate Benefcial Owner
+            document.getElementById("ubo").innerHTML = myObj.bankData[bankID].ubo.ubo;
+            if (myObj.bankData[bankID].ubo.redFlag == "true") {
+                document.getElementById("uboFlag").innerHTML = "1 Red Flag";
+            }
+
+            //Name Screening
+            document.getElementById("nameScreening").innerHTML = myObj.bankData[bankID].nameScreening.nameScreening;
+            if (myObj.bankData[bankID].nameScreening.redFlag == "true") {
+                document.getElementById("nameScreeningFlag").innerHTML = "1 Red Flag";
+            }
+
+            //PEPs
+            document.getElementById("peps").innerHTML = myObj.bankData[bankID].peps.peps;
+            if (myObj.bankData[bankID].peps.redFlag == "true") {
+                document.getElementById("pepsFlag").innerHTML = "1 Red Flag";
+            }
+
+            //Sanction Screening
+            document.getElementById("sanctions").innerHTML = myObj.bankData[bankID].sanctions.sanctions;
+            if (myObj.bankData[bankID].sanctions.redFlag == "true") {
+                document.getElementById("sanctionsFlag").innerHTML = "1 Red Flag";
+            }
+
+            //Adverse News
+            document.getElementById("adverseNews").innerHTML = myObj.bankData[bankID].adverseNews.adverseNews;
+            if (myObj.bankData[bankID].adverseNews.redFlag == "true") {
+                document.getElementById("adverseNewsFlag").innerHTML = "1 Red Flag";
+            }
+
+            //Ultra High Risk Countries
+            document.getElementById("uhrc").innerHTML = myObj.bankData[bankID].uhrc.uhrc;
+            if (myObj.bankData[bankID].uhrc.redFlag == "true") {
+                document.getElementById("uhrcFlag").innerHTML = "1 Red Flag";
+            }
+        });
     </script>
 </body>
 

@@ -1,3 +1,12 @@
 TO DO:
+Populate the "Expand Info" fields.
+Create the profile page.
+Pass through profile parameters and the bank 1 to dynamically produce the page.
+Dynamically produce the assessment based on the profile.
+Fix the bug with the resizing of the first expand info button press.
 
+NICE TO HAVE:
+Get the JSON into a separate file/php script.
+
+DONE:
 Pull the data down from the host and build the dynamic webpage.
