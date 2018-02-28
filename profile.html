@@ -1,0 +1,163 @@
+<html>
+
+<head>
+    <title>Blacksmith KYC</title>
+    <link rel="icon" href="images/sword.png">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Patua+One|Permanent+Marker" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div class="table">
+        <div class="row">
+            <div id="companyName" class="cell">Placeholder</div>
+            <div id="companyLogo" class="cell">Placeholder</div>
+        </div>
+        <div class="row">
+            <div id="a" class="cell">List of Red Flags</div>
+            <div id="b" class="cell">Will go here. Check boxes and selection lists required.</div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+
+            var companyTypes;
+            companyTypes = {
+                "companyTypeData": [
+                    {
+                        "companyType": "Bank"
+                    },
+                    {
+                        "companyType": "Asset Managment"
+                    },
+                    {
+                        "companyType": "Something Else"
+                    }
+                ]
+            };
+
+            var countriesOfIncorporation;
+            countriesOfIncorporation = {
+                "coiData": [
+                    {
+                        "country": "Singpore"
+                    },
+                    {
+                        "country": "USA"
+                    },
+                    {
+                        "country": "UK"
+                    },
+                    {
+                        "country": "Indonesia"
+                    },
+                    {
+                        "country": "Malaysia"
+                    }
+                ]
+
+            };
+
+            var industries;
+            industries = {
+                "industryData": [
+                    {
+                        "industry": "Bank/FI"
+                    },
+                    {
+                        "industry": "Something Else"
+                    }
+                ]
+            };
+
+            var products;
+            products = {
+                "productData": [
+                    {
+                        "product": "Trade Finance"
+                    },
+                    {
+                        "product": "Retail Banking"
+                    },
+                    {
+                        "product": "Loans"
+                    },
+                    {
+                        "product": "Savings"
+                    },
+                    {
+                        "product": "Correspondent Banking"
+                    },
+                    {
+                        "product": "Offshore Banking"
+                    },
+                    {
+                        "product": "Funds"
+                    }
+                ]
+            };
+
+            var customerData;
+            customerData = {
+                "custData": [{
+                    "bankName": "ING Bank",
+                    "bankLogoName": "images/ing.png",
+                    "companyType": {
+                        "compType": "Bank",
+                        "redFlag": "false"
+                    },
+                    "countryOfIncorporation": {
+                        "country": "Singapore",
+                        "redFlag": "false"
+                    },
+                    "industry": {
+                        "industry": "Banking/Financial Institution",
+                        "redFlag": "false"
+                    },
+                    "products": [{
+                            "name": "Retail Banking",
+                            "redFlag": "false"
+                            },
+                        {
+                            "name": "Savings",
+                            "redFlag": "false"
+                            },
+                        {
+                            "name": "Loans",
+                            "redFlag": "false"
+                            }
+                        ],
+                    "ubo": {
+                        "ubo": "Identified",
+                        "redFlag": "false"
+                    },
+                    "nameScreening": {
+                        "nameScreening": "0 Matches",
+                        "redFlag": "false"
+                    },
+                    "peps": {
+                        "peps": "0 Matches",
+                        "redFlag": "false"
+                    },
+                    "sanctions": {
+                        "sanctions": "0 Matches",
+                        "redFlag": "false"
+                    },
+                    "adverseNews": {
+                        "adverseNews": "0 Matches",
+                        "redFlag": "false"
+                    },
+                    "uhrc": {
+                        "uhrc": "0 Matches",
+                        "redFlag": "false"
+                    }
+                }]
+            };
+        });
+    </script>
+</body>
+
+</html>
