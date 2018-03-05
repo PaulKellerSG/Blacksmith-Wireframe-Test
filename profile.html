@@ -16,8 +16,14 @@
             <div id="companyLogo" class="cell">Placeholder</div>
         </div>
         <div class="row">
-            <div id="a" class="cell">List of Red Flags</div>
-            <div id="b" class="cell">Will go here. Check boxes and selection lists required.</div>
+            <div class="cell">Type of Red Flag</div>
+            <div class="cell">Select Type/Number of Flags</div>
+        </div>
+        <div class="row">
+            <div id="a" class="cell">Company Type</div>
+            <div id="companyType" class="cell">
+                <select id="companyTypeSelect"></select>
+            </div>
         </div>
     </div>
 
@@ -100,62 +106,51 @@
                 ]
             };
 
-            var customerData;
-            customerData = {
-                "custData": [{
-                    "bankName": "ING Bank",
-                    "bankLogoName": "images/ing.png",
-                    "companyType": {
-                        "compType": "Bank",
-                        "redFlag": "false"
+            //UBO, nameScreening, peps, sanctions, adverseNews, uhrc -- red flags.
+            var redFlags;
+            redFlags = {
+                "redFlagData": [
+                    {
+                        "flagType": "UBO Unidentified",
+                        "isFlag": "true"
                     },
-                    "countryOfIncorporation": {
-                        "country": "Singapore",
-                        "redFlag": "false"
+                    {
+                        "flagType": "Name Screening Match",
+                        "isFlag": "true"
                     },
-                    "industry": {
-                        "industry": "Banking/Financial Institution",
-                        "redFlag": "false"
+                    {
+                        "flagType": "PEPs Match",
+                        "isFlag": "true"
                     },
-                    "products": [{
-                            "name": "Retail Banking",
-                            "redFlag": "false"
-                            },
-                        {
-                            "name": "Savings",
-                            "redFlag": "false"
-                            },
-                        {
-                            "name": "Loans",
-                            "redFlag": "false"
-                            }
-                        ],
-                    "ubo": {
-                        "ubo": "Identified",
-                        "redFlag": "false"
+                    {
+                        "flagType": "Sanctions Match",
+                        "isFlag": "true"
                     },
-                    "nameScreening": {
-                        "nameScreening": "0 Matches",
-                        "redFlag": "false"
+                    {
+                        "flagType": "Adverse News Match",
+                        "isFlag": "true"
                     },
-                    "peps": {
-                        "peps": "0 Matches",
-                        "redFlag": "false"
-                    },
-                    "sanctions": {
-                        "sanctions": "0 Matches",
-                        "redFlag": "false"
-                    },
-                    "adverseNews": {
-                        "adverseNews": "0 Matches",
-                        "redFlag": "false"
-                    },
-                    "uhrc": {
-                        "uhrc": "0 Matches",
-                        "redFlag": "false"
+                    {
+                        "flagType": "UHRC Match",
+                        "isFlag": "true"
                     }
-                }]
+                ]
             };
+
+            //Profile Setup
+            var selCompanyType = document.getElementById("companyTypeSelect");
+            var result;
+            var defaultOptionElement = document.createElement("option");
+            defaultOptionElement.innerHTML = "*** Select Options ***"
+            selCompanyType.appendChild(defaultOptionElement);
+
+            for (companyTypeIndex in companyTypes.companyTypeData) {
+                var optionElement = document.createElement("option");
+                //optionElement.setAttribute("innerHTML", companyTypes.companyTypeData[companyTypeIndex].companyType);
+                optionElement.innerHTML = companyTypes.companyTypeData[companyTypeIndex].companyType;
+                selCompanyType.appendChild(optionElement);
+            }
+
         });
     </script>
 </body>
