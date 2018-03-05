@@ -12,17 +12,70 @@
 <body>
     <div class="table">
         <div class="row">
-            <div id="companyName" class="cell">Placeholder</div>
-            <div id="companyLogo" class="cell">Placeholder</div>
+            <div id="companyName" class="cell">Bank of Wexford</div>
         </div>
         <div class="row">
             <div class="cell">Type of Red Flag</div>
             <div class="cell">Select Type/Number of Flags</div>
         </div>
         <div class="row">
-            <div id="a" class="cell">Company Type</div>
+            <div class="cell">Company Type</div>
             <div id="companyType" class="cell">
                 <select id="companyTypeSelect"></select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell">Country of Incorporation</div>
+            <div id="countryOfIncorporation" class="cell">
+                <select id="countryOfIncorporationSelect"></select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell">Industry</div>
+            <div id="industry" class="cell">
+                <select id="industrySelect"></select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell">Products</div>
+            <div id="product" class="cell">
+                <select id="productsSelect"></select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell">UBO Unidentified</div>
+            <div id="ubo" class="cell">
+                <input id="uboChecked" type="checkbox" name="ubo" value="ubo">
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell">Name Screening Match</div>
+            <div id="nameScreening" class="cell">
+                <input id="nameScreeningChecked" type="checkbox" name="nameScreening" value="nameScreening">
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell">PEPs Match</div>
+            <div id="peps" class="cell">
+                <input id="pepsChecked" type="checkbox" name="nameScreening" value="nameScreening">
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell">Sanctions Match</div>
+            <div id="sanctions" class="cell">
+                <input id="sanctionsChecked" type="checkbox" name="sanctions" value="sanctions">
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell">Adverse News Match</div>
+            <div id="adverseNews" class="cell">
+                <input id="adverseNewsChecked" type="checkbox" name="adverseNews" value="adverseNews">
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell">UHRC Match</div>
+            <div id="uhrc" class="cell">
+                <input id="uhrcChecked" type="checkbox" name="uhrc" value="uhrc">
             </div>
         </div>
     </div>
@@ -37,10 +90,13 @@
                         "companyType": "Bank"
                     },
                     {
+                        "companyType": "Correspondent Bank"
+                    },
+                    {
                         "companyType": "Asset Managment"
                     },
                     {
-                        "companyType": "Something Else"
+                        "companyType": "Fund Management"
                     }
                 ]
             };
@@ -62,6 +118,9 @@
                     },
                     {
                         "country": "Malaysia"
+                    },
+                    {
+                        "country": "Somalia"
                     }
                 ]
 
@@ -74,7 +133,10 @@
                         "industry": "Bank/FI"
                     },
                     {
-                        "industry": "Something Else"
+                        "industry": "Insurance"
+                    },
+                    {
+                        "industry": "Money Service Business"
                     }
                 ]
             };
@@ -112,44 +174,91 @@
                 "redFlagData": [
                     {
                         "flagType": "UBO Unidentified",
-                        "isFlag": "true"
+                        "elementName": "uboChecked",
+                        "isFlag": "false"
                     },
                     {
                         "flagType": "Name Screening Match",
-                        "isFlag": "true"
+                        "elementName": "nameScreeningChecked",
+                        "isFlag": "false"
                     },
                     {
                         "flagType": "PEPs Match",
-                        "isFlag": "true"
+                        "elementName": "pepsChecked",
+                        "isFlag": "false"
                     },
                     {
                         "flagType": "Sanctions Match",
-                        "isFlag": "true"
+                        "elementName": "sanctionsChecked",
+                        "isFlag": "false"
                     },
                     {
                         "flagType": "Adverse News Match",
-                        "isFlag": "true"
+                        "elementName": "adverseNewsChecked",
+                        "isFlag": "false"
                     },
                     {
                         "flagType": "UHRC Match",
-                        "isFlag": "true"
+                        "elementName": "uhrcChecked",
+                        "isFlag": "false"
                     }
                 ]
             };
 
+
+
             //Profile Setup
             var selCompanyType = document.getElementById("companyTypeSelect");
-            var result;
-            var defaultOptionElement = document.createElement("option");
-            defaultOptionElement.innerHTML = "*** Select Options ***"
-            selCompanyType.appendChild(defaultOptionElement);
-
+            //var defaultOptionElementCompany = document.createElement("option");
+            //defaultOptionElementCompany.innerHTML = "*** Select Options ***"
+            //selCompanyType.appendChild(defaultOptionElementCompany);
+            selCompanyType.setAttribute("size", companyTypes.companyTypeData.length)
             for (companyTypeIndex in companyTypes.companyTypeData) {
                 var optionElement = document.createElement("option");
-                //optionElement.setAttribute("innerHTML", companyTypes.companyTypeData[companyTypeIndex].companyType);
                 optionElement.innerHTML = companyTypes.companyTypeData[companyTypeIndex].companyType;
                 selCompanyType.appendChild(optionElement);
             }
+
+            var selCountryOfIncorporation = document.getElementById("countryOfIncorporationSelect");
+            //var defaultOptionElementCOI = document.createElement("option");
+            //defaultOptionElementCOI.innerHTML = "*** Select Options ***"
+            //selCountryOfIncorporation.appendChild(defaultOptionElementCOI);
+            selCountryOfIncorporation.setAttribute("size", countriesOfIncorporation.coiData.length)
+            for (coiIndex in countriesOfIncorporation.coiData) {
+                var optionElement = document.createElement("option");
+                optionElement.innerHTML = countriesOfIncorporation.coiData[coiIndex].country;
+                selCountryOfIncorporation.appendChild(optionElement);
+            }
+
+            var selIndustry = document.getElementById("industrySelect");
+            //var defaultOptionElementIndustry = document.createElement("option");
+            //defaultOptionElementIndustry.innerHTML = "*** Select Options ***"
+            //selIndustry.appendChild(defaultOptionElementIndustry);
+            selIndustry.setAttribute("size", industries.industryData.length)
+            for (industryIndex in industries.industryData) {
+                var optionElement = document.createElement("option");
+                optionElement.innerHTML = industries.industryData[industryIndex].industry;
+                selIndustry.appendChild(optionElement);
+            }
+
+            var selProducts = document.getElementById("productsSelect");
+            //var defaultOptionElementProducts = document.createElement("option");
+            //defaultOptionElementProducts.innerHTML = "*** Select Options ***"
+            //selProducts.appendChild(defaultOptionElementProducts);
+            selProducts.setAttribute("size", products.productData.length)
+            for (productIndex in products.productData) {
+                var optionElement = document.createElement("option");
+                optionElement.innerHTML = products.productData[productIndex].product;
+                selProducts.appendChild(optionElement);
+            }
+
+            for (checkedIndex in redFlags.redFlagData) {
+                if (redFlags.redFlagData[checkedIndex].isFlag == "true") {
+                    var selRedFlag = document.getElementById(redFlags.redFlagData[checkedIndex].elementName);
+                    selRedFlag.setAttribute("checked", "");
+                }
+            }
+
 
         });
     </script>
