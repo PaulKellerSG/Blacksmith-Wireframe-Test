@@ -12,7 +12,7 @@
 <body>
     <div class="table">
         <div class="row">
-            <div id="companyName" class="cell">Bank of Wexford</div>
+            <div id="companyName" class="cell"></div>
         </div>
         <div class="row">
             <div class="cell">Type of Red Flag</div>
@@ -21,25 +21,25 @@
         <div class="row">
             <div class="cell">Company Type</div>
             <div id="companyType" class="cell">
-                <select id="companyTypeSelect"></select>
+                <select id="companyTypeSelect" class="selectBox"></select>
             </div>
         </div>
         <div class="row">
             <div class="cell">Country of Incorporation</div>
             <div id="countryOfIncorporation" class="cell">
-                <select id="countryOfIncorporationSelect"></select>
+                <select id="countryOfIncorporationSelect" class="selectBox"></select>
             </div>
         </div>
         <div class="row">
             <div class="cell">Industry</div>
             <div id="industry" class="cell">
-                <select id="industrySelect"></select>
+                <select id="industrySelect" class="selectBox"></select>
             </div>
         </div>
         <div class="row">
             <div class="cell">Products</div>
             <div id="product" class="cell">
-                <select id="productsSelect"></select>
+                <select id="productsSelect" class="selectBox"></select>
             </div>
         </div>
         <div class="row">
@@ -168,6 +168,7 @@
                 ]
             };
 
+            /*
             //UBO, nameScreening, peps, sanctions, adverseNews, uhrc -- red flags.
             var redFlags;
             redFlags = {
@@ -204,15 +205,97 @@
                     }
                 ]
             };
+            */
 
+            var profileObjs;
+            profileObjs = {
+                "profileRecords": [{
+                        "bankName": "ING Bank",
+                        "bankLogoName": "images/ing.png",
+                        "standardTextField": "",
+                        "companyType": {
+                            "compType": "Bank",
+                            "redFlag": "false"
+                        },
+                        "companyTypeDataFlagged": [
+                            {
+                                "companyType": "Fund Management"
+                            }
+                        ],
+                        "coiDataFlagged": [
+                            {
+                                "country": "Somalia"
+                            },
+                            {
+                                "country": "Indonesia"
+                            }
+                        ],
+                        "industriesDataFlagged": [
+                            {
+                                "industry": "Money Service Business"
+                            }
+                        ],
+                        "productsData": [
+                            {
+                                "product": "Trade Finance"
+                            },
+                            {
+                                "product": "Funds"
+                            }
+                        ],
+                        "redFlagCheckBoxes": [
+                            {
+                                "flagType": "UBO Unidentified",
+                                "elementName": "uboChecked",
+                                "isFlag": "false"
+                            },
+                            {
+                                "flagType": "Name Screening Match",
+                                "elementName": "nameScreeningChecked",
+                                "isFlag": "false"
+                            },
+                            {
+                                "flagType": "PEPs Match",
+                                "elementName": "pepsChecked",
+                                "isFlag": "false"
+                            },
+                            {
+                                "flagType": "Sanctions Match",
+                                "elementName": "sanctionsChecked",
+                                "isFlag": "false"
+                            },
+                            {
+                                "flagType": "Adverse News Match",
+                                "elementName": "adverseNewsChecked",
+                                "isFlag": "false"
+                            },
+                            {
+                                "flagType": "UHRC Match",
+                                "elementName": "uhrcChecked",
+                                "isFlag": "false"
+                            }
+                        ]
+                    }
+                ]
+            };
 
+            //Begin Data Setup
+            var profileID = 0;
+
+            //Bank Profile Name
+            document.getElementById("companyName").innerHTML = profileObjs.profileRecords[profileID].bankName + " ";
+            var imgElement = document.createElement("img");
+            imgElement.setAttribute("height", "30");
+            imgElement.setAttribute("width", "40");
+            imgElement.setAttribute("alt", "Company Logo");
+            imgElement.setAttribute("id", "companyLogo");
+            imgElement.setAttribute("src", profileObjs.profileRecords[profileID].bankLogoName);
+            document.getElementById("companyName").appendChild(imgElement);
 
             //Profile Setup
             var selCompanyType = document.getElementById("companyTypeSelect");
-            //var defaultOptionElementCompany = document.createElement("option");
-            //defaultOptionElementCompany.innerHTML = "*** Select Options ***"
-            //selCompanyType.appendChild(defaultOptionElementCompany);
-            selCompanyType.setAttribute("size", companyTypes.companyTypeData.length)
+            selCompanyType.setAttribute("size", companyTypes.companyTypeData.length);
+            selCompanyType.setAttribute("multiple", "");
             for (companyTypeIndex in companyTypes.companyTypeData) {
                 var optionElement = document.createElement("option");
                 optionElement.innerHTML = companyTypes.companyTypeData[companyTypeIndex].companyType;
@@ -220,10 +303,8 @@
             }
 
             var selCountryOfIncorporation = document.getElementById("countryOfIncorporationSelect");
-            //var defaultOptionElementCOI = document.createElement("option");
-            //defaultOptionElementCOI.innerHTML = "*** Select Options ***"
-            //selCountryOfIncorporation.appendChild(defaultOptionElementCOI);
-            selCountryOfIncorporation.setAttribute("size", countriesOfIncorporation.coiData.length)
+            selCountryOfIncorporation.setAttribute("size", countriesOfIncorporation.coiData.length);
+            selCountryOfIncorporation.setAttribute("multiple", "");
             for (coiIndex in countriesOfIncorporation.coiData) {
                 var optionElement = document.createElement("option");
                 optionElement.innerHTML = countriesOfIncorporation.coiData[coiIndex].country;
@@ -231,10 +312,8 @@
             }
 
             var selIndustry = document.getElementById("industrySelect");
-            //var defaultOptionElementIndustry = document.createElement("option");
-            //defaultOptionElementIndustry.innerHTML = "*** Select Options ***"
-            //selIndustry.appendChild(defaultOptionElementIndustry);
-            selIndustry.setAttribute("size", industries.industryData.length)
+            selIndustry.setAttribute("size", industries.industryData.length);
+            selIndustry.setAttribute("multiple", "");
             for (industryIndex in industries.industryData) {
                 var optionElement = document.createElement("option");
                 optionElement.innerHTML = industries.industryData[industryIndex].industry;
@@ -242,19 +321,18 @@
             }
 
             var selProducts = document.getElementById("productsSelect");
-            //var defaultOptionElementProducts = document.createElement("option");
-            //defaultOptionElementProducts.innerHTML = "*** Select Options ***"
-            //selProducts.appendChild(defaultOptionElementProducts);
-            selProducts.setAttribute("size", products.productData.length)
+            selProducts.setAttribute("size", products.productData.length);
+            selProducts.setAttribute("multiple", "");
             for (productIndex in products.productData) {
                 var optionElement = document.createElement("option");
                 optionElement.innerHTML = products.productData[productIndex].product;
                 selProducts.appendChild(optionElement);
             }
 
-            for (checkedIndex in redFlags.redFlagData) {
-                if (redFlags.redFlagData[checkedIndex].isFlag == "true") {
-                    var selRedFlag = document.getElementById(redFlags.redFlagData[checkedIndex].elementName);
+
+            for (checkedIndex in profileObjs.profileRecords[profileID].redFlagCheckBoxes) {
+                if (profileObjs.profileRecords[profileID].redFlagCheckBoxes[checkedIndex].isFlag == "true") {
+                    var selRedFlag = document.getElementById(profileObjs.profileRecords[profileID].redFlagCheckBoxes[checkedIndex].elementName);
                     selRedFlag.setAttribute("checked", "");
                 }
             }
