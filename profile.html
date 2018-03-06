@@ -9,73 +9,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<body>
-    <div class="table">
-        <div class="row">
-            <div id="companyName" class="cell"></div>
-        </div>
-        <div class="row">
-            <div class="cell">Type of Red Flag</div>
-            <div class="cell">Select Type/Number of Flags</div>
-        </div>
-        <div class="row">
-            <div class="cell">Company Type</div>
-            <div id="companyType" class="cell">
-                <select id="companyTypeSelect" class="selectBox"></select>
-            </div>
-        </div>
-        <div class="row">
-            <div class="cell">Country of Incorporation</div>
-            <div id="countryOfIncorporation" class="cell">
-                <select id="countryOfIncorporationSelect" class="selectBox"></select>
-            </div>
-        </div>
-        <div class="row">
-            <div class="cell">Industry</div>
-            <div id="industry" class="cell">
-                <select id="industrySelect" class="selectBox"></select>
-            </div>
-        </div>
-        <div class="row">
-            <div class="cell">Products</div>
-            <div id="product" class="cell">
-                <select id="productsSelect" class="selectBox"></select>
-            </div>
-        </div>
-        <div class="row">
-            <div class="cell">UBO Unidentified</div>
-            <div id="ubo" class="cell">
-                <input id="uboChecked" type="checkbox" name="ubo" value="ubo">
-            </div>
-        </div>
-        <div class="row">
-            <div class="cell">Name Screening Match</div>
-            <div id="nameScreening" class="cell">
-                <input id="nameScreeningChecked" type="checkbox" name="nameScreening" value="nameScreening">
-            </div>
-        </div>
-        <div class="row">
-            <div class="cell">PEPs Match</div>
-            <div id="peps" class="cell">
-                <input id="pepsChecked" type="checkbox" name="nameScreening" value="nameScreening">
-            </div>
-        </div>
-        <div class="row">
-            <div class="cell">Sanctions Match</div>
-            <div id="sanctions" class="cell">
-                <input id="sanctionsChecked" type="checkbox" name="sanctions" value="sanctions">
-            </div>
-        </div>
-        <div class="row">
-            <div class="cell">Adverse News Match</div>
-            <div id="adverseNews" class="cell">
-                <input id="adverseNewsChecked" type="checkbox" name="adverseNews" value="adverseNews">
-            </div>
-        </div>
-        <div class="row">
-            <div class="cell">UHRC Match</div>
-            <div id="uhrc" class="cell">
-                <input id="uhrcChecked" type="checkbox" name="uhrc" value="uhrc">
+<body class="bg">
+    <div class="transbox">
+        <div class="thisText">
+            <div class="table">
+                <div class="row">
+                    <div id="companyName" class="cell"></div>
+                </div>
+                <div class="row">
+                    <div class="cell">Type of Red Flag</div>
+                    <div class="cell">Select Type/Number of Flags</div>
+                </div>
+                <div class="row">
+                    <div class="cell">Company Type</div>
+                    <div id="companyType" class="cell">
+                        <select id="companyTypeSelect" class="selectBox"></select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="cell">Country of Incorporation</div>
+                    <div id="countryOfIncorporation" class="cell">
+                        <select id="countryOfIncorporationSelect" class="selectBox"></select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="cell">Industry</div>
+                    <div id="industry" class="cell">
+                        <select id="industrySelect" class="selectBox"></select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="cell">Products</div>
+                    <div id="product" class="cell">
+                        <select id="productsSelect" class="selectBox"></select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="cell">Ultra High Risk Countries</div>
+                    <div id="uhrc" class="cell">
+                        <select id="uhrcSelect" class="selectBox"></select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="cell">UBO Unidentified</div>
+                    <div id="ubo" class="cell">
+                        <input id="uboChecked" type="checkbox" name="ubo" value="ubo">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="cell">Name Screening Match</div>
+                    <div id="nameScreening" class="cell">
+                        <input id="nameScreeningChecked" type="checkbox" name="nameScreening" value="nameScreening">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="cell">PEPs Match</div>
+                    <div id="peps" class="cell">
+                        <input id="pepsChecked" type="checkbox" name="nameScreening" value="nameScreening">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="cell">Sanctions Match</div>
+                    <div id="sanctions" class="cell">
+                        <input id="sanctionsChecked" type="checkbox" name="sanctions" value="sanctions">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="cell">Adverse News Match</div>
+                    <div id="adverseNews" class="cell">
+                        <input id="adverseNewsChecked" type="checkbox" name="adverseNews" value="adverseNews">
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -168,50 +172,33 @@
                 ]
             };
 
-            /*
-            //UBO, nameScreening, peps, sanctions, adverseNews, uhrc -- red flags.
-            var redFlags;
-            redFlags = {
-                "redFlagData": [
+            var uhrcs;
+            uhrcs = {
+                "uhrcData": [
                     {
-                        "flagType": "UBO Unidentified",
-                        "elementName": "uboChecked",
-                        "isFlag": "false"
+                        "uhrc": "North Korea"
                     },
                     {
-                        "flagType": "Name Screening Match",
-                        "elementName": "nameScreeningChecked",
-                        "isFlag": "false"
+                        "uhrc": "Iran"
                     },
                     {
-                        "flagType": "PEPs Match",
-                        "elementName": "pepsChecked",
-                        "isFlag": "false"
+                        "uhrc": "Syria"
                     },
                     {
-                        "flagType": "Sanctions Match",
-                        "elementName": "sanctionsChecked",
-                        "isFlag": "false"
+                        "uhrc": "Sudan"
                     },
                     {
-                        "flagType": "Adverse News Match",
-                        "elementName": "adverseNewsChecked",
-                        "isFlag": "false"
-                    },
-                    {
-                        "flagType": "UHRC Match",
-                        "elementName": "uhrcChecked",
-                        "isFlag": "false"
+                        "uhrc": "Cuba"
                     }
                 ]
             };
-            */
+
 
             var profileObjs;
             profileObjs = {
                 "profileRecords": [{
                         "bankName": "ING Bank",
-                        "bankLogoName": "images/ing.png",
+                        "bankLogoName": "images/ing_lion.png",
                         "standardTextField": "",
                         "companyType": {
                             "compType": "Bank",
@@ -243,6 +230,17 @@
                                 "product": "Funds"
                             }
                         ],
+                        "uhrcData": [
+                            {
+                                "uhrc": "Syria"
+                            },
+                            {
+                                "uhrc": "North Korea"
+                            },
+                            {
+                                "uhrc": "Iran"
+                            }
+                        ],
                         "redFlagCheckBoxes": [
                             {
                                 "flagType": "UBO Unidentified",
@@ -267,11 +265,6 @@
                             {
                                 "flagType": "Adverse News Match",
                                 "elementName": "adverseNewsChecked",
-                                "isFlag": "false"
-                            },
-                            {
-                                "flagType": "UHRC Match",
-                                "elementName": "uhrcChecked",
                                 "isFlag": "false"
                             }
                         ]
@@ -329,6 +322,15 @@
                 selProducts.appendChild(optionElement);
             }
 
+            var selUHRCs = document.getElementById("uhrcSelect");
+            selUHRCs.setAttribute("size", uhrcs.uhrcData.length);
+            selUHRCs.setAttribute("multiple", "");
+            for (uhrcIndex in uhrcs.uhrcData) {
+                var optionElement = document.createElement("option");
+                optionElement.innerHTML = uhrcs.uhrcData[uhrcIndex].uhrc;
+                selUHRCs.appendChild(optionElement);
+            }
+
 
             for (checkedIndex in profileObjs.profileRecords[profileID].redFlagCheckBoxes) {
                 if (profileObjs.profileRecords[profileID].redFlagCheckBoxes[checkedIndex].isFlag == "true") {
@@ -336,8 +338,6 @@
                     selRedFlag.setAttribute("checked", "");
                 }
             }
-
-
         });
     </script>
 </body>

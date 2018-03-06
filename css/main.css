@@ -142,7 +142,38 @@
 }
 
 .selectBox {
-    width: 170px;
+    width: 200px;
     font-family: 'Patua One', cursive;
     font-size: 10pt;
+}
+
+body,
+html {
+    height: 100%;
+    margin: 0;
+}
+
+.bg {
+    /* The image used */
+    background-image: url("../images/singapore_4.jpg");
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.transbox {
+    margin: 30px;
+    background-color: #ffffff;
+    border: 1px solid black;
+    opacity: 0.85;
+    filter: alpha(opacity=60);
+}
+
+.thisText {
+    margin: 5%;
+    font-weight: bold;
+    color: #000000;
 }
