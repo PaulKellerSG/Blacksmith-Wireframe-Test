@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js">
+    </script>
+
+
+</head>
+
+<body>
+
+    <div id="id01"></div>
+    <script>
+        function getRecognisedExchanges(arr) {
+            var out = "";
+            var i;
+            for (i = 0; i < arr.length; i++) {
+                out += '<a href="' + arr[i].country + '">' +
+                    arr[i].exchange + '</a><br>';
+            }
+            document.getElementById("id01").innerHTML = out;
+        }
+    </script>
+    <script src="../scriptFiles/recognisedRegulators.js"></script>
+    <script src="../scriptFiles/recognisedExchanges.js"></script>
+</body>
+
+</html>

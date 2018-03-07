@@ -1,0 +1,278 @@
+getRecognisedExchanges([
+    {
+        "country": "AUSTRALIA",
+        "exchange": "Australian Securities Exchange"
+    },
+    {
+        "country": "AUSTRIA",
+        "exchange": "Vienna Stock Exchange"
+    },
+    {
+        "country": "BELGIUM",
+        "exchange": "NYSE Euronext Brussels"
+    },
+    {
+        "country": "BRAZIL",
+        "exchange": "Brazilian Securities, Commodities and Futures Exchange"
+    },
+    {
+        "country": "BULGARIA",
+        "exchange": "Bulgarian Stock Exchange Sofia"
+    },
+    {
+        "country": "CANADA",
+        "exchange": "Toronto Stock Exchange"
+    },
+    {
+        "country": "CANADA",
+        "exchange": "Montreal Stock Exchange"
+    },
+    {
+        "country": "CHILE",
+        "exchange": "Santiago Stock Exchange"
+    },
+    {
+        "country": "CHINA",
+        "exchange": "Shanghai Stock Exchange"
+    },
+    {
+        "country": "CHINA",
+        "exchange": "Shenzhen Stock Exchange"
+    },
+    {
+        "country": "CROATIA",
+        "exchange": "Zagreb Stock Exchange"
+    },
+    {
+        "country": "CYPRUS",
+        "exchange": "Cyprus Stock Exchange"
+    },
+    {
+        "country": "CZECH REPUBLIC",
+        "exchange": "Prague Stock Exchange"
+    },
+    {
+        "country": "DENMARK",
+        "exchange": "NASDAQ OMX Copehangen"
+    },
+    {
+        "country": "ESTONIA",
+        "exchange": "NASDAQ OMX Tallin"
+    },
+    {
+        "country": "FINLAND",
+        "exchange": "NASDAQ OMX Helsinki"
+    },
+    {
+        "country": "FRANCE",
+        "exchange": "NYSE Euronext Paris"
+    },
+    {
+        "country": "GERMANY",
+        "exchange": "Dusseldorf Stock Exchange"
+    },
+    {
+        "country": "GERMANY",
+        "exchange": "Munich Stock Exchange"
+    },
+    {
+        "country": "GERMANY",
+        "exchange": "Berlin Stock Exchange"
+    },
+    {
+        "country": "GERMANY",
+        "exchange": "Stuttgart Stock Exchange"
+    },
+    {
+        "country": "GERMANY",
+        "exchange": "Hamburg-Hannover Stock Exchange"
+    },
+    {
+        "country": "GERMANY",
+        "exchange": "Frankfurt Stock Exchange"
+    },
+    {
+        "country": "GERMANY",
+        "exchange": "Tradegate Exchange"
+    },
+    {
+        "country": "GREECE",
+        "exchange": "Athens Stock Exchange"
+    },
+    {
+        "country": "GUERNSEY",
+        "exchange": "Channel Islands Securities Exchange"
+    },
+    {
+        "country": "HONG KONG",
+        "exchange": "Hong Kong Exchanges and Clearing"
+    },
+    {
+        "country": "HUNGARY",
+        "exchange": "Budapest Stock Exchange"
+    },
+    {
+        "country": "ICELAND",
+        "exchange": "NASDAQ OMX Iceland"
+    },
+    {
+        "country": "INDIA",
+        "exchange": "Bombay Stock Exchange"
+    },
+    {
+        "country": "INDIA",
+        "exchange": "National Stock Exchange"
+    },
+    {
+        "country": "IRELAND",
+        "exchange": "Irish Stock Exchange"
+    },
+    {
+        "country": "ISRAEL",
+        "exchange": "Tel-Aviv Stock Exchange"
+    },
+    {
+        "country": "ITALY",
+        "exchange": "Italian Stock Exchange"
+    },
+    {
+        "country": "JAPAN",
+        "exchange": "Tokyo Stock Exchange"
+    },
+    {
+        "country": "JAPAN",
+        "exchange": "Osaka Exchange"
+    },
+    {
+        "country": "JAPAN",
+        "exchange": "Nagoya Stock Exchange"
+    },
+    {
+        "country": "JAPAN",
+        "exchange": "Fukuoka Stock Exchange"
+    },
+    {
+        "country": "JAPAN",
+        "exchange": "Sapporo Securities Exchange"
+    },
+    {
+        "country": "JERSEY",
+        "exchange": "Channel Islands Securities Exchange"
+    },
+    {
+        "country": "KOREA, REPUBLIC OF",
+        "exchange": "Korea Exchange"
+    },
+    {
+        "country": "LATVIA",
+        "exchange": "NASDAQ OMX Riga"
+    },
+    {
+        "country": "LITHUANIA",
+        "exchange": "NASDAQ OMX Vilnius"
+    },
+    {
+        "country": "LUXEMBOURG",
+        "exchange": "Luxembourg Stock Exchange"
+    },
+    {
+        "country": "MALAYSIA",
+        "exchange": "Bursa Malaysia"
+    },
+    {
+        "country": "MALTA",
+        "exchange": "Malta Stock Exchange"
+    },
+    {
+        "country": "MEXICO",
+        "exchange": "Mexican Stock Exchange"
+    },
+    {
+        "country": "NETHERLANDS",
+        "exchange": "NYSE Euronext Amsterdam"
+    },
+    {
+        "country": "NEW ZEALAND",
+        "exchange": "New Zealand Exchange Ltd"
+    },
+    {
+        "country": "NORWAY",
+        "exchange": "Oslo Stock Exchange"
+    },
+    {
+        "country": "POLAND",
+        "exchange": "Warsaw Stock Exchange"
+    },
+    {
+        "country": "PORTUGAL",
+        "exchange": "NYSE Euronext Lisbon"
+    },
+    {
+        "country": "ROMANIA",
+        "exchange": "Bucharest Stock Exchange"
+    },
+    {
+        "country": "SINGAPORE",
+        "exchange": "Singapore Exchange"
+    },
+    {
+        "country": "SLOVAKIA",
+        "exchange": "The Bratislava Stock Exchange"
+    },
+    {
+        "country": "SLOVENIA",
+        "exchange": "Ljubljana Stock Exchange"
+    },
+    {
+        "country": "SOUTH AFRICA",
+        "exchange": "Johannesburg Stock Exchange"
+    },
+    {
+        "country": "SPAIN",
+        "exchange": "Madrid Stock Exchange"
+    },
+    {
+        "country": "SPAIN",
+        "exchange": "Barcelona Stock Exchange"
+    },
+    {
+        "country": "SPAIN",
+        "exchange": "Valencia Stock Exchange"
+    },
+    {
+        "country": "SPAIN",
+        "exchange": "Bilbao Stock Exchange"
+    },
+    {
+        "country": "SWEDEN",
+        "exchange": "NASDAQ OMX Stockholm"
+    },
+    {
+        "country": "SWITZERLAND",
+        "exchange": "SIX Swiss Exchange"
+    },
+    {
+        "country": "TAIWAN",
+        "exchange": "Taiwan Stock Exchange"
+    },
+    {
+        "country": "TAIWAN",
+        "exchange": "Taipei Exchange"
+    },
+    {
+        "country": "TURKEY",
+        "exchange": "Istanbul Stock Exchange"
+    },
+    {
+        "country": "UNITED KINGDOM",
+        "exchange": "London Stock Exchange"
+    },
+    {
+        "country": "UNITED STATES",
+        "exchange": "NASDAQ OMX Group"
+    },
+    {
+        "country": "UNITED STATES",
+        "exchange": "NYSE Euronext"
+    }
+]);
