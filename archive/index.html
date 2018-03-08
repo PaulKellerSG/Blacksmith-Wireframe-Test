@@ -1,0 +1,450 @@
+<html>
+
+<head>
+    <title>Blacksmith KYC</title>
+    <link rel="icon" href="../images/sword.png">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Patua+One|Permanent+Marker" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div class="table">
+        <div class="row">
+            <div id="companyName" class="cell">Placeholder</div>
+            <div id="assessment" class="cell assessment">Standard Due Dilligence; Normal Risk</div>
+        </div>
+        <div class="row">
+            <div class="cell cellheader">Company Type:</div>
+            <div id="companyType" class="cell cellContents">Placeholder</div>
+            <div class="cell expandInfo popup"><img id="imgexpandCompanyType" class="navImage" src="../images/info.png" alt="More Info" width="20" height="20" onclick="popupFunction('popupCompanyType')">
+                <div id="popupCompanyType" class="popuptext"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell"></div>
+            <div id="companyTypeFlag" class="cell cellContents flag"></div>
+        </div>
+        <div class="row">
+            <div class="cell cellheader">Country of Incorporation:</div>
+            <div id="countryOfIncorporation" class="cell cellContents">Placeholder</div>
+            <div class="cell expandInfo popup"><img id="imgexpandCountryOfIncorporation" class="navImage" src="../images/info.png" alt="More Info" width="20" height="20" onclick="popupFunction('popupCountryOfIncorporation')">
+                <div id="popupCountryOfIncorporation" class="popuptext"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell"></div>
+            <div id="countryofIncorporationFlag" class="cell cellContents flag"></div>
+        </div>
+        <div class="row">
+            <div class="cell cellheader">Industry:</div>
+            <div id="industry" class="cell cellContents">Placeholder</div>
+            <div class="cell expandInfo popup"><img id="imgexpandIndustry" class="navImage" src="../images/info.png" alt="More Info" width="20" height="20" onclick="popupFunction('popupIndustry')">
+                <div id="popupIndustry" class="popuptext"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell"></div>
+            <div id="industryFlag" class="cell cellContents"></div>
+        </div>
+        <div class="row">
+            <div class="cell cellheader">Products:</div>
+            <div id="products" class="cell cellContents">Placeholder</div>
+            <div class="cell expandInfo popup"><img id="imgexpandProducts" class="navImage" src="../images/info.png" alt="More Info" width="20" height="20" onclick="popupFunction('popupProducts')">
+                <div id="popupProducts" class="popuptext"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell"></div>
+            <div id="productsFlag" class="cell cellContents flag"></div>
+        </div>
+        <div class="row">
+            <div class="cell cellheader">Ultimate Beneficial Owner:</div>
+            <div id="ubo" class="cell cellContents">Placeholder</div>
+            <div class="cell expandInfo popup"><img id="imgexpandUBO" class="navImage" src="../images/info.png" alt="More Info" width="20" height="20" onclick="popupFunction('popupUBO')">
+                <div id="popupUBO" class="popuptext"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell"></div>
+            <div id="uboFlag" class="cell cellContents flag"></div>
+        </div>
+        <div class="row">
+            <div class="cell cellheader">Name Screening:</div>
+            <div id="nameScreening" class="cell cellContents">Placeholder</div>
+            <div class="cell expandInfo popup"><img id="imgexpandNameScreening" class="navImage" src="../images/info.png" alt="More Info" width="20" height="20" onclick="popupFunction('popupNameScreening')">
+                <div id="popupNameScreening" class="popuptext"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell"></div>
+            <div id="nameScreeningFlag" class="cell cellContents flag"></div>
+        </div>
+        <div class="row">
+            <div class="cell cellheader">Politically Exposed Persons Screening:</div>
+            <div id="peps" class="cell cellContents">Placeholder</div>
+            <div class="cell expandInfo popup"><img id="imgexpandPEPS" class="navImage" src="../images/info.png" alt="More Info" width="20" height="20" onclick="popupFunction('popupPEPS')">
+                <div id="popupPEPS" class="popuptext"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell"></div>
+            <div id="pepsFlag" class="cell cellContents flag"></div>
+        </div>
+        <div class="row">
+            <div class="cell cellheader">Sanction Screening:</div>
+            <div id="sanctions" class="cell cellContents">Placeholder</div>
+            <div class="cell expandInfo popup"><img id="imgexpandSanctionScreening" class="navImage" src="../images/info.png" alt="More Info" width="20" height="20" onclick="popupFunction('popupSanctionScreening')">
+                <div id="popupSanctionScreening" class="popuptext"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell"></div>
+            <div id="sanctionsFlag" class="cell cellContents flag"></div>
+        </div>
+        <div class="row">
+            <div class="cell cellheader">Adverse News:</div>
+            <div id="adverseNews" class="cell cellContents">Placeholder</div>
+            <div class="cell expandInfo popup"><img id="imgexpandAdverseNews" class="navImage" src="../images/info.png" alt="More Info" width="20" height="20" onclick="popupFunction('popupAdverseNews')">
+                <div id="popupAdverseNews" class="popuptext"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell"></div>
+            <div id="adverseNewsFlag" class="cell cellContents flag"></div>
+        </div>
+        <div class="row">
+            <div class="cell cellheader">Ultra High Risk Countries:</div>
+            <div id="uhrc" class="cell cellContents">Placeholder</div>
+            <div class="cell expandInfo popup"><img id="imgexpandUHRC" class="navImage popup" src="../images/info.png" alt="More Info" width="20" height="20" onclick="popupFunction('popupUHRC')">
+                <div class="popuptext" id="popupUHRC"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell"></div>
+            <div id="uhrcFlag" class="cell cellContents flag"></div>
+        </div>
+    </div>
+
+    <script>
+        // When the user clicks on div, open the popup
+        function popupFunction(elem) {
+            var popup = document.getElementById(elem);
+            popup.classList.toggle("show");
+        }
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            var myObj;
+            myObj = {
+                "bankData": [{
+                        "bankName": "Blacksmith Bank",
+                        "bankLogoName": "../images/swords-crossed.png",
+                        "assessment": "Standard Due Dilligence; Normal Risk",
+                        "assessmentColor": "good",
+                        "companyType": {
+                            "compType": "Bank",
+                            "redFlag": "false"
+                        },
+                        "companyTypeInfo": "We identified company type via KYC Swift Registry.",
+                        "countryOfIncorporation": {
+                            "country": "Singapore",
+                            "redFlag": "false"
+                        },
+                        "countryOfIncorporationInfo": "We identified Blacksmith Bank's country of incorporation via data provided by MAS.",
+                        "industry": {
+                            "industry": "Banking/Financial Institution",
+                            "redFlag": "false"
+                        },
+                        "industryInfo": "We identified Blacksmith Bank's industry via Bankers Almanac.",
+                        "products": [{
+                                "name": "Retail Banking",
+                                "redFlag": "false"
+                            },
+                            {
+                                "name": "Savings",
+                                "redFlag": "false"
+                            },
+                            {
+                                "name": "Loans",
+                                "redFlag": "false"
+                            }
+                        ],
+                        "productsInfo": "We identified Blacksmith Bank's products via their website and via their in-house API.",
+                        "ubo": {
+                            "ubo": "Identified",
+                            "redFlag": "false"
+                        },
+                        "uboInfo": "We identified the UBO's via ACRA and KYC Swift Registry.",
+                        "nameScreening": {
+                            "nameScreening": "0 Matches",
+                            "redFlag": "false"
+                        },
+                        "nameScreeningInfo": "We searched Thompson Reuters World Check, 7 Blacklist providers, and your independently provided internal black list and found no positive results regarding Name Screening.",
+                        "peps": {
+                            "peps": "0 Matches",
+                            "redFlag": "false"
+                        },
+                        "pepsInfo": "We searched 3 PEP screening services but found no evidence of any Politically Exposed Persons.",
+                        "sanctions": {
+                            "sanctions": "0 Matches",
+                            "redFlag": "false"
+                        },
+                        "sanctionsInfo": "We searched 2 sanction screen services but found no positive results regarding Sactions Screening.",
+                        "adverseNews": {
+                            "adverseNews": "0 Matches",
+                            "redFlag": "false"
+                        },
+                        "adverseNewsInfo": "We searched Google News, Bloomberg, and Reuters but found no evidence of any relevant adverse news stories.",
+                        "uhrc": {
+                            "uhrc": "0 Matches",
+                            "redFlag": "false"
+                        },
+                        "uhrcInfo": "We searched Golden Source A, B, and C but found no evidence of operation in Ultra High Risk Countries."
+                    },
+                    {
+                        "bankName": "YFGC Bank",
+                        "bankLogoName": "../images/general_bank_colour_2.png",
+                        "assessment": "Enhanced Due Dilligence; High Risk",
+                        "assessmentColor": "average",
+                        "companyType": {
+                            "compType": "Bank",
+                            "redFlag": "false"
+                        },
+                        "companyTypeInfo": "We identified company type via KYC Swift Registry.",
+                        "countryOfIncorporation": {
+                            "country": "Singapore",
+                            "redFlag": "false"
+                        },
+                        "countryOfIncorporationInfo": "We identified YFGC Bank's country of incorporation via data provided by MAS.",
+                        "industry": {
+                            "industry": "Banking/Financial Institution",
+                            "redFlag": "false"
+                        },
+                        "industryInfo": "We identified YFGC Bank's industry via Bankers Almanac.",
+                        "products": [{
+                                "name": "Trade Finance",
+                                "redFlag": "true"
+                            },
+                            {
+                                "name": "Retail Banking",
+                                "redFlag": "false"
+                            },
+                            {
+                                "name": "Loans",
+                                "redFlag": "false"
+                            }
+                        ],
+                        "productsInfo": "We identified YFGC Bank's products via their website and via their in-house API.",
+                        "ubo": {
+                            "ubo": "Identified",
+                            "redFlag": "false"
+                        },
+                        "uboInfo": "We identified the UBO's via ACRA and KYC Swift Registry.",
+                        "nameScreening": {
+                            "nameScreening": "0 Matches",
+                            "redFlag": "false"
+                        },
+                        "nameScreeningInfo": "We searched Thompson Reuters Work Check, 7 Blacklist providers, and your independently provided internal black list and found no positive results regarding Name Screening.",
+                        "peps": {
+                            "peps": "0 Matches",
+                            "redFlag": "false"
+                        },
+                        "pepsInfo": "We searched 3 PEP screening services but found no evidence of any Politically Exposed Persons.",
+                        "sanctions": {
+                            "sanctions": "0 Matches",
+                            "redFlag": "false"
+                        },
+                        "sanctionsInfo": "We searched 2 sanction screen services but found no positive results regarding Sactions Screening.",
+                        "adverseNews": {
+                            "adverseNews": "0 Matches",
+                            "redFlag": "false"
+                        },
+                        "adverseNewsInfo": "We searched Google News, Bloomberg, and Reuters but found no evidence of any relevant adverse news stories.",
+                        "uhrc": {
+                            "uhrc": "0 Matches",
+                            "redFlag": "false"
+                        },
+                        "uhrcInfo": "We searched Golden Source A, B, and C but found no evidence of operation in Ultra High Risk Countries."
+                    },
+                    {
+                        "bankName": "Bank of Narnia",
+                        "bankLogoName": "../images/venom-head.png",
+                        "assessment": "Unacceptable Flags Raised; Offboard Customer",
+                        "assessmentColor": "bad",
+                        "companyType": {
+                            "compType": "Bank",
+                            "redFlag": "false"
+                        },
+                        "companyTypeInfo": "We identified company type via KYC Swift Registry.",
+                        "countryOfIncorporation": {
+                            "country": "Narnia",
+                            "redFlag": "true"
+                        },
+                        "countryOfIncorporationInfo": "We identified Bank of Narnia's country of incorporation via data provided by the Narnian Government.",
+                        "industry": {
+                            "industry": "Banking/Financial Institution",
+                            "redFlag": "false"
+                        },
+                        "industryInfo": "We identified Bank of Narnia's industry via Bankers Almanac.",
+                        "products": [{
+                                "name": "Trade Finance",
+                                "redFlag": "true"
+                            },
+                            {
+                                "name": "Offshore Banking",
+                                "redFlag": "true"
+                            },
+                            {
+                                "name": "Correspondent Banking",
+                                "redFlag": "true"
+                            },
+                            {
+                                "name": "Funds",
+                                "redFlag": "true"
+                            }
+                        ],
+                        "productsInfo": "We identified Bank of Narnia's products via their website.",
+                        "ubo": {
+                            "ubo": "Identified",
+                            "redFlag": "false"
+                        },
+                        "uboInfo": "We identified the UBO's via ACRA and KYC Swift Registry.",
+                        "nameScreening": {
+                            "nameScreening": "3 Matches",
+                            "redFlag": "true"
+                        },
+                        "nameScreeningInfo": "We found 2 matches on Thompson Reuters World Check, 0 matches with 7 Blacklist providers, and 1 match using your independently provided internal black list.",
+                        "peps": {
+                            "peps": "1 Match",
+                            "redFlag": "true"
+                        },
+                        "pepsInfo": "We searched 3 PEP screening services and found 1 match to possible evidence of a Politically Exposed Persons.",
+                        "sanctions": {
+                            "sanctions": "0 Matches",
+                            "redFlag": "false"
+                        },
+                        "sanctionsInfo": "We searched 2 sanction screen service but found no positive results regarding Sactions Screening.",
+                        "adverseNews": {
+                            "adverseNews": "25 Matches",
+                            "redFlag": "true"
+                        },
+                        "adverseNewsInfo": "We searched Google News, Bloomberg, and Reuters and found 25 possible adverse news stories. If Bank of Narnia provide you with consent to view we can provide an assessment of why those news stories could affect your KYC decision.",
+                        "uhrc": {
+                            "uhrc": "1 Matches",
+                            "redFlag": "true"
+                        },
+                        "uhrcInfo": "We searched Golden Sources and found evidence of operation in Ultra High Risk Countries. If Bank of Narnia provide you with consent to view we can provide an assessment of why those news stories could affect your KYC decision."
+                    }
+                ]
+            };
+
+            //Initial vars
+            var bankID = 2;
+            var flagCounter = 0;
+
+            //Bank Name
+            document.getElementById("companyName").innerHTML = myObj.bankData[bankID].bankName + " ";
+
+            var imgElement = document.createElement("img");
+            imgElement.setAttribute("height", "30");
+            imgElement.setAttribute("width", "40");
+            imgElement.setAttribute("alt", "Company Logo");
+            imgElement.setAttribute("id", "companyLogo");
+            imgElement.setAttribute("src", myObj.bankData[bankID].bankLogoName);
+            document.getElementById("companyName").appendChild(imgElement);
+
+            //CompanyType
+            document.getElementById("companyType").innerHTML = myObj.bankData[bankID].companyType.compType;
+            document.getElementById("popupCompanyType").innerHTML = myObj.bankData[bankID].companyTypeInfo;
+
+
+            //Assessment
+            document.getElementById("assessment").innerHTML = myObj.bankData[bankID].assessment;
+            var currentClass = document.getElementById("assessment").getAttribute("class");
+            document.getElementById("assessment").setAttribute("class", currentClass + " " + myObj.bankData[bankID].assessmentColor + "assessment");
+
+            //countryOfIncorporation
+            document.getElementById("countryOfIncorporation").innerHTML = myObj.bankData[bankID].countryOfIncorporation.country;
+            document.getElementById("popupCountryOfIncorporation").innerHTML = myObj.bankData[bankID].countryOfIncorporationInfo;
+
+            //industry
+            document.getElementById("industry").innerHTML = myObj.bankData[bankID].industry.industry;
+            document.getElementById("popupIndustry").innerHTML = myObj.bankData[bankID].industryInfo;
+
+            //products
+            flagCounter = 0;
+            var productsText = "";
+            var productsCount = myObj.bankData[bankID].products.length - 1;
+            var counter = 0;
+
+            for (myIndex in myObj.bankData[bankID].products) {
+                productsText += myObj.bankData[bankID].products[myIndex].name;
+                if (counter < productsCount) {
+                    productsText += ", ";
+                }
+                if (myObj.bankData[bankID].products[myIndex].redFlag == "true") {
+                    flagCounter = flagCounter + 1;
+                }
+                counter = counter + 1;
+            }
+
+            document.getElementById("products").innerHTML = productsText;
+            if (flagCounter > 0) {
+                if (flagCounter == 1) {
+                    document.getElementById("productsFlag").innerHTML = "1 Red Flag";
+                } else {
+                    document.getElementById("productsFlag").innerHTML = flagCounter + " Red Flags";
+                }
+            }
+
+            document.getElementById("popupProducts").innerHTML = myObj.bankData[bankID].productsInfo;
+
+            //Ultimate Benefcial Owner
+            document.getElementById("ubo").innerHTML = myObj.bankData[bankID].ubo.ubo;
+            if (myObj.bankData[bankID].ubo.redFlag == "true") {
+                document.getElementById("uboFlag").innerHTML = "1 Red Flag";
+            }
+            document.getElementById("popupUBO").innerHTML = myObj.bankData[bankID].uboInfo;
+
+            //Name Screening
+            document.getElementById("nameScreening").innerHTML = myObj.bankData[bankID].nameScreening.nameScreening;
+            if (myObj.bankData[bankID].nameScreening.redFlag == "true") {
+                document.getElementById("nameScreeningFlag").innerHTML = "1 Red Flag";
+            }
+            document.getElementById("popupNameScreening").innerHTML = myObj.bankData[bankID].nameScreeningInfo;
+
+            //PEPs
+            document.getElementById("peps").innerHTML = myObj.bankData[bankID].peps.peps;
+            if (myObj.bankData[bankID].peps.redFlag == "true") {
+                document.getElementById("pepsFlag").innerHTML = "1 Red Flag";
+            }
+            document.getElementById("popupPEPS").innerHTML = myObj.bankData[bankID].pepsInfo;
+
+            //Sanction Screening
+            document.getElementById("sanctions").innerHTML = myObj.bankData[bankID].sanctions.sanctions;
+            if (myObj.bankData[bankID].sanctions.redFlag == "true") {
+                document.getElementById("sanctionsFlag").innerHTML = "1 Red Flag";
+            }
+            document.getElementById("popupSanctionScreening").innerHTML = myObj.bankData[bankID].sanctionsInfo;
+
+            //Adverse News
+            document.getElementById("adverseNews").innerHTML = myObj.bankData[bankID].adverseNews.adverseNews;
+            if (myObj.bankData[bankID].adverseNews.redFlag == "true") {
+                document.getElementById("adverseNewsFlag").innerHTML = "1 Red Flag";
+            }
+            document.getElementById("popupAdverseNews").innerHTML = myObj.bankData[bankID].adverseNewsInfo;
+
+            //Ultra High Risk Countries
+            document.getElementById("uhrc").innerHTML = myObj.bankData[bankID].uhrc.uhrc;
+            if (myObj.bankData[bankID].uhrc.redFlag == "true") {
+                document.getElementById("uhrcFlag").innerHTML = "1 Red Flag";
+            }
+            document.getElementById("popupUHRC").innerHTML = myObj.bankData[bankID].uhrcInfo;
+        });
+    </script>
+</body>
+
+</html>

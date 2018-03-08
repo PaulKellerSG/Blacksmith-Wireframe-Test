@@ -12,84 +12,137 @@
 <body class="bg">
     <div class="transbox">
         <div class="thisText">
+
             <div class="row">
                 <div id="companyName" class="cell">Placeholder</div>
             </div>
             <div class="row">
                 <div class="cell">Due Diligence Configuration</div>
             </div>
-            <div class="row">
-                <div class="cell">Category</div>
-                <div class="cell">Simplified</div>
-                <div class="cell">Standard</div>
-                <div class="cell">Enhanced</div>
-                <div class="cell"></div>
-            </div>
+            <div class="subDiv">
+                <div class="row">
+                    <div class="cell">Category</div>
+                    <div class="cell">Simplified</div>
+                    <div class="cell">Standard</div>
+                    <div class="cell">Enhanced</div>
+                    <div class="cell"></div>
+                </div>
 
-            <div class="row">
-                <div class="cell">Customer Type</div>
-            </div>
-            <div class="row">
-                <div class="cell">Publicly Listed Company</div>
-                <div class="cell">Listed on a Recognised Stock Exchange</div>
-                <div class="cell">Not Listed on a Recognised Stock Exchange</div>
-                <div class="cell">Check for EDD Triggers</div>
-                <div class="cell">
-                    <input type="button" value="Input Exchange Data">
+                <div class="row">
+                    <div class="cell">Customer Type</div>
+                </div>
+                <div class="row">
+                    <div class="cell">Publicly Listed Company</div>
+                    <div class="cell cellContents">Listed on a Recognised Stock Exchange</div>
+                    <div class="cell cellContents">Not Listed on a Recognised Stock Exchange</div>
+                    <div class="cell cellContents">Check for EDD Triggers</div>
+                    <div class="cell">
+                        <input type="button" value="Input Exchange Data">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="cell">Regulated FI</div>
+                    <div class="cell cellContents">Recognised Regulator</div>
+                    <div class="cell cellContents">Unrecognised Regulator</div>
+                    <div class="cell cellContents">Check for EDD Triggers</div>
+                    <div class="cell">
+                        <input type="button" value="Input Regulator Data">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="cell">Fund</div>
+                    <div class="cell cellContents">Recognised Regulator</div>
+                    <div class="cell cellContents">Unrecognised Regulator</div>
+                    <div class="cell cellContents">Check for EDD Triggers</div>
+                    <div class="cell">
+                        <input type="button" value="Input Regulator Data">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="cell">Central Bank/Monetary Authority</div>
+                    <div class="cell cellContents">Located in the EU</div>
+                    <div class="cell cellContents">Outside the EU</div>
+                    <div class="cell cellContents">Check for EDD Triggers</div>
+                    <div class="cell"></div>
+                </div>
+                <div class="row">
+                    <div class="cell">Charity/Non-Profit</div>
+                    <div class="cell cellContents">Simplified CDD not possible</div>
+                    <div class="cell cellContents">Registered/Certified by a Public Authority</div>
+                    <div class="cell cellContents">Not Registered/Certified by a Public Authority</div>
+                    <div class="cell"></div>
+                </div>
+                <div class="row">
+                    <div class="cell">Country</div>
+                    <div class="cell cellContents">No Additional Requirements</div>
+                    <div class="cell cellContents">High Risk Country with Recognised Regulator</div>
+                    <div class="cell cellContents">High Risk Country</div>
+                    <div class="cell">
+                        <input type="button" value="View Country List">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="cell">Industry</div>
+                    <div class="cell cellContents">No Additional Requirements</div>
+                    <div class="cell cellContents">No Additional Requirements</div>
+                    <div class="cell cellContents">High Risk Industry</div>
+                    <div class="cell">
+                        <input type="button" value="View Industry List">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="cell">Products</div>
+                    <div class="cell cellContents">No Additional Requirements</div>
+                    <div class="cell cellContents">No Additional Requirements</div>
+                    <div class="cell cellContents">Product List will go here</div>
+                    <div class="cell">
+                        <input type="button" value="Select High Risk Products">
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="cell">Regulated FI</div>
-                <div class="cell">Recognised Regulator</div>
-                <div class="cell">Unrecognised Regulator</div>
-                <div class="cell">Check for EDD Triggers</div>
-                <div class="cell">
-                    <input type="button" value="Input Regulator Data">
+            <div class="subDiv">
+                <div class="row">
+                    <div class="cell">Alert Flags</div>
+                </div>
+                <div class="row">
+                    <div class="cell cellContents">Ultra High Risk Country Involvement</div>
+                </div>
+                <div class="row">
+                    <div class="cell cellContents">Sanctions Targets</div>
+                </div>
+                <div class="row">
+                    <div class="cell cellContents">Politically Exposed Persons</div>
+                </div>
+                <div class="row">
+                    <div class="cell cellContents">Bearer Shares</div>
+                </div>
+                <div class="row">
+                    <div class="cell cellContents">Adverse News</div>
+                </div>
+                <div class="row">
+                    <div class="cell cellContents">Anonymous Accounting</div>
                 </div>
             </div>
-            <div class="row">
-                <div class="cell">Fund</div>
-                <div class="cell">Recognised Regulator</div>
-                <div class="cell">Unrecognised Regulator</div>
-                <div class="cell">Check for EDD Triggers</div>
-                <div class="cell">
-                    <input type="button" value="Input Regulator Data">
+            <div class="subDiv">
+                <div class="row">
+                    <div class="cell">High Risk EDD Triggers</div>
+                </div>
+                <div class="row">
+                    <div class="cell cellContents">High Profile Customer</div>
+                </div>
+                <div class="row">
+                    <div class="cell cellContents">Nominee Shareholders</div>
+                </div>
+                <div class="row">
+                    <div class="cell cellContents">Personal Asset Holdings</div>
+                </div>
+                <div class="row">
+                    <div class="cell cellContents">'Gatekeeper' Accounts</div>
+                </div>
+                <div class="row">
+                    <div class="cell cellContents">Unusual Ownership Structure</div>
                 </div>
             </div>
-            <div class="row">
-                <div class="cell">Central Bank/Monetary Authority</div>
-                <div class="cell">Located in the EU</div>
-                <div class="cell">Outside the EU</div>
-                <div class="cell">Check for EDD Triggers</div>
-                <div class="cell"></div>
-            </div>
-            <div class="row">
-                <div class="cell">Charity/Non-Profit</div>
-                <div class="cell">Simplified CDD not possible</div>
-                <div class="cell">Registered/Certified by a Public Authority</div>
-                <div class="cell">Not Registered/Certified by a Public Authority</div>
-                <div class="cell"></div>
-            </div>
-            <div class="row">
-                <div class="cell">Country</div>
-                <div class="cell">No Additional Requirements</div>
-                <div class="cell">High Risk Country with Recognised Regulator</div>
-                <div class="cell">High Risk Country</div>
-                <div class="cell">
-                    <input type="button" value="View Country List">
-                </div>
-            </div>
-            <div class="row">
-                <div class="cell">Industry</div>
-                <div class="cell">No Additional Requirements</div>
-                <div class="cell">No Additional Requirements</div>
-                <div class="cell">High Risk Industry</div>
-                <div class="cell">
-                    <input type="button" value="View Industry List">
-                </div>
-            </div>
-
-
         </div>
     </div>
 </body>
