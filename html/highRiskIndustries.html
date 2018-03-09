@@ -1,0 +1,52 @@
+<html>
+
+<head>
+    <title>Blacksmith KYC</title>
+    <link rel="icon" href="../images/sword.png">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Patua+One|Permanent+Marker" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="bg">
+    <div class="transbox">
+        <div class="thisText">
+            <div class="cell pageHeader">High Risk Industries</div>
+            <div id="detailsTable" class="table">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function getIndustry(arr) {
+            var thisTable = document.getElementById("detailsTable");
+            var divRow = document.createElement("div");
+            divRow.setAttribute("class", "row");
+
+            var industryHeaderCell = document.createElement("div");
+            industryHeaderCell.setAttribute("class", "cell cellHeader");
+            industryHeaderCell.innerHTML = "Industry";
+            divRow.appendChild(industryHeaderCell);
+
+            thisTable.appendChild(divRow);
+
+            for (i = 0; i < arr.length; i++) {
+                var newRow = document.createElement("div");
+                newRow.setAttribute("class", "row");
+
+                var industryCell = document.createElement("div");
+                industryCell.setAttribute("class", "cell cellContents");
+                industryCell.innerHTML = arr[i].industry;
+
+                newRow.appendChild(industryCell);
+
+                thisTable.appendChild(newRow);
+            }
+        }
+    </script>
+
+    <script src="../scriptFiles/industries.js"></script>
+</body>
+
+</html>

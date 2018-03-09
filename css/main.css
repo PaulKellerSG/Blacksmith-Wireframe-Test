@@ -18,12 +18,17 @@
 
 .cellHeader {
     font-weight: bold;
+    width: 500px;
 }
 
 .cellContents {
     color: darkgray;
     /*width: 30%;*/
-    width: 500px;
+    /*width: 500px;*/
+}
+
+.pageHeader {
+    font-size: 30px;
 }
 
 #companyName {

@@ -1,0 +1,52 @@
+<html>
+
+<head>
+    <title>Blacksmith KYC</title>
+    <link rel="icon" href="../images/sword.png">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Patua+One|Permanent+Marker" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="bg">
+    <div class="transbox">
+        <div class="thisText">
+            <div class="cell pageHeader">High Risk Products</div>
+            <div id="detailsTable" class="table">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function getProducts(arr) {
+            var thisTable = document.getElementById("detailsTable");
+            var divRow = document.createElement("div");
+            divRow.setAttribute("class", "row");
+
+            var headerCell = document.createElement("div");
+            headerCell.setAttribute("class", "cell cellHeader");
+            headerCell.innerHTML = "High Risk Products";
+            divRow.appendChild(headerCell);
+
+            thisTable.appendChild(divRow);
+
+            for (i = 0; i < arr.length; i++) {
+                var newRow = document.createElement("div");
+                newRow.setAttribute("class", "row");
+
+                var cell = document.createElement("div");
+                cell.setAttribute("class", "cell cellContents");
+                cell.innerHTML = arr[i].product;
+
+                newRow.appendChild(cell);
+
+                thisTable.appendChild(newRow);
+            }
+        }
+    </script>
+
+    <script src="../scriptFiles/products.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<html>
+
+<head>
+    <title>Blacksmith KYC</title>
+    <link rel="icon" href="../images/sword.png">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Patua+One|Permanent+Marker" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="bg">
+    <div class="transbox">
+        <div class="thisText">
+            <div class="cell pageHeader">Recognised Regulators</div>
+            <div id="detailsTable" class="table">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function getRecognisedRegulators(arr) {
+            var thisTable = document.getElementById("detailsTable");
+            var divRow = document.createElement("div");
+            divRow.setAttribute("class", "row");
+
+            var countryHeaderCell = document.createElement("div");
+            countryHeaderCell.setAttribute("class", "cell cellHeader");
+            countryHeaderCell.innerHTML = "Country";
+            divRow.appendChild(countryHeaderCell);
+
+            var regulatorHeaderCell = document.createElement("div");
+            regulatorHeaderCell.setAttribute("class", "cell cellHeader");
+            regulatorHeaderCell.innerHTML = "Regulator";
+            divRow.appendChild(regulatorHeaderCell);
+
+            thisTable.appendChild(divRow);
+
+            for (i = 0; i < arr.length; i++) {
+                var newRow = document.createElement("div");
+                newRow.setAttribute("class", "row");
+
+                var countryCell = document.createElement("div");
+                countryCell.setAttribute("class", "cell cellContents");
+                countryCell.innerHTML = arr[i].country;
+
+                var regulatorCell = document.createElement("div");
+                regulatorCell.setAttribute("class", "cell cellContents");
+                regulatorCell.innerHTML = arr[i].regulator;
+
+                newRow.appendChild(countryCell);
+                newRow.appendChild(regulatorCell);
+
+                thisTable.appendChild(newRow);
+            }
+        }
+    </script>
+
+    <script src="../scriptFiles/recognisedRegulators.js"></script>
+</body>
+
+</html>
