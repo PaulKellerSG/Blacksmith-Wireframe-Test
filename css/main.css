@@ -188,3 +188,59 @@ html {
     border-color: black;
     border-style: solid;
 }
+
+.pageHeader {
+    text-align: center;
+    /*font-family: 'Patua One', cursive;*/
+}
+
+.headerImage {
+    height: 50px;
+    display: inline-block;
+}
+
+.imageLeft {
+    float: left;
+}
+
+.imageRight {
+    float: left;
+}
+
+.indexPage {
+    font-family: 'Permanent Marker', cursive;
+    margin: 5%;
+    font-weight: bold;
+    color: #000000;
+}
+
+.indexPageFont {
+    font-family: 'Permanent Marker', cursive;
+    font-size: 16pt
+}
+
+.indexLink {
+    display: table-cell;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+a:link {
+    text-decoration: none;
+    color: cornflowerblue;
+}
+
+a:visited {
+    text-decoration: none;
+    color: cornflowerblue;
+}
+
+a:hover {
+    color: darkmagenta;
+}
+
+a:active {
+    color: aqua;
+}
