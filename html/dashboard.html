@@ -1,0 +1,189 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <script src="../scriptFiles/canvasjs.min.js"></script>
+    <script type="text/javascript">
+        window.onload = function () {
+            CanvasJS.addColorSet("redAmberGreen", [
+                "red",
+                "gold",
+                "green"
+            ]);
+            CanvasJS.addColorSet("greenShades", [ //colorSet Array
+
+                "#2F4F4F",
+                "#008080",
+                "#2E8B57",
+                "#3CB371",
+                "#90EE90"
+                ]);
+            var chart = new CanvasJS.Chart("chartContainer", {
+                title: {
+                    text: "Completed KYC Summary"
+                },
+                colorSet: "redAmberGreen",
+                data: [
+                    {
+                        // Change type to "doughnut", "line", "splineArea", etc.
+                        type: "pie",
+                        dataPoints: [
+                            {
+                                label: "Incomplete",
+                                y: 50
+                            },
+                            {
+                                label: "Partially Complete",
+                                y: 150
+                            },
+                            {
+                                label: "Complete",
+                                y: 250
+                            }
+			]
+		}
+		]
+            });
+            chart.render();
+
+            var chartGap = new CanvasJS.Chart("gapAnalysis", {
+                title: {
+                    text: "Gap Analysis"
+                },
+                colorSet: "greenShades",
+                data: [
+                    {
+                        // Change type to "doughnut", "line", "splineArea", etc.
+                        type: "pie",
+                        dataPoints: [
+                            {
+                                label: "Missing Documents",
+                                y: 6
+                            },
+                            {
+                                label: "Awaiting MLRO",
+                                y: 12
+                            },
+                            {
+                                label: "Awaiting Signatory",
+                                y: 10
+                            }
+			]
+		}
+		]
+            });
+            chartGap.render();
+
+            var chartDue = new CanvasJS.Chart("dueDates", {
+                title: {
+                    text: "KYC Due"
+                },
+                colorSet: "redAmberGreen",
+                data: [
+                    {
+                        // Change type to "doughnut", "line", "splineArea", etc.
+                        type: "pie",
+                        dataPoints: [
+                            {
+                                label: "3 Months",
+                                y: 16
+                            },
+                            {
+                                label: "6 Months",
+                                y: 51
+                            },
+                            {
+                                label: "9 Months",
+                                y: 121
+                            }
+			]
+		}
+		]
+            });
+            chartDue.render();
+
+            var chartClosure = new CanvasJS.Chart("closureRate", {
+                title: {
+                    text: "KYC Files Closed"
+                },
+                colorSet: "greenShades",
+                data: [
+                    {
+                        // Change type to "doughnut", "line", "splineArea", etc.
+                        type: "line",
+                        dataPoints: [
+                            {
+                                label: "Jan",
+                                y: 16
+                            },
+                            {
+                                label: "Feb",
+                                y: 51
+                            },
+                            {
+                                label: "Mar",
+                                y: 121
+                            },
+                            {
+                                label: "Apr",
+                                y: 131
+                            },
+                            {
+                                label: "May",
+                                y: 151
+                            },
+                            {
+                                label: "Jun",
+                                y: 116
+                            },
+                            {
+                                label: "Jul",
+                                y: 51
+                            },
+                            {
+                                label: "Aug",
+                                y: 108
+                            },
+                            {
+                                label: "Sep",
+                                y: 151
+                            },
+                            {
+                                label: "Oct",
+                                y: 171
+                            },
+                            {
+                                label: "Nov",
+                                y: 151
+                            },
+                            {
+                                label: "Dec",
+                                y: 200
+                            }
+			]
+		}
+		]
+            });
+            chartClosure.render();
+
+
+
+
+        }
+    </script>
+</head>
+
+<body class="bg">
+    <div class="transbox">
+        <div class="thisText">
+            <h1>Blacksmith Dashboard</h1>
+            <div id="chartContainer" class="pieChart"></div>
+            <div id="gapAnalysis" class="pieChart"></div>
+            <div id="dueDates" class="pieChart"></div>
+            <div id="closureRate" class="lineChart"></div>
+        </div>
+    </div>
+</body>
+
+</html>
