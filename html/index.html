@@ -1,158 +1,162 @@
+<!DOCTYPE HTML>
 <html>
 
 <head>
-    <title>Blacksmith KYC</title>
-    <link rel="icon" href="../images/sword.png">
+    <link rel="stylesheet" type="text/css" href="../css/dragAndDrop.css">
     <link rel="stylesheet" type="text/css" href="../css/main.css">
-    <link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body class="bg">
     <div class="transbox">
-        <div class="indexPage">
-            <!--<div class="headerImage"><img class="headerImage" src="../images/swords-crossed.png"></div>-->
-            <div class="pageHeader"> Blacksmith Initiative Prototype </div>
-            <!--<div class="headerImage"><img class="headerImage" src="../images/swords-crossed.png"></div>-->
-            <div class="table">
-                <div class="row">
-                    <div class="cell indexPageFont">Select your CDD Configuration:</div>
-                    <div id="configurations" class="cell">
-                        <select id="configurationSelect" class="selectBox" onchange="changeConfig()"></select>
+        <div class="thisText">
+            <div id="columns">
+                <div id="types" class="newLine">
+                    <div class="column" draggable="true">
+                        <header>Customer Type</header>
+                    </div>
+                    <div class="column" draggable="true">
+                        <header>Country</header>
+                    </div>
+                    <div class="column" draggable="true">
+                        <header>Industry</header>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="cell indexPageFont">Select an assessment to view:</div>
-                    <div id="assessments" class="cell">
-                        <select id="assessmentSelect" class="selectBox" onchange="changeAssessment()"></select>
+
+                <div id="possibleAnswers" class="newLine">
+                    <div class="column" draggable="true">
+                        <header>Listed Company</header>
+                    </div>
+                    <div class="column" draggable="true">
+                        <header>Regulated FI</header>
                     </div>
                 </div>
-                <div class="row">
-                    <a id="gotoAssessment" class="indexLink" href="assessment.html?assessment=0&config=0" target="_blank">View Selected Configuration/Assessment</a>
+
+                <div id="ruleAnswers" class="newLine">
+                    <div class="column" draggable="true">
+                        <header>Recognized Regulator</header>
+                    </div>
+                    <div class="column" draggable="true">
+                        <header>Unrecognized Regulator</header>
+                    </div>
                 </div>
-            </div>
-            <div class="table">
-                <div class="row">
-                    <div class="cell indexPageFont">View your CDD Configuration:</div>
-                    <div class="cell indexPageFont">View your recognised lists:</div>
+
+                <div id="ruleHeader" class="newLine">
+                    <div class="column" draggable="true">
+                        <header>Rule Type</header>
+                    </div>
                 </div>
-                <div class="row">
-                    <a class="indexLink" href="profileABC.html" target="_blank">ABC Bank</a>
-                    <a class="indexLink" href="exchangeDetailsList.html" target="_blank">Stock Exchanges</a>
+
+                <div id="ruleTypeAnswer" class="newLine">
+                    <div class="column" draggable="true">
+                        <header>???</header>
+                    </div>
                 </div>
-                <div class="row">
-                    <a class="indexLink" href="profileING.html" target="_blank">ING Bank</a>
-                    <a class="indexLink" href="regulatorDetailsList.html" target="_blank">Regulators</a>
+
+                <div id="ruleSubHeader" class="newLine">
+                    <div class="column" draggable="true">
+                        <header>Rule Sub Type</header>
+                    </div>
                 </div>
-                <div class="row">
-                    <a class="indexLink" href="profileXYZ.html" target="_blank">XYZ Bank</a>
-                    <a class="indexLink" href="countryList.html" target="_blank">Country List</a>
+
+                <div id="ruleSubTypeAnswer" class="newLine">
+                    <div class="column" draggable="true">
+                        <header>???</header>
+                    </div>
                 </div>
-                <div class="row">
-                    <div class="cell"></div>
-                    <a class="indexLink" href="highRiskIndustries.html" target="_blank">High Risk Industries</a>
+
+                <div id="cddRule" class="newLine">
+                    <div class="column" draggable="true">
+                        <header>Simplified</header>
+                    </div>
+                    <div class="column" draggable="true">
+                        <header>Standard</header>
+                    </div>
+                    <div class="column" draggable="true">
+                        <header>Enhanced</header>
+                    </div>
                 </div>
-                <div class="row">
-                    <div class="cell"></div>
-                    <a class="indexLink" href="highRiskProducts.html" target="_blank">High Risk Products</a>
+
+                <div id="ruleAnswer" class="newLine">
+                    <div class="column" draggable="true">
+                        <header>???</header>
+                    </div>
+                    <div class="column" draggable="true">
+                        <header>???</header>
+                    </div>
+                    <div class="column" draggable="true">
+                        <header>???</header>
+                    </div>
+
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        $(document).ready(function () {
+        var dragSrcEl = null;
 
-            var configs = {
-                "configData": [
-                    {
-                        "configName": "ABC Bank"
-                    },
-                    {
-                        "configName": "ING Bank"
-                    },
-                    {
-                        "configName": "XYZ Bank"
-                    }
-                ]
-            };
+        function handleDragStart(e) {
+            this.style.opacity = '0.4'; // this / e.target is the source node.
 
-            var selConfig = document.getElementById("configurationSelect");
-            selConfig.setAttribute("size", configs.configData.length);
-            //selConfig.setAttribute("multiple", "");
-            for (i in configs.configData) {
-                var optionElement = document.createElement("option");
-                optionElement.setAttribute("value", i);
-                if (i == 0) {
-                    optionElement.setAttribute("selected", "");
-                }
-                optionElement.innerHTML = configs.configData[i].configName;
-                selConfig.appendChild(optionElement);
+            dragSrcEl = this;
+
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.setData('text/html', this.innerHTML);
+        }
+
+        function handleDragOver(e) {
+            if (e.preventDefault) {
+                e.preventDefault(); // Necessary. Allows us to drop.
             }
 
+            e.dataTransfer.dropEffect = 'move'; // See the section on the DataTransfer object.
 
-            var assessments = {
-                "assessmentData": [
-                    {
-                        "assessmentName": "Bank of Narnia"
-                    },
-                    {
-                        "assessmentName": "YGFC Bank"
-                    },
-                    {
-                        "assessmentName": "Gringott's Bank"
-                    }
-                ]
-            };
+            return false;
+        }
 
-            var selAssessment = document.getElementById("assessmentSelect");
-            selAssessment.setAttribute("size", assessments.assessmentData.length);
-            //selAssessment.setAttribute("multiple", "");
-            for (i in assessments.assessmentData) {
-                var optionElement = document.createElement("option");
-                optionElement.setAttribute("value", i);
-                if (i == 0) {
-                    optionElement.setAttribute("selected", "");
-                }
-                optionElement.innerHTML = assessments.assessmentData[i].assessmentName;
-                selAssessment.appendChild(optionElement);
+        function handleDragEnter(e) {
+            // this / e.target is the current hover target.
+            this.classList.add('over');
+        }
+
+        function handleDragLeave(e) {
+            this.classList.remove('over'); // this / e.target is previous target element.
+        }
+
+        function handleDrop(e) {
+            // this/e.target is current target element.
+
+            if (e.stopPropagation) {
+                e.stopPropagation(); // Stops some browsers from redirecting.
             }
 
+            // Don't do anything if dropping the same column we're dragging.
+            if (dragSrcEl != this) {
+                // Set the source column's HTML to the HTML of the column we dropped on.
+                dragSrcEl.innerHTML = this.innerHTML;
+                this.innerHTML = e.dataTransfer.getData('text/html');
+            }
+
+            return false;
+        }
+
+        function handleDragEnd(e) {
+            // this/e.target is the source node.
+
+        [].forEach.call(cols, function (col) {
+                col.classList.remove('over');
+            });
+        }
+
+        var cols = document.querySelectorAll('#columns .column');
+        [].forEach.call(cols, function (col) {
+            col.addEventListener('dragstart', handleDragStart, false);
+            col.addEventListener('dragenter', handleDragEnter, false)
+            col.addEventListener('dragover', handleDragOver, false);
+            col.addEventListener('dragleave', handleDragLeave, false);
+            col.addEventListener('drop', handleDrop, false);
+            col.addEventListener('dragend', handleDragEnd, false);
         });
-    </script>
-    <script>
-        function changeConfig() {
-            selectionChange("config");
-        }
-
-        function changeAssessment() {
-            selectionChange("assessment");
-        }
-
-        function selectionChange(changedSelection) {
-            var assessmentLink = document.getElementById("gotoAssessment");
-            var currentConfig = document.getElementById("configurationSelect");
-            var currentAssessment = document.getElementById("assessmentSelect");
-
-            var paramString;
-            paramString = assessmentLink.getAttribute("href");
-            paramString = paramReplace("config", paramString, currentConfig.options[currentConfig.selectedIndex].value);
-            paramString = paramReplace("assessment", paramString, currentAssessment.options[currentAssessment.selectedIndex].value);
-            assessmentLink.setAttribute("href", paramString);
-        }
-
-        // Update the appropriate href query string parameter
-        function paramReplace(name, string, value) {
-            // Find the param with regex
-            // Grab the first character in the returned string (should be ? or &)
-            // Replace our href string with our new value, passing on the name and delimeter
-            var re = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-                delimeter = re.exec(string)[0].charAt(0),
-                newString = string.replace(re, delimeter + name + "=" + value);
-
-            return newString;
-        }
     </script>
 </body>
 

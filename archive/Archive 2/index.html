@@ -1,0 +1,159 @@
+<html>
+
+<head>
+    <title>Blacksmith KYC</title>
+    <link rel="icon" href="../images/sword.png">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="bg">
+    <div class="transbox">
+        <div class="indexPage">
+            <!--<div class="headerImage"><img class="headerImage" src="../images/swords-crossed.png"></div>-->
+            <div class="pageHeader"> Blacksmith Initiative Prototype </div>
+            <!--<div class="headerImage"><img class="headerImage" src="../images/swords-crossed.png"></div>-->
+            <div class="table">
+                <div class="row">
+                    <div class="cell indexPageFont">Select your CDD Configuration:</div>
+                    <div id="configurations" class="cell">
+                        <select id="configurationSelect" class="selectBox" onchange="changeConfig()"></select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="cell indexPageFont">Select an assessment to view:</div>
+                    <div id="assessments" class="cell">
+                        <select id="assessmentSelect" class="selectBox" onchange="changeAssessment()"></select>
+                    </div>
+                </div>
+                <div class="row">
+                    <a id="gotoAssessment" class="indexLink" href="assessment.html?assessment=0&config=0" target="_blank">View Selected Configuration/Assessment</a>
+                </div>
+            </div>
+            <div class="table">
+                <div class="row">
+                    <div class="cell indexPageFont">View your CDD Configuration:</div>
+                    <div class="cell indexPageFont">View your recognised lists:</div>
+                </div>
+                <div class="row">
+                    <a class="indexLink" href="profileABC.html" target="_blank">ABC Bank</a>
+                    <a class="indexLink" href="exchangeDetailsList.html" target="_blank">Stock Exchanges</a>
+                </div>
+                <div class="row">
+                    <a class="indexLink" href="profileING.html" target="_blank">ING Bank</a>
+                    <a class="indexLink" href="regulatorDetailsList.html" target="_blank">Regulators</a>
+                </div>
+                <div class="row">
+                    <a class="indexLink" href="profileXYZ.html" target="_blank">XYZ Bank</a>
+                    <a class="indexLink" href="countryList.html" target="_blank">Country List</a>
+                </div>
+                <div class="row">
+                    <div class="cell"></div>
+                    <a class="indexLink" href="highRiskIndustries.html" target="_blank">High Risk Industries</a>
+                </div>
+                <div class="row">
+                    <div class="cell"></div>
+                    <a class="indexLink" href="highRiskProducts.html" target="_blank">High Risk Products</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+
+            var configs = {
+                "configData": [
+                    {
+                        "configName": "ABC Bank"
+                    },
+                    {
+                        "configName": "ING Bank"
+                    },
+                    {
+                        "configName": "XYZ Bank"
+                    }
+                ]
+            };
+
+            var selConfig = document.getElementById("configurationSelect");
+            selConfig.setAttribute("size", configs.configData.length);
+            //selConfig.setAttribute("multiple", "");
+            for (i in configs.configData) {
+                var optionElement = document.createElement("option");
+                optionElement.setAttribute("value", i);
+                if (i == 0) {
+                    optionElement.setAttribute("selected", "");
+                }
+                optionElement.innerHTML = configs.configData[i].configName;
+                selConfig.appendChild(optionElement);
+            }
+
+
+            var assessments = {
+                "assessmentData": [
+                    {
+                        "assessmentName": "Bank of Narnia"
+                    },
+                    {
+                        "assessmentName": "YGFC Bank"
+                    },
+                    {
+                        "assessmentName": "Gringott's Bank"
+                    }
+                ]
+            };
+
+            var selAssessment = document.getElementById("assessmentSelect");
+            selAssessment.setAttribute("size", assessments.assessmentData.length);
+            //selAssessment.setAttribute("multiple", "");
+            for (i in assessments.assessmentData) {
+                var optionElement = document.createElement("option");
+                optionElement.setAttribute("value", i);
+                if (i == 0) {
+                    optionElement.setAttribute("selected", "");
+                }
+                optionElement.innerHTML = assessments.assessmentData[i].assessmentName;
+                selAssessment.appendChild(optionElement);
+            }
+
+        });
+    </script>
+    <script>
+        function changeConfig() {
+            selectionChange("config");
+        }
+
+        function changeAssessment() {
+            selectionChange("assessment");
+        }
+
+        function selectionChange(changedSelection) {
+            var assessmentLink = document.getElementById("gotoAssessment");
+            var currentConfig = document.getElementById("configurationSelect");
+            var currentAssessment = document.getElementById("assessmentSelect");
+
+            var paramString;
+            paramString = assessmentLink.getAttribute("href");
+            paramString = paramReplace("config", paramString, currentConfig.options[currentConfig.selectedIndex].value);
+            paramString = paramReplace("assessment", paramString, currentAssessment.options[currentAssessment.selectedIndex].value);
+            assessmentLink.setAttribute("href", paramString);
+        }
+
+        // Update the appropriate href query string parameter
+        function paramReplace(name, string, value) {
+            // Find the param with regex
+            // Grab the first character in the returned string (should be ? or &)
+            // Replace our href string with our new value, passing on the name and delimeter
+            var re = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                delimeter = re.exec(string)[0].charAt(0),
+                newString = string.replace(re, delimeter + name + "=" + value);
+
+            return newString;
+        }
+    </script>
+</body>
+
+</html>
