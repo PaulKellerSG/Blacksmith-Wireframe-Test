@@ -21,13 +21,15 @@
                 ]);
             var chart = new CanvasJS.Chart("chartContainer", {
                 title: {
-                    text: "Completed KYC Summary"
+                    text: "Completed KYC Status",
+                    fontFamily: "'Patua One'"
                 },
                 colorSet: "redAmberGreen",
                 data: [
                     {
                         // Change type to "doughnut", "line", "splineArea", etc.
                         type: "pie",
+                        indexLabelFontFamily: "'Patua One'",
                         dataPoints: [
                             {
                                 label: "Incomplete",
@@ -49,13 +51,15 @@
 
             var chartGap = new CanvasJS.Chart("gapAnalysis", {
                 title: {
-                    text: "Gap Analysis"
+                    text: "Gap Analysis",
+                    fontFamily: "'Patua One'"
                 },
                 colorSet: "greenShades",
                 data: [
                     {
                         // Change type to "doughnut", "line", "splineArea", etc.
                         type: "pie",
+                        indexLabelFontFamily: "'Patua One'",
                         dataPoints: [
                             {
                                 label: "Missing Documents",
@@ -77,13 +81,15 @@
 
             var chartDue = new CanvasJS.Chart("dueDates", {
                 title: {
-                    text: "KYC Due"
+                    text: "KYC Due",
+                    fontFamily: "'Patua One'"
                 },
                 colorSet: "redAmberGreen",
                 data: [
                     {
                         // Change type to "doughnut", "line", "splineArea", etc.
                         type: "pie",
+                        indexLabelFontFamily: "'Patua One'",
                         dataPoints: [
                             {
                                 label: "3 Months",
@@ -105,13 +111,22 @@
 
             var chartClosure = new CanvasJS.Chart("closureRate", {
                 title: {
-                    text: "KYC Files Closed"
+                    text: "KYC Files Closed",
+                    fontFamily: "'Patua One'"
+                },
+                axisY: {
+                    labelFontFamily: "'Patua One'"
+                },
+                axisX: {
+                    labelFontFamily: "'Patua One'"
                 },
                 colorSet: "greenShades",
                 data: [
                     {
                         // Change type to "doughnut", "line", "splineArea", etc.
                         type: "line",
+                        indexLabelFontFamily: "'Patua One'",
+
                         dataPoints: [
                             {
                                 label: "Jan",

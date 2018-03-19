@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Patua+One);
+@import url(http://fonts.googleapis.com/css?family=Permanent+Marker);
 .table {
     display: table;
     /*width: 100%;*/
@@ -13,8 +15,8 @@
     padding-right: 10px;
     padding-top: 5px;
     padding-bottom: 5px;
-    /*font-family: 'Patua One', cursive;*/
-    font-family: 'Rye', cursive;
+    font-family: 'Patua One', cursive;
+    /*font-family: 'Rye', cursive;*/
 }
 
 .cellHeader {
@@ -149,8 +151,8 @@
 
 .selectBox {
     width: 200px;
-    /*font-family: 'Patua One', cursive;*/
-    font-family: 'Rye', cursive;
+    font-family: 'Patua One', cursive;
+    /*font-family: 'Rye', cursive;*/
     font-size: 10pt;
 }
 
@@ -193,7 +195,7 @@ html {
 
 .pageHeader {
     text-align: center;
-    /*font-family: 'Patua One', cursive;*/
+    font-family: 'Patua One', cursive;
 }
 
 .headerImage {
@@ -211,15 +213,15 @@ html {
 
 .indexPage {
     /*font-family: 'Permanent Marker', cursive;*/
-    font-family: 'Rye', cursive;
+    font-family: 'Patua One', cursive;
     margin: 5%;
     font-weight: bold;
     color: #000000;
 }
 
 .indexPageFont {
-    /*font-family: 'Permanent Marker', cursive;*/
-    font-family: 'Rye', cursive;
+    font-family: 'Patua One', cursive;
+    /*font-family: 'Rye', cursive;*/
     font-size: 16pt
 }
 
@@ -251,13 +253,13 @@ a:active {
 
 .selectBox {
     /*font-family: 'Permanent Marker', cursive;*/
-    font-family: 'Rye', cursive;
+    font-family: 'Patua One', cursive;
 }
 
 h1 {
     text-align: center;
     font-size: 36pt;
-    font-family: Lucida Grande;
+    font-family: 'Patua One', cursive;
     font-weight: bold;
 }
 
