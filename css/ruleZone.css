@@ -1,0 +1,82 @@
+#ruleZone {
+    float: left;
+    width: 50%;
+}
+
+#ruleZoneContent {
+    height: 200px;
+    border-width: thin;
+    border-color: black;
+    border-style: solid;
+}
+
+#ruleDetail {
+    float: left;
+    clear: right;
+    margin-left: 40px;
+}
+
+ul {
+    -webkit-padding-start: 0px;
+}
+
+li {
+    list-style-type: none;
+}
+
+#dueDilligenceType {
+    float: left;
+    clear: left;
+    width: 50%;
+}
+
+.ddType {
+    float: left;
+    margin: 30px 30px 30px 30px;
+    padding: 10px 20px 10px 20px;
+    border-width: thin;
+    border-color: black;
+    border-style: solid;
+}
+
+#ruleName {
+    clear: left;
+    float: left;
+    width: 50%;
+}
+
+#ruleNameText {
+    float: left;
+    width: 82%;
+    border-width: thin;
+    border-color: black;
+    border-style: solid;
+    padding: 10px;
+}
+
+#addRule {
+    float: left;
+    width: 100px;
+    text-align: center;
+    border-width: thin;
+    border-color: black;
+    border-style: solid;
+    margin-left: 10px;
+    padding: 10px;
+    color: azure;
+    background-color: darkgray;
+}
+
+#completedRules {
+    clear: left;
+    float: left;
+    margin-top: 20px;
+    width: 50%;
+}
+
+#completedRulesContent {
+    height: 200px;
+    border-width: thin;
+    border-color: black;
+    border-style: solid;
+}
