@@ -7,25 +7,38 @@
 
 <body>
     <h1>Blacksmith Rule Configuration</h1>
-    <div id="ruleZone">
-        <div id="ruleZoneTitle">Rule Zone</div>
-        <div id="ruleZoneContent">Rule Zone Content</div>
-    </div>
+    <div id="ruleConstruction">
+        <div id="ruleZone">
+            <div id="ruleZoneTitle">Rule Zone</div>
+            <div id="ruleZoneContent" class="dnd" ondrop="handleDrop(event)" ondragover="handleDragOver(event)"></div>
+        </div>
 
-    <div id="ruleDetail">
-        <div id="ruleDetailTitle">Rule Detail</div>
-        <div id="ruleDetailContent">
-            <ul id="contentList">
-                <li>Customer Type</li>
-                <li>Country</li>
-                <li>Industry</li>
-                <li>Products</li>
-                <li>Alert Flags</li>
-                <li>EDD Indicators</li>
-            </ul>
+        <div id="ruleDetail">
+            <div id="ruleDetailTitle">Rule Detail</div>
+            <div id="ruleDetailContent">
+                <ul id="contentList">
+                    <li>
+                        <div class="dnd" draggable="true" ondragstart="handleDragStart(event)">Customer Type</div>
+                    </li>
+                    <li>
+                        <div class="dnd" draggable="true" ondragstart="handleDragStart(event)">Country</div>
+                    </li>
+                    <li>
+                        <div class="dnd" draggable="true" ondragstart="handleDragStart(event)">Industry</div>
+                    </li>
+                    <li>
+                        <div class="dnd" draggable="true" ondragstart="handleDragStart(event)">Products</div>
+                    </li>
+                    <li>
+                        <div class="dnd" draggable="true" ondragstart="handleDragStart(event)">Alert Flags</div>
+                    </li>
+                    <li>
+                        <div class="dnd" draggable="true" ondragstart="handleDragStart(event)">EDD Indicators</div>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
-
     <div id="dueDilligenceType">
         <div id="dueDilligenceTypeTitle">Due Dilligence Type</div>
         <div id="dueDilligenceContent">
@@ -36,7 +49,9 @@
     </div>
 
     <div id="ruleName">
-        <div id="ruleNameText">Enter Rule Name</div>
+        <div>
+            <input type="text" id="ruleNameText">
+        </div>
         <div id="addRule">Add Rule</div>
     </div>
 
@@ -45,6 +60,77 @@
         <div id="completedRulesContent">Completed Rules Content</div>
     </div>
 
+    <script>
+        var dragSrcEl = null;
+
+        function handleDragStart(e) {
+            e.target.style.opacity = '0.4';
+            dragSrcEl = e.target;
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.setData('text/plain', e.target.id);
+        }
+
+        function handleDragOver(e) {
+            if (e.preventDefault) {
+                e.preventDefault(); // Necessary. Allows us to drop.
+            }
+
+            e.dataTransfer.dropEffect = 'move'; // See the section on the DataTransfer object.
+
+            return false;
+        }
+
+        function handleDragEnter(e) {
+            // this / e.target is the current hover target.
+            //this.classList.add('over');
+        }
+
+        function handleDragLeave(e) {
+            //this.classList.remove('over'); // this / e.target is previous target element.
+        }
+
+        function handleDrop(e) {
+            // this/e.target is current target element.
+
+            if (e.stopPropagation) {
+                e.stopPropagation(); // Stops some browsers from redirecting.
+            }
+
+            // Don't do anything if dropping the same column we're dragging.
+            if (dragSrcEl != e.target) {
+                // Set the source column's HTML to the HTML of the column we dropped on.
+                //dragSrcEl.innerHTML = this.innerHTML;
+                //this.innerHTML = e.dataTransfer.getData('text/html');
+                //e.target.appendChild = dragSrcEl;
+                var data = e.dataTransfer.getData("text");
+                e.target.appendChild(document.getElementById(data));
+                // Clear the drag data cache (for all formats/types)
+                e.dataTransfer.clearData();
+            }
+
+            return false;
+        }
+
+        function handleDragEnd(e) {
+            // this/e.target is the source node.
+
+        [].forEach.call(cols, function (col) {
+                col.classList.remove('over');
+            });
+        }
+
+        /*
+        var cols = document.querySelectorAll('#ruleConstruction .dnd');
+        [].forEach.call(cols, function (col) {
+            col.addEventListener('dragstart', handleDragStart, false);
+            col.addEventListener('dragenter', handleDragEnter, false)
+            col.addEventListener('dragover', handleDragOver, false);
+            col.addEventListener('dragleave', handleDragLeave, false);
+            col.addEventListener('drop', handleDrop, false);
+            col.addEventListener('dragend', handleDragEnd, false);
+        });
+        */
+    </script>
 </body>
 
 </html>
