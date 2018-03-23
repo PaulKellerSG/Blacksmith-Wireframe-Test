@@ -64,7 +64,10 @@ li {
     border-width: thin;
     border-color: black;
     border-style: solid;
-    padding: 10px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 #addRule {
