@@ -42,9 +42,9 @@
     <div id="dueDilligenceType">
         <div id="dueDilligenceTypeTitle">Due Dilligence Type</div>
         <div id="dueDilligenceContent">
-            <div id="ddSimplified" class="ddType">Simplified</div>
-            <div id="ddStandard" class="ddType">Standard</div>
-            <div id="ddEnhanced" class="ddType">Enhanced</div>
+            <div id="ddSimplified" class="ddType" onclick="selectDiv('ddSimplified')">Simplified</div>
+            <div id="ddStandard" class="ddType" onclick="selectDiv('ddStandard')">Standard</div>
+            <div id="ddEnhanced" class="ddType" onclick="selectDiv('ddEnhanced')">Enhanced</div>
         </div>
     </div>
 
@@ -52,12 +52,12 @@
         <div>
             <input type="text" id="ruleNameText">
         </div>
-        <div id="addRule">Add Rule</div>
+        <div id="addRule" onclick="addRuleClick()">Add Rule</div>
     </div>
 
     <div id="completedRules">
         <div id="completedRulesTitle">Completed Rules</div>
-        <div id="completedRulesContent">Completed Rules Content</div>
+        <div id="completedRulesContent"></div>
     </div>
 
     <script>
@@ -249,6 +249,30 @@
                     ulElement.appendChild(newElement);
                 }
             };
+        }
+
+        function selectDiv(selectedDivId) {
+            var simplified = document.getElementById("ddSimplified");
+            var standard = document.getElementById("ddStandard");
+            var enhanced = document.getElementById("ddEnhanced");
+
+            if (simplified.classList.contains("selectedDiv")) {
+                simplified.setAttribute("class", "ddType");
+            };
+
+            simplified.classList.remove("selectedDiv");
+            standard.classList.remove("selectedDiv");
+            enhanced.classList.remove("selectedDiv");
+
+            var selected = document.getElementById(selectedDivId);
+            selected.classList.add("selectedDiv");
+        }
+
+        function addRuleClick() {
+            var newRuleElement = document.createElement("div");
+            newRuleElement.innerHTML = document.getElementById("ruleNameText").value;
+            var rulesBox = document.getElementById("completedRulesContent");
+            rulesBox.appendChild(newRuleElement);
         }
     </script>
 </body>
