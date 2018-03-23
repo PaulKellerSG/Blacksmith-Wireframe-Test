@@ -18,22 +18,22 @@
             <div id="ruleDetailContent">
                 <ul id="contentList">
                     <li>
-                        <div class="dnd" draggable="true" ondragstart="handleDragStart(event)">Customer Type</div>
+                        <div id="customerType" class="dnd" draggable="true" ondragstart="handleDragStart(event)">Customer Type</div>
                     </li>
                     <li>
-                        <div class="dnd" draggable="true" ondragstart="handleDragStart(event)">Country</div>
+                        <div id="country" class="dnd" draggable="true" ondragstart="handleDragStart(event)">Country</div>
                     </li>
                     <li>
-                        <div class="dnd" draggable="true" ondragstart="handleDragStart(event)">Industry</div>
+                        <div id="industry" class="dnd" draggable="true" ondragstart="handleDragStart(event)">Industry</div>
                     </li>
                     <li>
-                        <div class="dnd" draggable="true" ondragstart="handleDragStart(event)">Products</div>
+                        <div id="products" class="dnd" draggable="true" ondragstart="handleDragStart(event)">Products</div>
                     </li>
                     <li>
-                        <div class="dnd" draggable="true" ondragstart="handleDragStart(event)">Alert Flags</div>
+                        <div id="alertFlags" class="dnd" draggable="true" ondragstart="handleDragStart(event)">Alert Flags</div>
                     </li>
                     <li>
-                        <div class="dnd" draggable="true" ondragstart="handleDragStart(event)">EDD Indicators</div>
+                        <div id="eddIndcators" class="dnd" draggable="true" ondragstart="handleDragStart(event)">EDD Indicators</div>
                     </li>
                 </ul>
             </div>
@@ -103,9 +103,12 @@
                 //this.innerHTML = e.dataTransfer.getData('text/html');
                 //e.target.appendChild = dragSrcEl;
                 var data = e.dataTransfer.getData("text");
-                e.target.appendChild(document.getElementById(data));
+                var sourceElement = document.getElementById(data);
+                sourceElement.style.opacity = '1';
+                e.target.appendChild(sourceElement);
                 // Clear the drag data cache (for all formats/types)
                 e.dataTransfer.clearData();
+                setNewOptions(data);
             }
 
             return false;
@@ -130,6 +133,31 @@
             col.addEventListener('dragend', handleDragEnd, false);
         });
         */
+
+        function setNewOptions(optionType) {
+
+            //It's added it on the end but it hasn't removed the existing list items...
+
+            var ulElement = document.getElementById("contentList");
+            ulElement.children.removeAll;
+            //<div id="customerType" class="dnd" draggable="true" ondragstart="handleDragStart(event)">Customer Type</div>
+            if (optionType == "customerType") {
+                //Customer Type Options
+                var newElement = document.createElement("li");
+                var newDiv = document.createElement("div");
+                newDiv.setAttribute("id", "newID");
+                newDiv.setAttribute("class", "dnd");
+                newDiv.setAttribute("draggable", "true");
+                newDiv.setAttribute("ondragstart", "handleDragStart(event)");
+                newDiv.innerHTML = "Publicly Listed Company";
+                newElement.appendChild(newDiv);
+                ulElement.appendChild(newElement);
+            } else if (optionType == "RegulatorOptions") {
+
+            } else if (optionType == "Country") {
+
+            };
+        }
     </script>
 </body>
 

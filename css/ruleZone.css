@@ -26,6 +26,9 @@ ul {
 
 li {
     list-style-type: none;
+}
+
+.dnd {
     border: solid thin black;
     padding: 5px;
     margin: 5px;
