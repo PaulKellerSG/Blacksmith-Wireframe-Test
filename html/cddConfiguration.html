@@ -4,11 +4,11 @@
 <head>
     <link rel="stylesheet" type="text/css" href="/css/ruleZone.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <title>Rules</title>
+    <title>CDD Level</title>
 </head>
 
 <body>
-    <h1>Blacksmith Rule Configuration</h1>
+    <h1>Blacksmith Due Diligence Level Configuration</h1>
     <div id="ruleConstruction">
         <div id="ruleZone">
             <div id="ruleZoneTitle">Rule Zone</div>
@@ -83,17 +83,13 @@
 
             // Don't do anything if dropping the same column we're dragging.
             if (dragSrcEl != e.target) {
-                // Set the source column's HTML to the HTML of the column we dropped on.
-                //dragSrcEl.innerHTML = this.innerHTML;
-                //this.innerHTML = e.dataTransfer.getData('text/html');
-                //e.target.appendChild = dragSrcEl;
                 var data = e.dataTransfer.getData("text");
                 var sourceElement = document.getElementById(data);
                 sourceElement.style.opacity = '1';
                 e.target.appendChild(sourceElement);
                 // Clear the drag data cache (for all formats/types)
                 e.dataTransfer.clearData();
-                setNewOptions(data);
+                //setNewOptions(data);
             }
 
             return false;
@@ -107,113 +103,119 @@
             });
         }
 
-        /*
-        var cols = document.querySelectorAll('#ruleConstruction .dnd');
-        [].forEach.call(cols, function (col) {
-            col.addEventListener('dragstart', handleDragStart, false);
-            col.addEventListener('dragenter', handleDragEnter, false)
-            col.addEventListener('dragover', handleDragOver, false);
-            col.addEventListener('dragleave', handleDragLeave, false);
-            col.addEventListener('drop', handleDrop, false);
-            col.addEventListener('dragend', handleDragEnd, false);
-        });
-        */
-
         function setNewOptions(optionType) {
 
             var data = {
-                "customerTypes": [
-                    {
-                        "id": "1",
-                        "listOption": "Publicly Listed Company"
-                        },
-                    {
-                        "id": "regulatedFI",
-                        "listOption": "Regulated FI"
-                        },
-                    {
-                        "id": "3",
-                        "listOption": "Central Bank / Monatary Authority"
-                        },
-                    {
-                        "id": "4",
-                        "listOption": "Fund"
-                        },
-                    {
-                        "id": "5",
-                        "listOption": "Non-Profit / Charity"
-                        },
-                    {
-                        "id": "6",
-                        "listOption": "Internal Entity"
-                        },
+                "legalExistence": [
                     {
                         "id": "7",
-                        "listOption": "Public Authority"
-                        },
+                        "listOption": "Articles of Incorporation"
+                    },
                     {
                         "id": "8",
-                        "listOption": "State Owned"
-                        },
+                        "listOption": "Business Activity"
+                    },
                     {
                         "id": "9",
-                        "listOption": "Trust"
-                        }
-                ],
-                "regulator": [
+                        "listOption": "Nature of Relationship"
+                    },
                     {
                         "id": "10",
-                        "listOption": "Recognised Regulator"
-                    },
-                    {
-                        "id": "11",
-                        "listOption": "Unrecognised Regulator"
+                        "listOption": "Products"
                     }
                 ],
-                "country": [
+                "ownershipStructure": [
                     {
-                        "id": "12",
-                        "listOption": "High Risk Country, Recognised Regulated"
+                        "id": "11",
+                        "listOption": "UBO"
                     },
                     {
+                        "id": "12",
+                        "listOption": "Significant Shareholders"
+                    }
+                ],
+                "thresholds": [
+                    {
                         "id": "13",
-                        "listOption": "High Risk Country, Unrecognised Regulator"
+                        "listOption": "3%"
+                    },
+                    {
+                        "id": "14",
+                        "listOption": "5%"
+                    },
+                    {
+                        "id": "15",
+                        "listOption": "10%"
+                    },
+                    {
+                        "id": "16",
+                        "listOption": "15%"
+                    },
+                    {
+                        "id": "17",
+                        "listOption": "20%"
+                    },
+                    {
+                        "id": "18",
+                        "listOption": "25%"
+                    }
+                ],
+                "principals": [
+                    {
+                        "id": "19",
+                        "listOption": "Main Principles"
+                    },
+                    {
+                        "id": "20",
+                        "listOption": "Principals"
+                    },
+                    {
+                        "id": "21",
+                        "listOption": "Pseudo UBO"
                     }
                 ],
                 "startup": [
                     {
-                        "id": "customerType",
-                        "listOption": "Customer Type"
-                    },
+                        "id": "1",
+                        "listOption": "Legal Existence"
+                        },
                     {
-                        "id": "country",
-                        "listOption": "Country"
-                    },
+                        "id": "2",
+                        "listOption": "Ownership Structure"
+                        },
                     {
-                        "id": "industry",
-                        "listOption": "Industry"
-                    },
+                        "id": "3",
+                        "listOption": "Principals"
+                        },
                     {
-                        "id": "products",
-                        "listOption": "Products"
-                    },
+                        "id": "4",
+                        "listOption": "Legal Representative"
+                        },
                     {
-                        "id": "alertFlags",
-                        "listOption": "Alert Flags"
-                    },
+                        "id": "22",
+                        "listOption": "Internal Name Screening"
+                        },
                     {
-                        "id": "eddIndicators",
-                        "listOption": "EDD Indicators"
-                    }
+                        "id": "23",
+                        "listOption": "External Name Screening"
+                        },
+                    {
+                        "id": "24",
+                        "listOption": "Adverse Intelligence Screening"
+                        },
+                    {
+                        "id": "6",
+                        "listOption": "Source of Funds/Wealth"
+                        }
                 ]
             };
 
             var ulElement = document.getElementById("contentList");
             while (ulElement.firstChild) ulElement.removeChild(ulElement.firstChild);
             //<div id="customerType" class="dnd" draggable="true" ondragstart="handleDragStart(event)">Customer Type</div>
-            if (optionType == "customerType") {
+            if (optionType == "1") { //Legal Existence
                 //Customer Type Options
-                for (i = 0; i < data.customerTypes.length; i++) {
+                for (i = 0; i < data.legalExistence.length; i++) {
                     var newElement = document.createElement("li");
                     var newDiv = document.createElement("div");
 
@@ -221,14 +223,14 @@
                     newDiv.setAttribute("draggable", "true");
                     newDiv.setAttribute("ondragstart", "handleDragStart(event)");
 
-                    newDiv.setAttribute("id", data.customerTypes[i].id);
-                    newDiv.innerHTML = data.customerTypes[i].listOption;
+                    newDiv.setAttribute("id", data.legalExistence[i].id);
+                    newDiv.innerHTML = data.legalExistence[i].listOption;
 
                     newElement.appendChild(newDiv);
                     ulElement.appendChild(newElement);
                 }
-            } else if (optionType == "regulatedFI") {
-                for (i = 0; i < data.regulator.length; i++) {
+            } else if (optionType == "2") { //Ownership Structure
+                for (i = 0; i < data.ownershipStructure.length; i++) {
                     var newElement = document.createElement("li");
                     var newDiv = document.createElement("div");
 
@@ -236,14 +238,14 @@
                     newDiv.setAttribute("draggable", "true");
                     newDiv.setAttribute("ondragstart", "handleDragStart(event)");
 
-                    newDiv.setAttribute("id", data.regulator[i].id);
-                    newDiv.innerHTML = data.regulator[i].listOption;
+                    newDiv.setAttribute("id", data.ownershipStructure[i].id);
+                    newDiv.innerHTML = data.ownershipStructure[i].listOption;
 
                     newElement.appendChild(newDiv);
                     ulElement.appendChild(newElement);
                 }
-            } else if (optionType == "country") {
-                for (i = 0; i < data.country.length; i++) {
+            } else if (optionType == "3") { //Principals
+                for (i = 0; i < data.principals.length; i++) {
                     var newElement = document.createElement("li");
                     var newDiv = document.createElement("div");
 
@@ -251,8 +253,8 @@
                     newDiv.setAttribute("draggable", "true");
                     newDiv.setAttribute("ondragstart", "handleDragStart(event)");
 
-                    newDiv.setAttribute("id", data.country[i].id);
-                    newDiv.innerHTML = data.country[i].listOption;
+                    newDiv.setAttribute("id", data.principals[i].id);
+                    newDiv.innerHTML = data.principals[i].listOption;
 
                     newElement.appendChild(newDiv);
                     ulElement.appendChild(newElement);
@@ -322,6 +324,7 @@
             selectDiv("unselectAll");
         }
     </script>
+    <script src="/scriptFiles/cddLevelConfiguration.js"></script>
 </body>
 
 </html>

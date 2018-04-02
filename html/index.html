@@ -1,163 +1,17 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="../css/dragAndDrop.css">
-    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Blacksmith Initiative</title>
 </head>
 
-<body class="bg">
-    <div class="transbox">
-        <div class="thisText">
-            <div id="columns">
-                <div id="types" class="newLine">
-                    <div class="column" draggable="true">
-                        <header>Customer Type</header>
-                    </div>
-                    <div class="column" draggable="true">
-                        <header>Country</header>
-                    </div>
-                    <div class="column" draggable="true">
-                        <header>Industry</header>
-                    </div>
-                </div>
-
-                <div id="possibleAnswers" class="newLine">
-                    <div class="column" draggable="true">
-                        <header>Listed Company</header>
-                    </div>
-                    <div class="column" draggable="true">
-                        <header>Regulated FI</header>
-                    </div>
-                </div>
-
-                <div id="ruleAnswers" class="newLine">
-                    <div class="column" draggable="true">
-                        <header>Recognized Regulator</header>
-                    </div>
-                    <div class="column" draggable="true">
-                        <header>Unrecognized Regulator</header>
-                    </div>
-                </div>
-
-                <div id="ruleHeader" class="newLine">
-                    <div class="column" draggable="true">
-                        <header>Rule Type</header>
-                    </div>
-                </div>
-
-                <div id="ruleTypeAnswer" class="newLine">
-                    <div class="column" draggable="true">
-                        <header>???</header>
-                    </div>
-                </div>
-
-                <div id="ruleSubHeader" class="newLine">
-                    <div class="column" draggable="true">
-                        <header>Rule Sub Type</header>
-                    </div>
-                </div>
-
-                <div id="ruleSubTypeAnswer" class="newLine">
-                    <div class="column" draggable="true">
-                        <header>???</header>
-                    </div>
-                </div>
-
-                <div id="cddRule" class="newLine">
-                    <div class="column" draggable="true">
-                        <header>Simplified</header>
-                    </div>
-                    <div class="column" draggable="true">
-                        <header>Standard</header>
-                    </div>
-                    <div class="column" draggable="true">
-                        <header>Enhanced</header>
-                    </div>
-                </div>
-
-                <div id="ruleAnswer" class="newLine">
-                    <div class="column" draggable="true">
-                        <header>???</header>
-                    </div>
-                    <div class="column" draggable="true">
-                        <header>???</header>
-                    </div>
-                    <div class="column" draggable="true">
-                        <header>???</header>
-                    </div>
-
-                </div>
-            </div>
-        </div>
+<body>
+    <h1>Blacksmith Customer Due Diligence Thing</h1>
+    <div><a href="storyboard.html" target="_blank">Rule Configuration</a></div>
+    <div><a href="cddConfiguration.html" target="_blank">Due Dillgence Level Configuration</a>
     </div>
-
-    <script>
-        var dragSrcEl = null;
-
-        function handleDragStart(e) {
-            this.style.opacity = '0.4'; // this / e.target is the source node.
-
-            dragSrcEl = this;
-
-            e.dataTransfer.effectAllowed = 'move';
-            e.dataTransfer.setData('text/html', this.innerHTML);
-        }
-
-        function handleDragOver(e) {
-            if (e.preventDefault) {
-                e.preventDefault(); // Necessary. Allows us to drop.
-            }
-
-            e.dataTransfer.dropEffect = 'move'; // See the section on the DataTransfer object.
-
-            return false;
-        }
-
-        function handleDragEnter(e) {
-            // this / e.target is the current hover target.
-            this.classList.add('over');
-        }
-
-        function handleDragLeave(e) {
-            this.classList.remove('over'); // this / e.target is previous target element.
-        }
-
-        function handleDrop(e) {
-            // this/e.target is current target element.
-
-            if (e.stopPropagation) {
-                e.stopPropagation(); // Stops some browsers from redirecting.
-            }
-
-            // Don't do anything if dropping the same column we're dragging.
-            if (dragSrcEl != this) {
-                // Set the source column's HTML to the HTML of the column we dropped on.
-                dragSrcEl.innerHTML = this.innerHTML;
-                this.innerHTML = e.dataTransfer.getData('text/html');
-            }
-
-            return false;
-        }
-
-        function handleDragEnd(e) {
-            // this/e.target is the source node.
-
-        [].forEach.call(cols, function (col) {
-                col.classList.remove('over');
-            });
-        }
-
-        var cols = document.querySelectorAll('#columns .column');
-        [].forEach.call(cols, function (col) {
-            col.addEventListener('dragstart', handleDragStart, false);
-            col.addEventListener('dragenter', handleDragEnter, false)
-            col.addEventListener('dragover', handleDragOver, false);
-            col.addEventListener('dragleave', handleDragLeave, false);
-            col.addEventListener('drop', handleDrop, false);
-            col.addEventListener('dragend', handleDragEnd, false);
-        });
-    </script>
 </body>
 
 </html>
