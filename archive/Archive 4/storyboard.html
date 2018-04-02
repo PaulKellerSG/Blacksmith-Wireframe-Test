@@ -3,7 +3,6 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="/css/ruleZone.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -18,6 +17,24 @@
             <div id="ruleDetailTitle">Rule Detail</div>
             <div id="ruleDetailContent">
                 <ul id="contentList">
+                    <li>
+                        <div id="customerType" class="dnd" draggable="true" ondragstart="handleDragStart(event)">Customer Type</div>
+                    </li>
+                    <li>
+                        <div id="country" class="dnd" draggable="true" ondragstart="handleDragStart(event)">Country</div>
+                    </li>
+                    <li>
+                        <div id="industry" class="dnd" draggable="true" ondragstart="handleDragStart(event)">Industry</div>
+                    </li>
+                    <li>
+                        <div id="products" class="dnd" draggable="true" ondragstart="handleDragStart(event)">Products</div>
+                    </li>
+                    <li>
+                        <div id="alertFlags" class="dnd" draggable="true" ondragstart="handleDragStart(event)">Alert Flags</div>
+                    </li>
+                    <li>
+                        <div id="eddIndicators" class="dnd" draggable="true" ondragstart="handleDragStart(event)">EDD Indicators</div>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -45,10 +62,6 @@
 
     <script>
         var dragSrcEl = null;
-
-        $(document).ready(function () {
-            setNewOptions("startUp");
-        });
 
         function handleDragStart(e) {
             e.target.style.opacity = '0.4';
@@ -270,7 +283,7 @@
                     newDiv.setAttribute("ondragstart", "handleDragStart(event)");
 
                     newDiv.setAttribute("id", data.startup[i].id);
-                    newDiv.innerHTML = data.startup[i].listOption;
+                    newDiv.innerHTML = data.startups[i].listOption;
 
                     newElement.appendChild(newDiv);
                     ulElement.appendChild(newElement);
@@ -300,8 +313,6 @@
             newRuleElement.innerHTML = document.getElementById("ruleNameText").value;
             var rulesBox = document.getElementById("completedRulesContent");
             rulesBox.appendChild(newRuleElement);
-
-            //Now clear the boxes and start again.
         }
     </script>
 </body>

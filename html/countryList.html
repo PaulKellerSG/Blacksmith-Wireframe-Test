@@ -1,0 +1,101 @@
+<html>
+
+<head>
+    <title>Blacksmith KYC</title>
+    <link rel="icon" href="../images/sword.png">
+    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Patua+One" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body class="bg">
+    <div class="transbox">
+        <div class="thisText">
+            <div class="cell pageHeader">Country Risk List</div>
+            <div id="detailsTable" class="table">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function getCountryRisk(arr) {
+            var thisTable = document.getElementById("detailsTable");
+            var divRow = document.createElement("div");
+            divRow.setAttribute("class", "row");
+
+            var lowRiskCell = document.createElement("div");
+            lowRiskCell.setAttribute("class", "cell cellHeader");
+            lowRiskCell.innerHTML = "Low Risk";
+            divRow.appendChild(lowRiskCell);
+
+            var mediumRiskCell = document.createElement("div");
+            mediumRiskCell.setAttribute("class", "cell cellHeader");
+            mediumRiskCell.innerHTML = "Medium Risk";
+            divRow.appendChild(mediumRiskCell);
+
+            var highRiskCell = document.createElement("div");
+            highRiskCell.setAttribute("class", "cell cellHeader");
+            highRiskCell.innerHTML = "High Risk";
+            divRow.appendChild(highRiskCell);
+
+            var ultraHighRiskCell = document.createElement("div");
+            ultraHighRiskCell.setAttribute("class", "cell cellHeader");
+            ultraHighRiskCell.innerHTML = "Ultra High Risk";
+            divRow.appendChild(ultraHighRiskCell);
+
+            thisTable.appendChild(divRow);
+
+            var rowCounter = 0;
+            var maxRowCounter = arr[0].countryRiskData.lowRisk.length - 1;
+            if (arr[0].countryRiskData.mediumRisk.length > maxRowCounter) {
+                maxRowCounter = arr[0].countryRiskData.mediumRisk.length;
+            }
+            if (arr[0].countryRiskData.highRisk.length > maxRowCounter) {
+                maxRowCounter = arr[0].countryRiskData.highRisk.length;
+            }
+            if (arr[0].countryRiskData.ultraHighRisk.length > maxRowCounter) {
+                maxRowCounter = arr[0].countryRiskData.ultaHighRisk.length;
+            }
+
+            for (i = 0; i < maxRowCounter; i++) {
+                var newRow = document.createElement("div");
+                newRow.setAttribute("class", "row");
+
+                var lowRiskCell = document.createElement("div");
+                lowRiskCell.setAttribute("class", "cell cellContents");
+                if (arr[0].countryRiskData.lowRisk.length > i) {
+                    lowRiskCell.innerHTML = arr[0].countryRiskData.lowRisk[i].country;
+                }
+                newRow.appendChild(lowRiskCell);
+
+                var mediumRiskCell = document.createElement("div");
+                mediumRiskCell.setAttribute("class", "cell cellContents");
+                if (arr[0].countryRiskData.mediumRisk.length > i) {
+                    mediumRiskCell.innerHTML = arr[0].countryRiskData.mediumRisk[i].country;
+                }
+                newRow.appendChild(mediumRiskCell);
+
+                var highRiskCell = document.createElement("div");
+                highRiskCell.setAttribute("class", "cell cellContents");
+                if (arr[0].countryRiskData.highRisk.length > i) {
+                    highRiskCell.innerHTML = arr[0].countryRiskData.highRisk[i].country;
+                }
+                newRow.appendChild(highRiskCell);
+
+                var ultraHighRiskCell = document.createElement("div");
+                ultraHighRiskCell.setAttribute("class", "cell cellContents");
+                if (arr[0].countryRiskData.ultraHighRisk.length > i) {
+                    ultraHighRiskCell.innerHTML = arr[0].countryRiskData.ultraHighRisk[i].country;
+                }
+                newRow.appendChild(ultraHighRiskCell);
+
+                thisTable.appendChild(newRow);
+            }
+        }
+    </script>
+
+    <script src="../scriptFiles/countryRisk.js"></script>
+</body>
+
+</html>
