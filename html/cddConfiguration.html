@@ -4,6 +4,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="/css/ruleZone.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
     <title>CDD Level</title>
 </head>
 
@@ -104,7 +105,7 @@
         }
 
         function setNewOptions(optionType) {
-
+            /*
             var data = {
                 "legalExistence": [
                     {
@@ -209,10 +210,181 @@
                         }
                 ]
             };
+            */
+
+            var data = [{
+                    "listOptionID": "legalExistence",
+                    "listOption": "Legal Existence",
+                    "subMenu": [
+                        {
+                            "listOptionID": "articlesOfIncorporation",
+                            "listOption": "Articles of Incorporation"
+                        },
+                        {
+                            "listOptionID": "businessActivity",
+                            "listOption": "Business Activity"
+                        },
+                        {
+                            "listOptionID": "natureOfRelationship",
+                            "listOption": "Nature of Relationship"
+                        },
+                        {
+                            "listOptionID": "productsList",
+                            "listOption": "Products List"
+                        }
+                    ]
+                },
+                {
+                    "listOptionID": "ownershipStructure",
+                    "listOption": "Ownership Structure",
+                    "subMenu": [
+                        {
+                            "listOptionID": "identifyUBO",
+                            "listOption": "Identify UBO"
+                        },
+                        {
+                            "listOptionID": "significantShareholders",
+                            "listOption": "Significant Shareholders",
+                            "subMenu": [
+                                {
+                                    "listOptionID": "3",
+                                    "listOption": "Threshold - 3%"
+                                },
+                                {
+                                    "listOptionID": "5",
+                                    "listOption": "Threshold - 5%"
+                                },
+                                {
+                                    "listOptionID": "10",
+                                    "listOption": "Threshold - 10%"
+                                },
+                                {
+                                    "listOptionID": "15",
+                                    "listOption": "Threshold - 15%"
+                                },
+                                {
+                                    "listOptionID": "20",
+                                    "listOption": "Threshold - 20%"
+                                },
+                                {
+                                    "listOptionID": "25",
+                                    "listOption": "Threshold - 25%"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "listOptionID": "principalsGroup",
+                    "listOption": "Principals",
+                    "subMenu": [
+                        {
+                            "listOptionID": "mainPrincipals",
+                            "listOption": "Main Principals",
+                            "subMenu": [
+                                {
+                                    "listOptionID": "ceo",
+                                    "listOption": "CEO"
+                                },
+                                {
+                                    "listOptionID": "cfo",
+                                    "listOption": "CFO"
+                                }
+                            ]
+                        },
+                        {
+                            "listOptionID": "principals",
+                            "listOption": "Principals",
+                            "subMenu": [
+                                {
+                                    "listOptionID": "boardOfDirectors",
+                                    "listOption": "Board of Directors"
+                                },
+                                {
+                                    "listOptionID": "shariaBoard",
+                                    "listOption": "Sharia Board"
+                                },
+                                {
+                                    "listOptionID": "supervisoryBoard",
+                                    "listOption": "Supervisory Board"
+                                }
+                            ]
+                        },
+                        {
+                            "listOptionID": "pseudoUbo",
+                            "listOption": "Pseudo UBO",
+                            "subMenu": [
+                                {
+                                    "listOptionID": "1main",
+                                    "listOption": "1 Main Principal"
+                                },
+                                {
+                                    "listOptionID": "2main",
+                                    "listOption": "2 Main Principals"
+                                },
+                                {
+                                    "listOptionID": "3main",
+                                    "listOption": "3 Main Principals"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "listOptionID": "legalRep",
+                    "listOption": "Legal Representative",
+                    "subMenu": [
+                        {
+                            "listOptionID": "photoID",
+                            "listOption": "Require Photo ID"
+                        },
+                        {
+                            "listOptionID": "natural",
+                            "listOption": "Natural Person"
+                        }
+                    ]
+                },
+                {
+                    "listOptionID": "screening",
+                    "listOption": "Screening",
+                    "subMenu": [
+                        {
+                            "listOptionID": "internal",
+                            "listOption": "Internal Name Screening"
+                        },
+                        {
+                            "listOptionID": "external",
+                            "listOption": "External Name Screening"
+                        },
+                        {
+                            "listOptionID": "adverse",
+                            "listOption": "Adverse Intelligence Check"
+                        }
+                    ]
+                },
+                {
+                    "listOptionID": "sourceOfFunds",
+                    "listOption": "Source of Funds/Wealth",
+                    "subMenu": [
+                        {
+                            "listOptionID": "capital",
+                            "listOption": "Source of Capital"
+                        },
+                        {
+                            "listOptionID": "income",
+                            "listOption": "Source of Income"
+                        },
+                        {
+                            "listOptionID": "wealth",
+                            "listOption": "Source of Wealth"
+                        }
+                    ]
+                }];
 
             var ulElement = document.getElementById("contentList");
             while (ulElement.firstChild) ulElement.removeChild(ulElement.firstChild);
             //<div id="customerType" class="dnd" draggable="true" ondragstart="handleDragStart(event)">Customer Type</div>
+            /*
             if (optionType == "1") { //Legal Existence
                 //Customer Type Options
                 for (i = 0; i < data.legalExistence.length; i++) {
@@ -276,6 +448,26 @@
                     ulElement.appendChild(newElement);
                 }
             };
+            */
+
+            for (i = 0; i < data.length; i++) {
+                var newElement = document.createElement("li");
+                var newDiv = document.createElement("div");
+
+                newDiv.setAttribute("class", "dnd");
+                newDiv.setAttribute("draggable", "true");
+                newDiv.setAttribute("ondragstart", "handleDragStart(event)");
+
+                newDiv.setAttribute("id", data[i].listOptionID);
+                newDiv.innerHTML = data[i].listOption;
+
+                newElement.appendChild(newDiv);
+                ulElement.appendChild(newElement);
+            }
+
+            //NOW I NEED TO CODE THE DROP EVENT TO LOAD THE CORRECT SUBSET OF OPTIONS IF REQUIRED
+            //Add a reset button so you can go back to starting entities... but not those already selected...
+            // harder than it sounds.
         }
 
         function selectDiv(selectedDivId) {
@@ -323,8 +515,11 @@
             setNewOptions("startUp");
             selectDiv("unselectAll");
         }
+
+        function getCDDLevelData(arr) {
+            return arr;
+        }
     </script>
-    <script src="/scriptFiles/cddLevelConfiguration.js"></script>
 </body>
 
 </html>
