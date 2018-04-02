@@ -259,7 +259,7 @@
                     newElement.appendChild(newDiv);
                     ulElement.appendChild(newElement);
                 }
-            } else {
+            } else if (optionType == "startUp") {
                 //It's startup
                 for (i = 0; i < data.startup.length; i++) {
                     var newElement = document.createElement("li");
@@ -283,16 +283,15 @@
             var standard = document.getElementById("ddStandard");
             var enhanced = document.getElementById("ddEnhanced");
 
-            if (simplified.classList.contains("selectedDiv")) {
-                simplified.setAttribute("class", "ddType");
-            };
-
             simplified.classList.remove("selectedDiv");
             standard.classList.remove("selectedDiv");
             enhanced.classList.remove("selectedDiv");
 
-            var selected = document.getElementById(selectedDivId);
-            selected.classList.add("selectedDiv");
+            if (selectedDivId != "unselectAll") {
+                var selected = document.getElementById(selectedDivId);
+                selected.classList.add("selectedDiv");
+            }
+
         }
 
         function addRuleClick() {
@@ -302,6 +301,13 @@
             rulesBox.appendChild(newRuleElement);
 
             //Now clear the boxes and start again.
+            var ruleContent = document.getElementById("ruleZoneContent");
+            ruleContent.innerHTML = "";
+
+            setNewOptions("startUp");
+            selectDiv("unselectAll");
+            var ruleText = document.getElementById("ruleNameText");
+            ruleText.value = "";
         }
     </script>
 </body>
