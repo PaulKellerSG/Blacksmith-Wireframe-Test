@@ -46,7 +46,7 @@
         var dragSrcEl = null;
 
         $(document).ready(function () {
-            setNewOptions("startUp");
+            setNewOptions("");
         });
 
         function handleDragStart(e) {
@@ -90,7 +90,7 @@
                 e.target.appendChild(sourceElement);
                 // Clear the drag data cache (for all formats/types)
                 e.dataTransfer.clearData();
-                //setNewOptions(data);
+                setNewOptions($('#' + data).data('submenu'));
             }
 
             return false;
@@ -104,7 +104,7 @@
             });
         }
 
-        function setNewOptions(optionType) {
+        function setNewOptions(dataMenuOptions) {
             /*
             var data = {
                 "legalExistence": [
@@ -211,8 +211,8 @@
                 ]
             };
             */
-
-            var data = [{
+            var dataOLD = [{
+                    "parent": "none",
                     "listOptionID": "legalExistence",
                     "listOption": "Legal Existence",
                     "subMenu": [
@@ -273,6 +273,186 @@
                             ]
                         }
                     ]
+                },
+                {
+                    "listOptionID": "principalsGroup",
+                    "listOption": "Principals",
+                    "subMenu": [
+                        {
+                            "listOptionID": "mainPrincipals",
+                            "listOption": "Main Principals",
+                            "subMenu": [
+                                {
+                                    "listOptionID": "ceo",
+                                    "listOption": "CEO"
+                                },
+                                {
+                                    "listOptionID": "cfo",
+                                    "listOption": "CFO"
+                                }
+                            ]
+                        },
+                        {
+                            "listOptionID": "principals",
+                            "listOption": "Principals",
+                            "subMenu": [
+                                {
+                                    "listOptionID": "boardOfDirectors",
+                                    "listOption": "Board of Directors"
+                                },
+                                {
+                                    "listOptionID": "shariaBoard",
+                                    "listOption": "Sharia Board"
+                                },
+                                {
+                                    "listOptionID": "supervisoryBoard",
+                                    "listOption": "Supervisory Board"
+                                }
+                            ]
+                        },
+                        {
+                            "listOptionID": "pseudoUbo",
+                            "listOption": "Pseudo UBO",
+                            "subMenu": [
+                                {
+                                    "listOptionID": "1main",
+                                    "listOption": "1 Main Principal"
+                                },
+                                {
+                                    "listOptionID": "2main",
+                                    "listOption": "2 Main Principals"
+                                },
+                                {
+                                    "listOptionID": "3main",
+                                    "listOption": "3 Main Principals"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "listOptionID": "legalRep",
+                    "listOption": "Legal Representative",
+                    "subMenu": [
+                        {
+                            "listOptionID": "photoID",
+                            "listOption": "Require Photo ID"
+                        },
+                        {
+                            "listOptionID": "natural",
+                            "listOption": "Natural Person"
+                        }
+                    ]
+                },
+                {
+                    "listOptionID": "screening",
+                    "listOption": "Screening",
+                    "subMenu": [
+                        {
+                            "listOptionID": "internal",
+                            "listOption": "Internal Name Screening"
+                        },
+                        {
+                            "listOptionID": "external",
+                            "listOption": "External Name Screening"
+                        },
+                        {
+                            "listOptionID": "adverse",
+                            "listOption": "Adverse Intelligence Check"
+                        }
+                    ]
+                },
+                {
+                    "listOptionID": "sourceOfFunds",
+                    "listOption": "Source of Funds/Wealth",
+                    "subMenu": [
+                        {
+                            "listOptionID": "capital",
+                            "listOption": "Source of Capital"
+                        },
+                        {
+                            "listOptionID": "income",
+                            "listOption": "Source of Income"
+                        },
+                        {
+                            "listOptionID": "wealth",
+                            "listOption": "Source of Wealth"
+                        }
+                    ]
+                }];
+
+            var data = [
+                {
+                    "parent": "none",
+                    "listOptionID": "legalExistence",
+                    "listOption": "Legal Existence"
+                },
+                {
+                    "parent": "legalExistence",
+                    "listOptionID": "articlesOfIncorporation",
+                    "listOption": "Articles of Incorporation"
+                },
+                {
+                    "parent": "legalExistence",
+                    "listOptionID": "businessActivity",
+                    "listOption": "Business Activity"
+                },
+                {
+                    "parent": "legalExistence",
+                    "listOptionID": "natureOfRelationship",
+                    "listOption": "Nature of Relationship"
+                },
+                {
+                    "parent": "legalExistence",
+                    "listOptionID": "productsList",
+                    "listOption": "Products List"
+                },
+                {
+                    "parent": "none",
+                    "listOptionID": "ownershipStructure",
+                    "listOption": "Ownership Structure"
+                },
+
+                {
+                    parent: "ownershipStructure",
+                    "listOptionID": "identifyUBO",
+                    "listOption": "Identify UBO"
+                },
+                {
+                    parent: "ownershipStructure",
+                    "listOptionID": "significantShareholders",
+                    "listOption": "Significant Shareholders"
+                },
+
+                {
+                    parent: "significantShareholders",
+                    "listOptionID": "3",
+                    "listOption": "Threshold - 3%"
+                },
+                {
+                    parent: "significantShareholders",
+                    "listOptionID": "5",
+                    "listOption": "Threshold - 5%"
+                },
+                {
+                    parent: "significantShareholders",
+                    "listOptionID": "10",
+                    "listOption": "Threshold - 10%"
+                },
+                {
+                    parent: "significantShareholders",
+                    "listOptionID": "15",
+                    "listOption": "Threshold - 15%"
+                },
+                {
+                    parent: "significantShareholders",
+                    "listOptionID": "20",
+                    "listOption": "Threshold - 20%"
+                },
+                {
+                    parent: "significantShareholders",
+                    "listOptionID": "25",
+                    "listOption": "Threshold - 25%"
                 },
                 {
                     "listOptionID": "principalsGroup",
@@ -450,7 +630,14 @@
             };
             */
 
-            for (i = 0; i < data.length; i++) {
+            var dataToUse;
+            if (dataMenuOptions == "") {
+                dataToUse = data;
+            } else {
+                dataToUse = dataMenuOptions;
+            }
+
+            for (i = 0; i < dataToUse.length; i++) {
                 var newElement = document.createElement("li");
                 var newDiv = document.createElement("div");
 
@@ -458,8 +645,12 @@
                 newDiv.setAttribute("draggable", "true");
                 newDiv.setAttribute("ondragstart", "handleDragStart(event)");
 
-                newDiv.setAttribute("id", data[i].listOptionID);
-                newDiv.innerHTML = data[i].listOption;
+                newDiv.setAttribute("id", dataToUse[i].listOptionID);
+                newDiv.innerHTML = dataToUse[i].listOption;
+
+                if (dataToUse[i].hasOwnProperty('subMenu')) {
+                    newDiv.setAttribute("data-submenu", dataToUse[i].subMenu);
+                }
 
                 newElement.appendChild(newDiv);
                 ulElement.appendChild(newElement);
