@@ -12,12 +12,16 @@
     <h1>Blacksmith Due Diligence Level Configuration</h1>
     <div id="ruleConstruction">
         <div id="ruleZone">
-            <div id="ruleZoneTitle">Rule Zone</div>
+            <div id="ruleZoneTitle">Rule Zone
+
+            </div>
             <div id="ruleZoneContent" class="dnd" ondrop="handleDrop(event)" ondragover="handleDragOver(event)"></div>
         </div>
 
         <div id="ruleDetail">
-            <div id="ruleDetailTitle">Rule Detail</div>
+            <div id="ruleDetailTitle">Rule Detail
+                <div id="backButton" onclick="levelBackOptions(event)">reset</div>
+            </div>
             <div id="ruleDetailContent">
                 <ul id="contentList">
                 </ul>
@@ -54,6 +58,7 @@
             dragSrcEl = e.target;
             e.dataTransfer.effectAllowed = 'move';
             e.dataTransfer.setData('text/plain', e.target.id);
+
         }
 
         function handleDragOver(e) {
@@ -90,7 +95,16 @@
                 e.target.appendChild(sourceElement);
                 // Clear the drag data cache (for all formats/types)
                 e.dataTransfer.clearData();
-                setNewOptions($('#' + data).data('submenu'));
+
+                if (sourceElement.hasAttribute("data-submenu")) {
+                    setNewOptions($('#' + data).data('submenu'));
+                } else {
+                    setNewOptions("noSubMenu");
+                }
+
+                var backButton = document.getElementById("backButton");
+                backButton.setAttribute("data-parent", $('#' + data).data('parent'));
+                backButton.setAttribute("data-parentlevel", $('#' + data).data('parentlevel'))
             }
 
             return false;
@@ -105,560 +119,45 @@
         }
 
         function setNewOptions(dataMenuOptions) {
-            /*
-            var data = {
-                "legalExistence": [
-                    {
-                        "id": "7",
-                        "listOption": "Articles of Incorporation"
-                    },
-                    {
-                        "id": "8",
-                        "listOption": "Business Activity"
-                    },
-                    {
-                        "id": "9",
-                        "listOption": "Nature of Relationship"
-                    },
-                    {
-                        "id": "10",
-                        "listOption": "Products"
-                    }
-                ],
-                "ownershipStructure": [
-                    {
-                        "id": "11",
-                        "listOption": "UBO"
-                    },
-                    {
-                        "id": "12",
-                        "listOption": "Significant Shareholders"
-                    }
-                ],
-                "thresholds": [
-                    {
-                        "id": "13",
-                        "listOption": "3%"
-                    },
-                    {
-                        "id": "14",
-                        "listOption": "5%"
-                    },
-                    {
-                        "id": "15",
-                        "listOption": "10%"
-                    },
-                    {
-                        "id": "16",
-                        "listOption": "15%"
-                    },
-                    {
-                        "id": "17",
-                        "listOption": "20%"
-                    },
-                    {
-                        "id": "18",
-                        "listOption": "25%"
-                    }
-                ],
-                "principals": [
-                    {
-                        "id": "19",
-                        "listOption": "Main Principles"
-                    },
-                    {
-                        "id": "20",
-                        "listOption": "Principals"
-                    },
-                    {
-                        "id": "21",
-                        "listOption": "Pseudo UBO"
-                    }
-                ],
-                "startup": [
-                    {
-                        "id": "1",
-                        "listOption": "Legal Existence"
-                        },
-                    {
-                        "id": "2",
-                        "listOption": "Ownership Structure"
-                        },
-                    {
-                        "id": "3",
-                        "listOption": "Principals"
-                        },
-                    {
-                        "id": "4",
-                        "listOption": "Legal Representative"
-                        },
-                    {
-                        "id": "22",
-                        "listOption": "Internal Name Screening"
-                        },
-                    {
-                        "id": "23",
-                        "listOption": "External Name Screening"
-                        },
-                    {
-                        "id": "24",
-                        "listOption": "Adverse Intelligence Screening"
-                        },
-                    {
-                        "id": "6",
-                        "listOption": "Source of Funds/Wealth"
-                        }
-                ]
-            };
-            */
-            var dataOLD = [{
-                    "parent": "none",
-                    "listOptionID": "legalExistence",
-                    "listOption": "Legal Existence",
-                    "subMenu": [
-                        {
-                            "listOptionID": "articlesOfIncorporation",
-                            "listOption": "Articles of Incorporation"
-                        },
-                        {
-                            "listOptionID": "businessActivity",
-                            "listOption": "Business Activity"
-                        },
-                        {
-                            "listOptionID": "natureOfRelationship",
-                            "listOption": "Nature of Relationship"
-                        },
-                        {
-                            "listOptionID": "productsList",
-                            "listOption": "Products List"
-                        }
-                    ]
-                },
-                {
-                    "listOptionID": "ownershipStructure",
-                    "listOption": "Ownership Structure",
-                    "subMenu": [
-                        {
-                            "listOptionID": "identifyUBO",
-                            "listOption": "Identify UBO"
-                        },
-                        {
-                            "listOptionID": "significantShareholders",
-                            "listOption": "Significant Shareholders",
-                            "subMenu": [
-                                {
-                                    "listOptionID": "3",
-                                    "listOption": "Threshold - 3%"
-                                },
-                                {
-                                    "listOptionID": "5",
-                                    "listOption": "Threshold - 5%"
-                                },
-                                {
-                                    "listOptionID": "10",
-                                    "listOption": "Threshold - 10%"
-                                },
-                                {
-                                    "listOptionID": "15",
-                                    "listOption": "Threshold - 15%"
-                                },
-                                {
-                                    "listOptionID": "20",
-                                    "listOption": "Threshold - 20%"
-                                },
-                                {
-                                    "listOptionID": "25",
-                                    "listOption": "Threshold - 25%"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "listOptionID": "principalsGroup",
-                    "listOption": "Principals",
-                    "subMenu": [
-                        {
-                            "listOptionID": "mainPrincipals",
-                            "listOption": "Main Principals",
-                            "subMenu": [
-                                {
-                                    "listOptionID": "ceo",
-                                    "listOption": "CEO"
-                                },
-                                {
-                                    "listOptionID": "cfo",
-                                    "listOption": "CFO"
-                                }
-                            ]
-                        },
-                        {
-                            "listOptionID": "principals",
-                            "listOption": "Principals",
-                            "subMenu": [
-                                {
-                                    "listOptionID": "boardOfDirectors",
-                                    "listOption": "Board of Directors"
-                                },
-                                {
-                                    "listOptionID": "shariaBoard",
-                                    "listOption": "Sharia Board"
-                                },
-                                {
-                                    "listOptionID": "supervisoryBoard",
-                                    "listOption": "Supervisory Board"
-                                }
-                            ]
-                        },
-                        {
-                            "listOptionID": "pseudoUbo",
-                            "listOption": "Pseudo UBO",
-                            "subMenu": [
-                                {
-                                    "listOptionID": "1main",
-                                    "listOption": "1 Main Principal"
-                                },
-                                {
-                                    "listOptionID": "2main",
-                                    "listOption": "2 Main Principals"
-                                },
-                                {
-                                    "listOptionID": "3main",
-                                    "listOption": "3 Main Principals"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "listOptionID": "legalRep",
-                    "listOption": "Legal Representative",
-                    "subMenu": [
-                        {
-                            "listOptionID": "photoID",
-                            "listOption": "Require Photo ID"
-                        },
-                        {
-                            "listOptionID": "natural",
-                            "listOption": "Natural Person"
-                        }
-                    ]
-                },
-                {
-                    "listOptionID": "screening",
-                    "listOption": "Screening",
-                    "subMenu": [
-                        {
-                            "listOptionID": "internal",
-                            "listOption": "Internal Name Screening"
-                        },
-                        {
-                            "listOptionID": "external",
-                            "listOption": "External Name Screening"
-                        },
-                        {
-                            "listOptionID": "adverse",
-                            "listOption": "Adverse Intelligence Check"
-                        }
-                    ]
-                },
-                {
-                    "listOptionID": "sourceOfFunds",
-                    "listOption": "Source of Funds/Wealth",
-                    "subMenu": [
-                        {
-                            "listOptionID": "capital",
-                            "listOption": "Source of Capital"
-                        },
-                        {
-                            "listOptionID": "income",
-                            "listOption": "Source of Income"
-                        },
-                        {
-                            "listOptionID": "wealth",
-                            "listOption": "Source of Wealth"
-                        }
-                    ]
-                }];
 
-            var data = [
-                {
-                    "parent": "none",
-                    "listOptionID": "legalExistence",
-                    "listOption": "Legal Existence"
-                },
-                {
-                    "parent": "legalExistence",
-                    "listOptionID": "articlesOfIncorporation",
-                    "listOption": "Articles of Incorporation"
-                },
-                {
-                    "parent": "legalExistence",
-                    "listOptionID": "businessActivity",
-                    "listOption": "Business Activity"
-                },
-                {
-                    "parent": "legalExistence",
-                    "listOptionID": "natureOfRelationship",
-                    "listOption": "Nature of Relationship"
-                },
-                {
-                    "parent": "legalExistence",
-                    "listOptionID": "productsList",
-                    "listOption": "Products List"
-                },
-                {
-                    "parent": "none",
-                    "listOptionID": "ownershipStructure",
-                    "listOption": "Ownership Structure"
-                },
-
-                {
-                    parent: "ownershipStructure",
-                    "listOptionID": "identifyUBO",
-                    "listOption": "Identify UBO"
-                },
-                {
-                    parent: "ownershipStructure",
-                    "listOptionID": "significantShareholders",
-                    "listOption": "Significant Shareholders"
-                },
-
-                {
-                    parent: "significantShareholders",
-                    "listOptionID": "3",
-                    "listOption": "Threshold - 3%"
-                },
-                {
-                    parent: "significantShareholders",
-                    "listOptionID": "5",
-                    "listOption": "Threshold - 5%"
-                },
-                {
-                    parent: "significantShareholders",
-                    "listOptionID": "10",
-                    "listOption": "Threshold - 10%"
-                },
-                {
-                    parent: "significantShareholders",
-                    "listOptionID": "15",
-                    "listOption": "Threshold - 15%"
-                },
-                {
-                    parent: "significantShareholders",
-                    "listOptionID": "20",
-                    "listOption": "Threshold - 20%"
-                },
-                {
-                    parent: "significantShareholders",
-                    "listOptionID": "25",
-                    "listOption": "Threshold - 25%"
-                },
-                {
-                    "listOptionID": "principalsGroup",
-                    "listOption": "Principals",
-                    "subMenu": [
-                        {
-                            "listOptionID": "mainPrincipals",
-                            "listOption": "Main Principals",
-                            "subMenu": [
-                                {
-                                    "listOptionID": "ceo",
-                                    "listOption": "CEO"
-                                },
-                                {
-                                    "listOptionID": "cfo",
-                                    "listOption": "CFO"
-                                }
-                            ]
-                        },
-                        {
-                            "listOptionID": "principals",
-                            "listOption": "Principals",
-                            "subMenu": [
-                                {
-                                    "listOptionID": "boardOfDirectors",
-                                    "listOption": "Board of Directors"
-                                },
-                                {
-                                    "listOptionID": "shariaBoard",
-                                    "listOption": "Sharia Board"
-                                },
-                                {
-                                    "listOptionID": "supervisoryBoard",
-                                    "listOption": "Supervisory Board"
-                                }
-                            ]
-                        },
-                        {
-                            "listOptionID": "pseudoUbo",
-                            "listOption": "Pseudo UBO",
-                            "subMenu": [
-                                {
-                                    "listOptionID": "1main",
-                                    "listOption": "1 Main Principal"
-                                },
-                                {
-                                    "listOptionID": "2main",
-                                    "listOption": "2 Main Principals"
-                                },
-                                {
-                                    "listOptionID": "3main",
-                                    "listOption": "3 Main Principals"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "listOptionID": "legalRep",
-                    "listOption": "Legal Representative",
-                    "subMenu": [
-                        {
-                            "listOptionID": "photoID",
-                            "listOption": "Require Photo ID"
-                        },
-                        {
-                            "listOptionID": "natural",
-                            "listOption": "Natural Person"
-                        }
-                    ]
-                },
-                {
-                    "listOptionID": "screening",
-                    "listOption": "Screening",
-                    "subMenu": [
-                        {
-                            "listOptionID": "internal",
-                            "listOption": "Internal Name Screening"
-                        },
-                        {
-                            "listOptionID": "external",
-                            "listOption": "External Name Screening"
-                        },
-                        {
-                            "listOptionID": "adverse",
-                            "listOption": "Adverse Intelligence Check"
-                        }
-                    ]
-                },
-                {
-                    "listOptionID": "sourceOfFunds",
-                    "listOption": "Source of Funds/Wealth",
-                    "subMenu": [
-                        {
-                            "listOptionID": "capital",
-                            "listOption": "Source of Capital"
-                        },
-                        {
-                            "listOptionID": "income",
-                            "listOption": "Source of Income"
-                        },
-                        {
-                            "listOptionID": "wealth",
-                            "listOption": "Source of Wealth"
-                        }
-                    ]
-                }];
-
-            var ulElement = document.getElementById("contentList");
-            while (ulElement.firstChild) ulElement.removeChild(ulElement.firstChild);
-            //<div id="customerType" class="dnd" draggable="true" ondragstart="handleDragStart(event)">Customer Type</div>
-            /*
-            if (optionType == "1") { //Legal Existence
-                //Customer Type Options
-                for (i = 0; i < data.legalExistence.length; i++) {
-                    var newElement = document.createElement("li");
-                    var newDiv = document.createElement("div");
-
-                    newDiv.setAttribute("class", "dnd");
-                    newDiv.setAttribute("draggable", "true");
-                    newDiv.setAttribute("ondragstart", "handleDragStart(event)");
-
-                    newDiv.setAttribute("id", data.legalExistence[i].id);
-                    newDiv.innerHTML = data.legalExistence[i].listOption;
-
-                    newElement.appendChild(newDiv);
-                    ulElement.appendChild(newElement);
-                }
-            } else if (optionType == "2") { //Ownership Structure
-                for (i = 0; i < data.ownershipStructure.length; i++) {
-                    var newElement = document.createElement("li");
-                    var newDiv = document.createElement("div");
-
-                    newDiv.setAttribute("class", "dnd");
-                    newDiv.setAttribute("draggable", "true");
-                    newDiv.setAttribute("ondragstart", "handleDragStart(event)");
-
-                    newDiv.setAttribute("id", data.ownershipStructure[i].id);
-                    newDiv.innerHTML = data.ownershipStructure[i].listOption;
-
-                    newElement.appendChild(newDiv);
-                    ulElement.appendChild(newElement);
-                }
-            } else if (optionType == "3") { //Principals
-                for (i = 0; i < data.principals.length; i++) {
-                    var newElement = document.createElement("li");
-                    var newDiv = document.createElement("div");
-
-                    newDiv.setAttribute("class", "dnd");
-                    newDiv.setAttribute("draggable", "true");
-                    newDiv.setAttribute("ondragstart", "handleDragStart(event)");
-
-                    newDiv.setAttribute("id", data.principals[i].id);
-                    newDiv.innerHTML = data.principals[i].listOption;
-
-                    newElement.appendChild(newDiv);
-                    ulElement.appendChild(newElement);
-                }
-            } else if (optionType == "startUp") {
-                //It's startup
-                for (i = 0; i < data.startup.length; i++) {
-                    var newElement = document.createElement("li");
-                    var newDiv = document.createElement("div");
-
-                    newDiv.setAttribute("class", "dnd");
-                    newDiv.setAttribute("draggable", "true");
-                    newDiv.setAttribute("ondragstart", "handleDragStart(event)");
-
-                    newDiv.setAttribute("id", data.startup[i].id);
-                    newDiv.innerHTML = data.startup[i].listOption;
-
-                    newElement.appendChild(newDiv);
-                    ulElement.appendChild(newElement);
-                }
-            };
-            */
+            var data = getData();
 
             var dataToUse;
+            var addNewOptions = true;
+
             if (dataMenuOptions == "") {
                 dataToUse = data;
+            } else if (dataMenuOptions == "noSubMenu") {
+                addNewOptions = false;
             } else {
                 dataToUse = dataMenuOptions;
             }
 
-            for (i = 0; i < dataToUse.length; i++) {
-                var newElement = document.createElement("li");
-                var newDiv = document.createElement("div");
+            if (addNewOptions) {
+                var ulElement = document.getElementById("contentList");
+                while (ulElement.firstChild) ulElement.removeChild(ulElement.firstChild);
 
-                newDiv.setAttribute("class", "dnd");
-                newDiv.setAttribute("draggable", "true");
-                newDiv.setAttribute("ondragstart", "handleDragStart(event)");
+                for (i = 0; i < dataToUse.length; i++) {
+                    var newElement = document.createElement("li");
+                    var newDiv = document.createElement("div");
 
-                newDiv.setAttribute("id", dataToUse[i].listOptionID);
-                newDiv.innerHTML = dataToUse[i].listOption;
+                    newDiv.setAttribute("class", "dnd");
+                    newDiv.setAttribute("draggable", "true");
+                    newDiv.setAttribute("ondragstart", "handleDragStart(event)");
+                    newDiv.setAttribute("data-parent", dataToUse[i].parent);
+                    newDiv.setAttribute("data-parentlevel", dataToUse[i].parentLevel);
 
-                if (dataToUse[i].hasOwnProperty('subMenu')) {
-                    newDiv.setAttribute("data-submenu", dataToUse[i].subMenu);
+                    newDiv.setAttribute("id", dataToUse[i].listOptionID);
+                    newDiv.innerHTML = dataToUse[i].listOption;
+
+                    if (dataToUse[i].hasOwnProperty('subMenu')) {
+                        newDiv.setAttribute("data-submenu", JSON.stringify(dataToUse[i].subMenu)); //Stringfy it into the data object
+                    }
+
+                    newElement.appendChild(newDiv);
+                    ulElement.appendChild(newElement);
                 }
-
-                newElement.appendChild(newDiv);
-                ulElement.appendChild(newElement);
             }
-
-            //NOW I NEED TO CODE THE DROP EVENT TO LOAD THE CORRECT SUBSET OF OPTIONS IF REQUIRED
-            //Add a reset button so you can go back to starting entities... but not those already selected...
-            // harder than it sounds.
         }
 
         function selectDiv(selectedDivId) {
@@ -709,6 +208,301 @@
 
         function getCDDLevelData(arr) {
             return arr;
+        }
+
+        function levelBackOptions(e) {
+            var data = getData();
+            var backButton = document.getElementById("backButton");
+            var parentID = backButton.getAttribute("data-parent");
+            var parentLevel = backButton.getAttribute("data-parentlevel");
+            var parentsFound = false
+
+            var ulElement = document.getElementById("contentList");
+            while (ulElement.firstChild) ulElement.removeChild(ulElement.firstChild);
+
+            for (i = 0; i < data.length; i++) {
+
+                var newElement = document.createElement("li");
+                var newDiv = document.createElement("div");
+
+                newDiv.setAttribute("class", "dnd");
+                newDiv.setAttribute("draggable", "true");
+                newDiv.setAttribute("ondragstart", "handleDragStart(event)");
+                newDiv.setAttribute("data-parent", data[i].parent);
+                newDiv.setAttribute("data-parentlevel", data[i].parentLevel);
+
+                newDiv.setAttribute("id", data[i].listOptionID);
+                newDiv.innerHTML = data[i].listOption;
+
+                if (data[i].hasOwnProperty('subMenu')) {
+                    newDiv.setAttribute("data-submenu", JSON.stringify(data[i].subMenu)); //Stringfy it into the data object
+                }
+
+                //if (newDiv.getAttribute("parent") == parentID && newDiv.getAttribute("data-parentlevel") == parentLevel) {
+                if (newDiv.getAttribute("id") == parentID) {
+                    newElement.appendChild(newDiv);
+                    ulElement.appendChild(newElement);
+                    stepThroughData();
+
+                }
+            }
+
+        }
+
+        function stepThroughData() {
+            //pass through the next set of data to loop through
+            //keep passing in new loops until you hit the end or hit the result
+
+            for (j = 0; j < data[i].subMenu.length; j++) {
+
+            }
+        }
+
+        function getData() {
+            var data = [{
+                    "parent": "none",
+                    "parentLevel": "0",
+                    "listOptionID": "legalExistence",
+                    "listOption": "Legal Existence",
+                    "subMenu": [
+                        {
+                            "parent": "legalExistence",
+                            "parentLevel": "1",
+                            "listOptionID": "articlesOfIncorporation",
+                            "listOption": "Articles of Incorporation"
+                        },
+                        {
+                            "parent": "legalExistence",
+                            "parentLevel": "1",
+                            "listOptionID": "businessActivity",
+                            "listOption": "Business Activity"
+                        },
+                        {
+                            "parent": "legalExistence",
+                            "parentLevel": "1",
+                            "listOptionID": "natureOfRelationship",
+                            "listOption": "Nature of Relationship"
+                        },
+                        {
+                            "parent": "legalExistence",
+                            "parentLevel": "1",
+                            "listOptionID": "productsList",
+                            "listOption": "Products List"
+                        }
+                    ]
+                },
+                {
+                    "parent": "none",
+                    "parentLevel": "0",
+                    "listOptionID": "ownershipStructure",
+                    "listOption": "Ownership Structure",
+                    "subMenu": [
+                        {
+                            "parent": "ownershipStructure",
+                            "parentLevel": "1",
+                            "listOptionID": "identifyUBO",
+                            "listOption": "Identify UBO"
+                        },
+                        {
+                            "parent": "ownershipStructure",
+                            "parentLevel": "1",
+                            "listOptionID": "significantShareholders",
+                            "listOption": "Significant Shareholders",
+                            "subMenu": [
+                                {
+                                    "parent": "significantShareholders",
+                                    "parentLevel": "2",
+                                    "listOptionID": "3",
+                                    "listOption": "Threshold - 3%"
+                                },
+                                {
+                                    "parent": "significantShareholders",
+                                    "parentLevel": "2",
+                                    "listOptionID": "5",
+                                    "listOption": "Threshold - 5%"
+                                },
+                                {
+                                    "parent": "significantShareholders",
+                                    "parentLevel": "2",
+                                    "listOptionID": "10",
+                                    "listOption": "Threshold - 10%"
+                                },
+                                {
+                                    "parent": "significantShareholders",
+                                    "parentLevel": "2",
+                                    "listOptionID": "15",
+                                    "listOption": "Threshold - 15%"
+                                },
+                                {
+                                    "parent": "significantShareholders",
+                                    "parentLevel": "2",
+                                    "listOptionID": "20",
+                                    "listOption": "Threshold - 20%"
+                                },
+                                {
+                                    "parent": "significantShareholders",
+                                    "parentLevel": "2",
+                                    "listOptionID": "25",
+                                    "listOption": "Threshold - 25%"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "parent": "none",
+                    "parentLevel": "0",
+                    "listOptionID": "principalsGroup",
+                    "listOption": "Principals",
+                    "subMenu": [
+                        {
+                            "parent": "principalsGroup",
+                            "parentLevel": "1",
+                            "listOptionID": "mainPrincipals",
+                            "listOption": "Main Principals",
+                            "subMenu": [
+                                {
+                                    "parent": "mainPrincipals",
+                                    "parentLevel": "2",
+                                    "listOptionID": "ceo",
+                                    "listOption": "CEO"
+                                },
+                                {
+                                    "parent": "mainPrincipals",
+                                    "parentLevel": "2",
+                                    "listOptionID": "cfo",
+                                    "listOption": "CFO"
+                                }
+                            ]
+                        },
+                        {
+                            "parent": "principalsGroup",
+                            "parentLevel": "1",
+                            "listOptionID": "principals",
+                            "listOption": "Principals",
+                            "subMenu": [
+                                {
+                                    "parent": "principals",
+                                    "parentLevel": "2",
+                                    "listOptionID": "boardOfDirectors",
+                                    "listOption": "Board of Directors"
+                                },
+                                {
+                                    "parent": "principals",
+                                    "parentLevel": "2",
+                                    "listOptionID": "shariaBoard",
+                                    "listOption": "Sharia Board"
+                                },
+                                {
+                                    "parent": "principals",
+                                    "parentLevel": "2",
+                                    "listOptionID": "supervisoryBoard",
+                                    "listOption": "Supervisory Board"
+                                }
+                            ]
+                        },
+                        {
+                            "parent": "principalsGroup",
+                            "parentLevel": "1",
+                            "listOptionID": "pseudoUbo",
+                            "listOption": "Pseudo UBO",
+                            "subMenu": [
+                                {
+                                    "parent": "pseudoUBO",
+                                    "parentLevel": "2",
+                                    "listOptionID": "1main",
+                                    "listOption": "1 Main Principal"
+                                },
+                                {
+                                    "parent": "pseudoUBO",
+                                    "parentLevel": "2",
+                                    "listOptionID": "2main",
+                                    "listOption": "2 Main Principals"
+                                },
+                                {
+                                    "parent": "pseudoUBO",
+                                    "parentLevel": "2",
+                                    "listOptionID": "3main",
+                                    "listOption": "3 Main Principals"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "parent": "none",
+                    "parentLevel": "0",
+                    "listOptionID": "legalRep",
+                    "listOption": "Legal Representative",
+                    "subMenu": [
+                        {
+                            "parent": "legalRep",
+                            "parentLevel": "1",
+                            "listOptionID": "photoID",
+                            "listOption": "Require Photo ID"
+                        },
+                        {
+                            "parent": "legalRep",
+                            "parentLevel": "1",
+                            "listOptionID": "natural",
+                            "listOption": "Natural Person"
+                        }
+                    ]
+                },
+                {
+                    "parent": "none",
+                    "parentLevel": "0",
+                    "listOptionID": "screening",
+                    "listOption": "Screening",
+                    "subMenu": [
+                        {
+                            "parent": "screening",
+                            "parentLevel": "1",
+                            "listOptionID": "internal",
+                            "listOption": "Internal Name Screening"
+                        },
+                        {
+                            "parent": "screening",
+                            "parentLevel": "1",
+                            "listOptionID": "external",
+                            "listOption": "External Name Screening"
+                        },
+                        {
+                            "parent": "screening",
+                            "parentLevel": "1",
+                            "listOptionID": "adverse",
+                            "listOption": "Adverse Intelligence Check"
+                        }
+                    ]
+                },
+                {
+                    "parent": "none",
+                    "parentLevel": "0",
+                    "listOptionID": "sourceOfFunds",
+                    "listOption": "Source of Funds/Wealth",
+                    "subMenu": [
+                        {
+                            "parent": "sourceOfFunds",
+                            "parentLevel": "1",
+                            "listOptionID": "capital",
+                            "listOption": "Source of Capital"
+                        },
+                        {
+                            "parent": "sourceOfFunds",
+                            "parentLevel": "1",
+                            "listOptionID": "income",
+                            "listOption": "Source of Income"
+                        },
+                        {
+                            "parent": "sourceOfFunds",
+                            "parentLevel": "1",
+                            "listOptionID": "wealth",
+                            "listOption": "Source of Wealth"
+                        }
+                    ]
+                }];
+
+            return data;
         }
     </script>
 </body>
