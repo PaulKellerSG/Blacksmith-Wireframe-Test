@@ -1,0 +1,41 @@
+body {
+    background-image: url('/images/network.gif');
+    background-size: 100%;
+    background-repeat: repeat-y;
+    background-attachment: fixed;
+    height: 100%;
+    width: 100%;
+    color: white;
+    margin-top: 800px;
+}
+
+h1 {
+    text-align: center;
+}
+
+div {
+    text-align: center;
+}
+
+a {
+    font-size: 16pt;
+    text-align: center;
+}
+
+a:link {
+    text-decoration: none;
+    color: cornflowerblue;
+}
+
+a:visited {
+    text-decoration: none;
+    color: cornflowerblue;
+}
+
+a:hover {
+    color: darkmagenta;
+}
+
+a:active {
+    color: aqua;
+}

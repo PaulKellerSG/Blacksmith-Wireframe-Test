@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css?family=Cairo');
+html {
+    font-family: 'Cairo', sans-serif;
+    font-size: 18pt;
+}
+
+table {
+    width: 100%;
+    padding: 8px;
+}
+
+th {
+    height: 50px;
+    background-color: black;
+    color: white;
+}
+
+td {
+    padding: 8px;
+    border: solid thin black;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+.check {
+    height: 30px;
+    width: 30px;
+}
+
+.tdImg {
+    text-align: center;
+}
+
+.tdDate {
+    text-align: right;
+}
+
+.tdGreen {
+    background-color: darkseagreen;
+    width: 300px;
+}
+
+.tdYellow {
+    background-color: gold;
+}
+
+.tdRed {
+    background-color: red;
+}
+
+header {
+    font-size: 40pt;
+    text-align: center;
+}
+
+.bankLogo {
+    height: 50px;
+    width: 50px;
+    margin-left: 30px;
+}
