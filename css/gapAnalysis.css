@@ -62,3 +62,7 @@ header {
 #summaryInfo {
     width: 68%;
 }
+
+#flagsCount {
+    background-color: gold;
+}
