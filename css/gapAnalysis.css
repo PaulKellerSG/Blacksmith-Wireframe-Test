@@ -60,9 +60,15 @@ header {
 }
 
 #summaryInfo {
-    width: 68%;
+    width: 55%;
 }
 
 #flagsCount {
     background-color: gold;
+}
+
+.outcomeHeader {
+    text-align: left;
+    padding-left: 8px;
+    width: 500px;
 }
