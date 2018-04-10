@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Cairo');
+html {
+    font-family: 'Cairo', sans-serif;
+    font-size: 14pt;
+}
+
 #ruleZone {
     float: left;
     width: 50%;

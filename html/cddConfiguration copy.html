@@ -4,7 +4,7 @@
 <head>
     <link rel="stylesheet" type="text/css" href="/css/ruleZone.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="/scriptFiles/jsonpath-0.8.0.js"></script>
+
     <title>CDD Level</title>
 </head>
 
@@ -20,7 +20,7 @@
 
         <div id="ruleDetail">
             <div id="ruleDetailTitle">Rule Detail
-                <div id="backButton" onclick="levelBackOptions(event)" data-parentid='[{"parent":""}]'>reset</div>
+                <div id="backButton" onclick="levelBackOptions(event)">reset</div>
             </div>
             <div id="ruleDetailContent">
                 <ul id="contentList">
@@ -96,29 +96,15 @@
                 // Clear the drag data cache (for all formats/types)
                 e.dataTransfer.clearData();
 
-                //var dataJson = jsonPath(getData(), "$.menu[?(@.parentID=='" + sourceElement.getAttribute("id") + "')]");
-
-                setNewOptions($('#' + data).data('id'));
-
-                /*
-                if (sourceElement.hasAttribute("data-parentid")) {
-                    setNewOptions($('#' + data).data('parentid'));
+                if (sourceElement.hasAttribute("data-submenu")) {
+                    setNewOptions($('#' + data).data('submenu'));
                 } else {
-                    setNewOptions("");
+                    setNewOptions("noSubMenu");
                 }
-                */
 
                 var backButton = document.getElementById("backButton");
-                var parentID = backButton.getAttribute("data-parentid");
-                if ($('#' + data).data('parentid') != "") {
-                    var id = $('#' + data).data('parentid');
-                    var arr = JSON.parse(backButton.getAttribute("data-parentid"));
-                    arr.push({
-                        "parent": '"' + id + '"'
-                    });
-                    backButton.setAttribute("data-parentid", JSON.stringify(arr));
-                    backButton.setAttribute("data-id", $('#' + data).data('id'));
-                }
+                backButton.setAttribute("data-parent", $('#' + data).data('parent'));
+                backButton.setAttribute("data-parentlevel", $('#' + data).data('parentlevel'))
             }
 
             return false;
@@ -139,7 +125,6 @@
             var dataToUse;
             var addNewOptions = true;
 
-            /*
             if (dataMenuOptions == "") {
                 dataToUse = data;
             } else if (dataMenuOptions == "noSubMenu") {
@@ -147,11 +132,8 @@
             } else {
                 dataToUse = dataMenuOptions;
             }
-            */
 
-            dataToUse = jsonPath(data, "$.menu[?(@.parentID=='" + dataMenuOptions + "')]");
-
-            if (dataToUse != false) {
+            if (addNewOptions) {
                 var ulElement = document.getElementById("contentList");
                 while (ulElement.firstChild) ulElement.removeChild(ulElement.firstChild);
 
@@ -162,11 +144,15 @@
                     newDiv.setAttribute("class", "dnd");
                     newDiv.setAttribute("draggable", "true");
                     newDiv.setAttribute("ondragstart", "handleDragStart(event)");
-                    newDiv.setAttribute("data-parentid", dataToUse[i].parentID);
-                    newDiv.setAttribute("data-id", dataToUse[i].id);
+                    newDiv.setAttribute("data-parent", dataToUse[i].parent);
+                    newDiv.setAttribute("data-parentlevel", dataToUse[i].parentLevel);
 
                     newDiv.setAttribute("id", dataToUse[i].listOptionID);
                     newDiv.innerHTML = dataToUse[i].listOption;
+
+                    if (dataToUse[i].hasOwnProperty('subMenu')) {
+                        newDiv.setAttribute("data-submenu", JSON.stringify(dataToUse[i].subMenu)); //Stringfy it into the data object
+                    }
 
                     newElement.appendChild(newDiv);
                     ulElement.appendChild(newElement);
@@ -220,17 +206,55 @@
             selectDiv("unselectAll");
         }
 
+        function getCDDLevelData(arr) {
+            return arr;
+        }
+
         function levelBackOptions(e) {
+            var data = getData();
             var backButton = document.getElementById("backButton");
-            var parentJson = JSON.parse(backButton.getAttribute("data-parentid"));
-            if (parentJson.length - 1 == 0) {
-                setNewOptions("");
-            } else {
-                var indexNo = parentJson.length - 1;
-                var backParentID = parentJson[indexNo];
-                setNewOptions(backParentID);
-                parentJson.splice(indexNo, 1);
-                backButton.setAttribute("data-parentid", JSON.stringify(parentJson));
+            var parentID = backButton.getAttribute("data-parent");
+            var parentLevel = backButton.getAttribute("data-parentlevel");
+            var parentsFound = false
+
+            var ulElement = document.getElementById("contentList");
+            while (ulElement.firstChild) ulElement.removeChild(ulElement.firstChild);
+
+            for (i = 0; i < data.length; i++) {
+
+                var newElement = document.createElement("li");
+                var newDiv = document.createElement("div");
+
+                newDiv.setAttribute("class", "dnd");
+                newDiv.setAttribute("draggable", "true");
+                newDiv.setAttribute("ondragstart", "handleDragStart(event)");
+                newDiv.setAttribute("data-parent", data[i].parent);
+                newDiv.setAttribute("data-parentlevel", data[i].parentLevel);
+
+                newDiv.setAttribute("id", data[i].listOptionID);
+                newDiv.innerHTML = data[i].listOption;
+
+                if (data[i].hasOwnProperty('subMenu')) {
+                    newDiv.setAttribute("data-submenu", JSON.stringify(data[i].subMenu)); //Stringfy it into the data object
+                }
+
+                //if (newDiv.getAttribute("parent") == parentID && newDiv.getAttribute("data-parentlevel") == parentLevel) {
+                if (newDiv.getAttribute("id") == parentID) {
+                    newElement.appendChild(newDiv);
+                    ulElement.appendChild(newElement);
+                    stepThroughData();
+
+                }
+            }
+
+        }
+
+        function stepThroughData() {
+            //pass through the next set of data to loop through
+            //keep passing in new loops until you hit the end or hit the result
+
+            for (j = 0; j < data[i].subMenu.length; j++) {
+
             }
         }
 
@@ -453,7 +477,7 @@
                         "parentID": "32",
                         "listOptionID": "wealth",
                         "listOption": "Source of Wealth"
-                    }
+                    },
                 ]
             };
 
