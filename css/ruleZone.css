@@ -10,10 +10,12 @@ html {
 }
 
 #ruleZoneContent {
-    height: 300px;
+    height: auto;
+    min-height: 300px;
     border-width: thin;
     border-color: black;
     border-style: solid;
+    padding-top: 20px;
 }
 
 #ruleDetail {

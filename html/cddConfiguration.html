@@ -15,7 +15,7 @@
             <div id="ruleZoneTitle">Rule Zone
 
             </div>
-            <div id="ruleZoneContent" class="dnd" ondrop="handleDrop(event)" ondragover="handleDragOver(event)"></div>
+            <div id="ruleZoneContent" class="dnd" ondrop="handleDrop(event)" ondragover="handleDragOver(event)" data-id='[{"id":""}]'></div>
         </div>
 
         <div id="ruleDetail">
@@ -98,17 +98,8 @@
 
                 //var dataJson = jsonPath(getData(), "$.menu[?(@.parentID=='" + sourceElement.getAttribute("id") + "')]");
 
-                setNewOptions($('#' + data).data('id'));
-
-                /*
-                if (sourceElement.hasAttribute("data-parentid")) {
-                    setNewOptions($('#' + data).data('parentid'));
-                } else {
-                    setNewOptions("");
-                }
-                */
-
                 var backButton = document.getElementById("backButton");
+                var dropZone = document.getElementById("ruleZoneContent");
                 var parentID = backButton.getAttribute("data-parentid");
                 if ($('#' + data).data('parentid') != "") {
                     var id = $('#' + data).data('parentid');
@@ -119,6 +110,14 @@
                     backButton.setAttribute("data-parentid", JSON.stringify(arr));
                     backButton.setAttribute("data-id", $('#' + data).data('id'));
                 }
+
+                var arrID = JSON.parse(dropZone.getAttribute("data-id"));
+                arrID.push({
+                    "id": $('#' + data).data('id')
+                })
+                dropZone.setAttribute("data-id", JSON.stringify(arrID));
+
+                setNewOptions($('#' + data).data('id'));
             }
 
             return false;
@@ -132,36 +131,43 @@
             });
         }
 
+        function handleDivClick(e) {
+            //Drill down options on click of div
+            //var dataJson = jsonPath(getData(), "$.menu[?(@.parentID=='" + sourceElement.getAttribute("data-id") + "')]");
+            setNewOptions(e.target.getAttribute("data-id"));
+        }
+
         function setNewOptions(dataMenuOptions) {
 
             var data = getData();
-
             var dataToUse;
             var addNewOptions = true;
-
-            /*
-            if (dataMenuOptions == "") {
-                dataToUse = data;
-            } else if (dataMenuOptions == "noSubMenu") {
-                addNewOptions = false;
-            } else {
-                dataToUse = dataMenuOptions;
-            }
-            */
-
             dataToUse = jsonPath(data, "$.menu[?(@.parentID=='" + dataMenuOptions + "')]");
 
             if (dataToUse != false) {
                 var ulElement = document.getElementById("contentList");
                 while (ulElement.firstChild) ulElement.removeChild(ulElement.firstChild);
 
+                //var alreadyUsed = JSON.parse(document.getElementById("ruleZoneContent").getAttribute("data-id"));
                 for (i = 0; i < dataToUse.length; i++) {
+                    /*
+                    var inUse = false;
+                    for (j = 0; j < alreadyUsed.length; j++) {
+                        if (dataToUse[i].id == alreadyUsed[j].id) {
+                            inUse = true;
+                            break;
+                        }
+                    }
+                    */
+
+                    //if (inUse == false) {
                     var newElement = document.createElement("li");
                     var newDiv = document.createElement("div");
 
                     newDiv.setAttribute("class", "dnd");
                     newDiv.setAttribute("draggable", "true");
                     newDiv.setAttribute("ondragstart", "handleDragStart(event)");
+                    newDiv.setAttribute("onclick", "handleDivClick(event)");
                     newDiv.setAttribute("data-parentid", dataToUse[i].parentID);
                     newDiv.setAttribute("data-id", dataToUse[i].id);
 
@@ -170,6 +176,7 @@
 
                     newElement.appendChild(newDiv);
                     ulElement.appendChild(newElement);
+                    //}
                 }
             }
         }
@@ -204,6 +211,7 @@
             }
 
             var containerDiv = document.getElementById("ruleZoneContent");
+            containerDiv.setAttribute("data-id", '{"id":""}');
             var innerDivs = containerDiv.getElementsByTagName("div");
             for (var i = 0; i < innerDivs.length; i++) {
                 newRuleText += innerDivs[i].innerHTML;
@@ -221,6 +229,7 @@
         }
 
         function levelBackOptions(e) {
+            /*
             var backButton = document.getElementById("backButton");
             var parentJson = JSON.parse(backButton.getAttribute("data-parentid"));
             if (parentJson.length - 1 == 0) {
@@ -232,6 +241,9 @@
                 parentJson.splice(indexNo, 1);
                 backButton.setAttribute("data-parentid", JSON.stringify(parentJson));
             }
+            */
+
+            setNewOptions("");
         }
 
         function getData() {
