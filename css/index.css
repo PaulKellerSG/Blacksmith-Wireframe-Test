@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Cairo');
+html {
+    font-family: 'Cairo', sans-serif;
+    font-size: 18pt;
+}
+
 body {
     background-image: url('/images/network.gif');
     background-size: 100%;
@@ -6,10 +12,11 @@ body {
     height: 100%;
     width: 100%;
     color: white;
-    margin-top: 800px;
+    margin-top: 700px;
 }
 
 h1 {
+    font-size: 36pt;
     text-align: center;
 }
 
@@ -18,7 +25,7 @@ div {
 }
 
 a {
-    font-size: 16pt;
+    font-size: 26pt;
     text-align: center;
 }
 

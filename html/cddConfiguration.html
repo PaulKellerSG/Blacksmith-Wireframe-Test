@@ -5,11 +5,16 @@
     <link rel="stylesheet" type="text/css" href="/css/ruleZone.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="/scriptFiles/jsonpath-0.8.0.js"></script>
-    <title>CDD Level</title>
+    <title>Rule Configuration</title>
+    <link rel="icon" href="/images/swords-crossed.png">
 </head>
 
 <body>
-    <h1>Blacksmith Due Diligence Level Configuration</h1>
+    <h1>Blacksmith Due Diligence Configuration</h1>
+    <select id="config" size="2" onchange="selectChange()">
+        <option value="policy" selected>Configure Your CDD Policy</option>
+        <option value="working">Configure Your Other Thing?</option>
+    </select>
     <div id="ruleConstruction">
         <div id="ruleZone">
             <div id="ruleZoneTitle">Rule Zone
@@ -34,6 +39,8 @@
             <div id="ddSimplified" class="ddType" onclick="selectDiv('ddSimplified')">Simplified</div>
             <div id="ddStandard" class="ddType" onclick="selectDiv('ddStandard')">Standard</div>
             <div id="ddEnhanced" class="ddType" onclick="selectDiv('ddEnhanced')">Enhanced</div>
+            <div id="ddAlert" class="ddType" onclick="selectDiv('ddAlert')">Alert Flags</div>
+            <div id="ddEdd" class="ddType" onclick="selectDiv('ddEdd')">Enhanced Due Diligence Triggers</div>
         </div>
     </div>
 
@@ -50,8 +57,24 @@
         var dragSrcEl = null;
 
         $(document).ready(function () {
+            selectChange();
             setNewOptions("");
         });
+
+        function selectChange() {
+            var selectOption = document.getElementById("config").value
+            var alertDiv = document.getElementById("ddAlert");
+            var eddDiv = document.getElementById("ddEdd");
+
+            if (selectOption == "policy") {
+                alertDiv.style.display = "none";
+                eddDiv.style.display = "none";
+            } else {
+                alertDiv.style.display = "block";
+                eddDiv.style.display = "block";
+            }
+            setNewOptions("");
+        }
 
         function handleDragStart(e) {
             e.target.style.opacity = '0.4';
@@ -138,7 +161,6 @@
         }
 
         function setNewOptions(dataMenuOptions) {
-
             var data = getData();
             var dataToUse;
             var addNewOptions = true;
@@ -172,10 +194,14 @@
             var simplified = document.getElementById("ddSimplified");
             var standard = document.getElementById("ddStandard");
             var enhanced = document.getElementById("ddEnhanced");
+            var alertDiv = document.getElementById("ddAlert");
+            var eddDiv = document.getElementById("ddEdd");
 
             simplified.classList.remove("selectedDiv");
             standard.classList.remove("selectedDiv");
             enhanced.classList.remove("selectedDiv");
+            alertDiv.classList.remove("selectedDiv");
+            eddDiv.classList.remove("selectedDiv");
 
             if (selectedDivId != "unselectAll") {
                 var selected = document.getElementById(selectedDivId);
@@ -240,7 +266,7 @@
 
         function getData() {
 
-            var data = {
+            var cddMenus = {
                 "menu": [
                     {
                         "id": "0",
@@ -497,7 +523,265 @@
                 ]
             };
 
-            return data;
+            var cddRequirements = {
+                "menu": [
+                    {
+                        "id": "0",
+                        "parentID": "",
+                        "listOptionID": "customerType",
+                        "listOption": "Customer Type"
+                    },
+                    {
+                        "id": "1",
+                        "parentID": "0",
+                        "listOptionID": "plc",
+                        "listOption": "Publicly Listed Company"
+                    },
+                    {
+                        "id": "2",
+                        "parentID": "0",
+                        "listOptionID": "regulatedFI",
+                        "listOption": "Regulated FI"
+                    },
+                    {
+                        "id": "3",
+                        "parentID": "0",
+                        "listOptionID": "centralBank",
+                        "listOption": "Central Bank / Monatary Authority"
+                    },
+                    {
+                        "id": "4",
+                        "parentID": "0",
+                        "listOptionID": "fund",
+                        "listOption": "Fund"
+                    },
+                    {
+                        "id": "5",
+                        "parentID": "0",
+                        "listOptionID": "nonProfit",
+                        "listOption": "Non-Profit / Charity"
+                    },
+                    {
+                        "id": "6",
+                        "parentID": "0",
+                        "listOptionID": "internalEntity",
+                        "listOption": "Internal Entity"
+                    },
+                    {
+                        "id": "7",
+                        "parentID": "0",
+                        "listOptionID": "publicAuthority",
+                        "listOption": "Public Authority"
+                    },
+                    {
+                        "id": "8",
+                        "parentID": "0",
+                        "listOptionID": "stateOwned",
+                        "listOption": "State Owned"
+                    },
+                    {
+                        "id": "9",
+                        "parentID": "0",
+                        "listOptionID": "trust",
+                        "listOption": "Trust"
+                    },
+                    {
+                        "id": "10",
+                        "parentID": "",
+                        "listOptionID": "regulator",
+                        "listOption": "Regulator"
+                    },
+                    {
+                        "id": "11",
+                        "parentID": "10",
+                        "listOptionID": "recognisedRegulator",
+                        "listOption": "Recognised Regulator"
+                    },
+                    {
+                        "id": "12",
+                        "parentID": "10",
+                        "listOptionID": "unrecognisedRegulator",
+                        "listOption": "Unrecognised Regulator"
+                    },
+                    {
+                        "id": "13",
+                        "parentID": "",
+                        "listOptionID": "country",
+                        "listOption": "Country"
+                    },
+                    {
+                        "id": "14",
+                        "parentID": "13",
+                        "listOptionID": "mediumRisk",
+                        "listOption": "Medium Risk Country"
+                    },
+                    {
+                        "id": "15",
+                        "parentID": "13",
+                        "listOptionID": "highRisk",
+                        "listOption": "High Risk Country"
+                    },
+                    {
+                        "id": "16",
+                        "parentID": "13",
+                        "listOptionID": "ultraHighRisk",
+                        "listOption": "Ultra High Risk Country"
+                    },
+                    {
+                        "id": "17",
+                        "parentID": "",
+                        "listOptionID": "industry",
+                        "listOption": "Industry"
+                    },
+                    {
+                        "id": "18",
+                        "parentID": "",
+                        "listOptionID": "products",
+                        "listOption": "Products"
+                    },
+                    {
+                        "id": "19",
+                        "parentID": "",
+                        "listOptionID": "alertFlags",
+                        "listOption": "Alert Flags"
+                    },
+                    {
+                        "id": "20",
+                        "parentID": "",
+                        "listOptionID": "eddTriggers",
+                        "listOption": "Enhanced Due Diligence Triggers"
+                    },
+                    {
+                        "id": "21",
+                        "parentID": "20",
+                        "listOptionID": "highProfileCustomer",
+                        "listOption": "High Profile Customer"
+                    },
+                    {
+                        "id": "22",
+                        "parentID": "20",
+                        "listOptionID": "nomineeShareholders",
+                        "listOption": "Nominee Shareholders"
+                    },
+                    {
+                        "id": "23",
+                        "parentID": "20",
+                        "listOptionID": "personalAssetHoldings",
+                        "listOption": "Personal Asset Holdings"
+                    },
+                    {
+                        "id": "24",
+                        "parentID": "20",
+                        "listOptionID": "gatekeeperAccounts",
+                        "listOption": "Gatekeeper Accounts"
+                    },
+                    {
+                        "id": "25",
+                        "parentID": "20",
+                        "listOptionID": "unusualOwnershipStructure",
+                        "listOption": "Unusual Ownership Structure"
+                    },
+                    {
+                        "id": "26",
+                        "parentID": "19",
+                        "listOptionID": "sanctionsTarget",
+                        "listOption": "Sanctions Target"
+                    },
+                    {
+                        "id": "27",
+                        "parentID": "19",
+                        "listOptionID": "politicallyExposedPerson",
+                        "listOption": "Politically Exposed Person"
+                    },
+                    {
+                        "id": "28",
+                        "parentID": "19",
+                        "listOptionID": "bearerShares",
+                        "listOption": "Bearer Shares"
+                    },
+                    {
+                        "id": "29",
+                        "parentID": "19",
+                        "listOptionID": "adverseNews",
+                        "listOption": "Adverse News"
+                    },
+                    {
+                        "id": "30",
+                        "parentID": "19",
+                        "listOptionID": "anonymousAccounting",
+                        "listOption": "Anonymous Accounting"
+                    },
+                    {
+                        "id": "31",
+                        "parentID": "18",
+                        "listOptionID": "tradeFinance",
+                        "listOption": "Trade Finance"
+                    },
+                    {
+                        "id": "32",
+                        "parentID": "18",
+                        "listOptionID": "realEstate",
+                        "listOption": "Real Estate Finance"
+                    },
+                    {
+                        "id": "33",
+                        "parentID": "18",
+                        "listOptionID": "privateBanking",
+                        "listOption": "Private Banking"
+                    },
+                    {
+                        "id": "34",
+                        "parentID": "18",
+                        "listOptionID": "correspondentBanking",
+                        "listOption": "Correspondent Banking"
+                    },
+                    {
+                        "id": "35",
+                        "parentID": "18",
+                        "listOptionID": "cashPooling",
+                        "listOption": "Cash Pooling"
+                    },
+                    {
+                        "id": "36",
+                        "parentID": "17",
+                        "listOptionID": "armsDealer",
+                        "listOption": "Arms Dealer"
+                    },
+                    {
+                        "id": "37",
+                        "parentID": "17",
+                        "listOptionID": "cashIntensiveBusiness",
+                        "listOption": "Cash Intensive Business"
+                    },
+                    {
+                        "id": "38",
+                        "parentID": "17",
+                        "listOptionID": "moneyServiceBusiness",
+                        "listOption": "Money Service Business"
+                    },
+                    {
+                        "id": "39",
+                        "parentID": "17",
+                        "listOptionID": "casino",
+                        "listOption": "Casino / Gambling"
+                    },
+                    {
+                        "id": "40",
+                        "parentID": "17",
+                        "listOptionID": "dealerHigh",
+                        "listOption": "Dealer in High Value Goods"
+                    }
+                ]
+            };
+
+
+            var selectOption = document.getElementById("config").value
+            if (selectOption == "policy") {
+                return cddMenus;
+            } else {
+                return cddRequirements;
+            }
+
         }
     </script>
 </body>

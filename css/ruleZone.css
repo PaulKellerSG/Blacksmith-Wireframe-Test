@@ -107,3 +107,8 @@ li {
     border-radius: 5px;
     cursor: pointer;
 }
+
+#config {
+    font-size: 14pt;
+    padding-left: 8px;
+}
