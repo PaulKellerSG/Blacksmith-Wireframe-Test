@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="../css/main.css">
+    <link rel="stylesheet" type="text/css" href="../css/dashboard.css">
     <script src="../scriptFiles/canvasjs.min.js"></script>
     <script type="text/javascript">
         window.onload = function () {
@@ -22,7 +22,7 @@
             var chart = new CanvasJS.Chart("chartContainer", {
                 title: {
                     text: "Completed KYC Status",
-                    fontFamily: "'Patua One'"
+                    fontFamily: "'Cairo'"
                 },
                 colorSet: "redAmberGreen",
                 data: [
@@ -43,23 +43,23 @@
                                 label: "Complete",
                                 y: 250
                             }
-			]
-		}
-		]
+			             ]
+		          }
+		      ]
             });
             chart.render();
 
             var chartGap = new CanvasJS.Chart("gapAnalysis", {
                 title: {
                     text: "Gap Analysis",
-                    fontFamily: "'Patua One'"
+                    fontFamily: "'Cairo'"
                 },
                 colorSet: "greenShades",
                 data: [
                     {
                         // Change type to "doughnut", "line", "splineArea", etc.
                         type: "pie",
-                        indexLabelFontFamily: "'Patua One'",
+                        indexLabelFontFamily: "'Cairo'",
                         dataPoints: [
                             {
                                 label: "Missing Documents",
@@ -73,23 +73,23 @@
                                 label: "Awaiting Signatory",
                                 y: 10
                             }
-			]
-		}
-		]
+			         ]
+		          }
+		      ]
             });
             chartGap.render();
 
             var chartDue = new CanvasJS.Chart("dueDates", {
                 title: {
                     text: "KYC Due",
-                    fontFamily: "'Patua One'"
+                    fontFamily: "'Cairo'"
                 },
                 colorSet: "redAmberGreen",
                 data: [
                     {
                         // Change type to "doughnut", "line", "splineArea", etc.
                         type: "pie",
-                        indexLabelFontFamily: "'Patua One'",
+                        indexLabelFontFamily: "'Cairo'",
                         dataPoints: [
                             {
                                 label: "3 Months",
@@ -103,29 +103,144 @@
                                 label: "9 Months",
                                 y: 121
                             }
-			]
-		}
-		]
+			             ]
+		              }
+		      ]
             });
             chartDue.render();
+
 
             var chartClosure = new CanvasJS.Chart("closureRate", {
                 title: {
                     text: "KYC Files Closed",
-                    fontFamily: "'Patua One'"
+                    fontFamily: "'Cairo'"
                 },
                 axisY: {
-                    labelFontFamily: "'Patua One'"
+                    labelFontFamily: "'Cairo'"
                 },
                 axisX: {
-                    labelFontFamily: "'Patua One'"
+                    labelFontFamily: "'Cairo'"
                 },
                 colorSet: "greenShades",
                 data: [
                     {
                         // Change type to "doughnut", "line", "splineArea", etc.
-                        type: "line",
-                        indexLabelFontFamily: "'Patua One'",
+                        type: "column",
+                        indexLabelFontFamily: "'Cairo'",
+
+                        dataPoints: [
+                            {
+                                label: "Jan",
+                                y: 131
+                            },
+                            {
+                                label: "Feb",
+                                y: 121
+                            },
+                            {
+                                label: "Mar",
+                                y: 90
+                            },
+                            {
+                                label: "Apr",
+                                y: 110
+                            }
+			         ]
+		          }
+		      ]
+            });
+            chartClosure.render();
+
+            var chartDueToBegin = new CanvasJS.Chart("dueToBegin", {
+                title: {
+                    text: "KYC Due to Begin Review",
+                    fontFamily: "'Cairo'"
+                },
+                axisY: {
+                    labelFontFamily: "'Cairo'"
+                },
+                axisX: {
+                    labelFontFamily: "'Cairo'"
+                },
+                colorSet: "greenShades",
+                data: [
+                    {
+                        // Change type to "doughnut", "line", "splineArea", etc.
+                        type: "column",
+                        indexLabelFontFamily: "'Cairo'",
+
+                        dataPoints: [
+                            {
+                                label: "Apr",
+                                y: 131
+                            },
+                            {
+                                label: "May",
+                                y: 151
+                            },
+                            {
+                                label: "Jun",
+                                y: 116
+                            },
+                            {
+                                label: "Jul",
+                                y: 51
+                            },
+                            {
+                                label: "Aug",
+                                y: 108
+                            },
+                            {
+                                label: "Sep",
+                                y: 151
+                            },
+                            {
+                                label: "Oct",
+                                y: 171
+                            },
+                            {
+                                label: "Nov",
+                                y: 151
+                            },
+                            {
+                                label: "Dec",
+                                y: 200
+                            },
+                            {
+                                label: "Jan",
+                                y: 16
+                            },
+                            {
+                                label: "Feb",
+                                y: 51
+                            },
+                            {
+                                label: "Mar",
+                                y: 121
+                            }
+			         ]
+		          }
+		      ]
+            });
+            chartDueToBegin.render();
+
+            var chartInProgress = new CanvasJS.Chart("inProgress", {
+                title: {
+                    text: "KYC Files in Progress",
+                    fontFamily: "'Cairo'"
+                },
+                axisY: {
+                    labelFontFamily: "'Cairo'"
+                },
+                axisX: {
+                    labelFontFamily: "'Cairo'"
+                },
+                colorSet: "greenShades",
+                data: [
+                    {
+                        // Change type to "doughnut", "line", "splineArea", etc.
+                        type: "column",
+                        indexLabelFontFamily: "'Cairo'",
 
                         dataPoints: [
                             {
@@ -176,15 +291,11 @@
                                 label: "Dec",
                                 y: 200
                             }
-			]
-		}
-		]
+			         ]
+		          }
+		      ]
             });
-            chartClosure.render();
-
-
-
-
+            chartInProgress.render();
         }
     </script>
     <title>Dashboard</title>
@@ -198,7 +309,9 @@
             <div id="chartContainer" class="pieChart"></div>
             <div id="gapAnalysis" class="pieChart"></div>
             <div id="dueDates" class="pieChart"></div>
-            <div id="closureRate" class="lineChart"></div>
+            <div id="closureRate" class="pieChart"></div>
+            <div id="dueToBegin" class="pieChart"></div>
+            <div id="inProgress" class="pieChart"></div>
         </div>
     </div>
 </body>
