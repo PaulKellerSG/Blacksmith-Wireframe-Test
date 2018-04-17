@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css?family=Cairo');
+html {
+    font-family: 'Cairo', sans-serif;
+    font-size: 18pt;
+    height: 100%;
+}
+
+body {
+    height: 100%;
+}

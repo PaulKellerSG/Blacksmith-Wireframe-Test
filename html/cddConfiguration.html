@@ -13,7 +13,7 @@
     <h1>Blacksmith Due Diligence Configuration</h1>
     <select id="config" size="2" onchange="selectChange()">
         <option value="policy" selected>Configure Your CDD Policy</option>
-        <option value="working">Configure Your Other Thing?</option>
+        <option value="working">Configure Your Customer CDD Level</option>
     </select>
     <div id="ruleConstruction">
         <div id="ruleZone">
@@ -73,6 +73,10 @@
                 alertDiv.style.display = "block";
                 eddDiv.style.display = "block";
             }
+
+            var completedRules = document.getElementById("completedRulesContent");
+            completedRules.innerHTML = "";
+
             setNewOptions("");
         }
 

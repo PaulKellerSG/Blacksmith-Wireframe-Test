@@ -4,6 +4,14 @@ html {
     font-size: 14pt;
 }
 
+
+/*
+body {
+    background-color: #cccccc;
+    background-image: linear-gradient(red, yellow);
+}
+*/
+
 #ruleZone {
     float: left;
     width: 50%;
