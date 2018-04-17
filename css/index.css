@@ -4,17 +4,6 @@ html {
     font-size: 18pt;
 }
 
-body {
-    background-image: url('/images/network.gif');
-    background-size: 100%;
-    background-repeat: repeat-y;
-    background-attachment: fixed;
-    height: 100%;
-    width: 100%;
-    color: white;
-    margin-top: 700px;
-}
-
 h1 {
     font-size: 36pt;
     text-align: center;
@@ -45,4 +34,45 @@ a:hover {
 
 a:active {
     color: aqua;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-size: 17px;
+}
+
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.content {
+    position: fixed;
+    top: 550px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+}
+
+#myBtn {
+    width: 200px;
+    font-size: 18px;
+    padding: 10px;
+    border: none;
+    background: #000;
+    color: #fff;
+    cursor: pointer;
+}
+
+#myBtn:hover {
+    background: #ddd;
+    color: black;
 }
