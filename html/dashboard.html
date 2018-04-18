@@ -2,6 +2,8 @@
 <html>
 
 <head>
+    <title>Dashboard</title>
+    <link rel="icon" href="/images/swords-crossed.png">
     <link rel="stylesheet" type="text/css" href="../css/dashboard.css">
     <script src="../scriptFiles/canvasjs.min.js"></script>
     <script type="text/javascript">
@@ -19,6 +21,8 @@
                 "#3CB371",
                 "#90EE90"
                 ]);
+
+            /*
             var chart = new CanvasJS.Chart("chartContainer", {
                 title: {
                     text: "Completed KYC Status",
@@ -48,13 +52,15 @@
 		      ]
             });
             chart.render();
+            */
 
             var chartGap = new CanvasJS.Chart("gapAnalysis", {
+                animationEnabled: true,
                 title: {
                     text: "Gap Analysis",
                     fontFamily: "'Cairo'"
                 },
-                colorSet: "greenShades",
+                colorSet: "redAmberGreen",
                 data: [
                     {
                         // Change type to "doughnut", "line", "splineArea", etc.
@@ -62,15 +68,15 @@
                         indexLabelFontFamily: "'Cairo'",
                         dataPoints: [
                             {
-                                label: "Missing Documents",
+                                label: "Pending Customer",
                                 y: 6
                             },
                             {
-                                label: "Awaiting MLRO",
+                                label: "Pending Requester",
                                 y: 12
                             },
                             {
-                                label: "Awaiting Signatory",
+                                label: "Pending Customer",
                                 y: 10
                             }
 			         ]
@@ -80,6 +86,7 @@
             chartGap.render();
 
             var chartDue = new CanvasJS.Chart("dueDates", {
+                animationEnabled: true,
                 title: {
                     text: "KYC Due",
                     fontFamily: "'Cairo'"
@@ -111,6 +118,7 @@
 
 
             var chartClosure = new CanvasJS.Chart("closureRate", {
+                animationEnabled: true,
                 title: {
                     text: "KYC Files Closed",
                     fontFamily: "'Cairo'"
@@ -184,8 +192,9 @@
             chartClosure.render();
 
             var chartDueToBegin = new CanvasJS.Chart("dueToBegin", {
+                animationEnabled: true,
                 title: {
-                    text: "KYC Due to Begin Review",
+                    text: "KYC Due to Start Review",
                     fontFamily: "'Cairo'"
                 },
                 axisY: {
@@ -204,15 +213,15 @@
                         dataPoints: [
                             {
                                 label: "Apr",
-                                y: 13
+                                y: 6
                             },
                             {
                                 label: "May",
-                                y: 15
+                                y: 9
                             },
                             {
                                 label: "Jun",
-                                y: 1
+                                y: 21
                             },
                             {
                                 label: "Jul",
@@ -220,31 +229,31 @@
                             },
                             {
                                 label: "Aug",
-                                y: 6
+                                y: 9
                             },
                             {
                                 label: "Sep",
-                                y: 35
+                                y: 19
                             },
                             {
                                 label: "Oct",
-                                y: 19
+                                y: 1
                             },
                             {
                                 label: "Nov",
-                                y: 19
+                                y: 8
                             },
                             {
                                 label: "Dec",
-                                y: 25
+                                y: 19
                             },
                             {
                                 label: "Jan",
-                                y: 7
+                                y: 25
                             },
                             {
                                 label: "Feb",
-                                y: 38
+                                y: 6
                             },
                             {
                                 label: "Mar",
@@ -257,6 +266,7 @@
             chartDueToBegin.render();
 
             var chartInProgress = new CanvasJS.Chart("inProgress", {
+                animationEnabled: true,
                 title: {
                     text: "KYC Files in Progress",
                     fontFamily: "'Cairo'"
@@ -330,20 +340,18 @@
             chartInProgress.render();
         }
     </script>
-    <title>Dashboard</title>
-    <link rel="icon" href="/images/swords-crossed.png">
 </head>
 
 <body class="bg">
     <div class="transbox">
         <div class="thisText">
             <h1>Blacksmith Dashboard</h1>
-            <div id="chartContainer" class="pieChart"></div>
             <div id="gapAnalysis" class="pieChart"></div>
             <div id="dueDates" class="pieChart"></div>
-            <div id="closureRate" class="pieChart"></div>
-            <div id="dueToBegin" class="pieChart"></div>
-            <div id="inProgress" class="pieChart"></div>
+            <div id="closureRate" class="columnChart"></div>
+            <div id="inProgress" class="columnChart"></div>
+            <div id="dueToBegin" class="columnChart"></div>
+
         </div>
     </div>
 </body>

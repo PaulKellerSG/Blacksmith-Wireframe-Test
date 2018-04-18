@@ -1,166 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Cairo');
-html {
-    font-family: 'Cairo', sans-serif;
-}
-
-.table {
-    display: table;
-    /*width: 100%;*/
-}
-
-.row {
-    display: table-row;
-}
-
-.cell {
-    display: table-cell;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    font-family: 'Cairo', sans-serif;
-    /*font-family: 'Rye', cursive;*/
-}
-
-.cellHeader {
-    font-weight: bold;
-    width: 500px;
-}
-
-.cellContents {
-    color: darkgray;
-    /*width: 30%;*/
-    /*width: 500px;*/
-}
-
-.pageHeader {
-    font-size: 30px;
-}
-
-#companyName {
-    font-size: 30px;
-    font-weight: bold;
-    /*width: 22%;*/
-    width: 500px;
-}
-
-.navImage {
-    cursor: pointer;
-}
-
-.expandInfo {
-    /*width: 3.5%;*/
-    width: 30px;
-}
-
-.expandedInfoText {
-    /*width: 100%;*/
-}
-
-.flag {
-    color: red;
-}
-
-.assessment {
-    font-size: 20px;
-}
-
-.badAssessment {
-    color: red;
-}
-
-.averageAssessment {
-    color: gold;
-}
-
-.goodAssessment {
-    color: green;
-}
-
-
-/* Pop Ups */
-
-.popup {
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-
-/* The actual popup */
-
-.popup .popuptext {
-    visibility: hidden;
-    width: 160px;
-    background-color: #555;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 8px 0;
-    position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -80px;
-}
-
-
-/* Popup arrow */
-
-.popup .popuptext::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
-}
-
-
-/* Toggle this class - hide and show the popup */
-
-.popup .show {
-    visibility: visible;
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s;
-}
-
-
-/* Add animation (fade in the popup) */
-
-@-webkit-keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-.selectBox {
-    width: 200px;
-    font-family: 'Cairo', sans-serif;
-    /*font-family: 'Rye', cursive;*/
-    font-size: 10pt;
-}
-
 body,
 html {
+    font-family: 'Cairo', sans-serif;
     height: 100%;
     margin: 0;
 }
@@ -191,75 +32,6 @@ html {
     height: 1100px;
 }
 
-.subDiv {
-    border-width: thin;
-    border-color: black;
-    border-style: solid;
-}
-
-.pageHeader {
-    text-align: center;
-    font-family: 'Cairo', sans-serif;
-}
-
-.headerImage {
-    height: 50px;
-    display: inline-block;
-}
-
-.imageLeft {
-    float: left;
-}
-
-.imageRight {
-    float: left;
-}
-
-.indexPage {
-    /*font-family: 'Permanent Marker', cursive;*/
-    font-family: 'Cairo', sans-serif;
-    margin: 5%;
-    font-weight: bold;
-    color: #000000;
-}
-
-.indexPageFont {
-    font-family: 'Cairo', sans-serif;
-    /*font-family: 'Rye', cursive;*/
-    font-size: 16pt
-}
-
-.indexLink {
-    display: table-cell;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-a:link {
-    text-decoration: none;
-    color: cornflowerblue;
-}
-
-a:visited {
-    text-decoration: none;
-    color: cornflowerblue;
-}
-
-a:hover {
-    color: darkmagenta;
-}
-
-a:active {
-    color: aqua;
-}
-
-.selectBox {
-    /*font-family: 'Permanent Marker', cursive;*/
-    font-family: 'Cairo', sans-serif;
-}
-
 h1 {
     text-align: center;
     font-size: 36pt;
@@ -268,14 +40,13 @@ h1 {
 }
 
 .pieChart {
+    float:left;
+    width: 50%;
     height: 500px;
-    width: 33%;
-    float: left;
 }
 
-.lineChart {
-    height: 600px;
-    width: 100%;
-    clear: both;
-    padding-top: 50px;
+.columnChart {
+    float: left;
+    height: 500px;
+    width: 33%;
 }
