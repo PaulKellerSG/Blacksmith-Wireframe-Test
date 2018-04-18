@@ -227,17 +227,26 @@
                 newRuleText = "Enhanced \= ";
             }
 
-
             var containerDiv = document.getElementById("ruleZoneContent");
 
-            /*
-            containerDiv.setAttribute("data-id", '{"id":""}');
-            */
-
-            for (i = 0; i < containerDiv.childNodes.length; i++) {
-                var dataJson = jsonPath(getData(), "$.menu[?(@.listOptionID=='" + containerDiv.childNodes[i].id + "')]");
-                newRuleText += dataJson[0].listOption;
-                newRuleText += "; ";
+            var selectOption = document.getElementById("config").value
+            if (selectOption == "policy") {
+                for (i = 0; i < containerDiv.childNodes.length; i++) {
+                    var dataJson = jsonPath(getData(), "$.menu[?(@.listOptionID=='" + containerDiv.childNodes[i].id + "')]");
+                    newRuleText += dataJson[0].listOption;
+                    newRuleText += "; ";
+                }
+            } else {
+                var txtArray = containerDiv.innerText.split(/[\n\r]/);
+                if (txtArray[txtArray.length - 1] == "") {
+                    txtArray.splice(-1, 1);
+                }
+                for (i = 0; i < txtArray.length; i++) {
+                    newRuleText += txtArray[i]
+                    if (i != txtArray.length - 1) {
+                        newRuleText += " > "
+                    }
+                }
             }
 
             newRuleElement.innerHTML = newRuleText;
@@ -248,6 +257,7 @@
             ruleContent.innerHTML = "";
             setNewOptions("startUp");
             selectDiv("unselectAll");
+            levelBackOptions('');
         }
 
         function levelBackOptions(e) {
