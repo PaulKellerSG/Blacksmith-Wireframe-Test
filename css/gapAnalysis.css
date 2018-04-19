@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Cairo');
+/*@import url('https://fonts.googleapis.com/css?family=Cairo');*/
+
+@import url('file:/fonts/Cairo/Cairo-Regular.ttf');
 html {
     font-family: 'Cairo', sans-serif;
     font-size: 18pt;

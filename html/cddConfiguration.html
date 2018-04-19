@@ -259,7 +259,7 @@
             var containerDiv = document.getElementById("ruleZoneContent");
 
             var selectOption = document.getElementById("config").value
-            if (selectOption == "policy") {
+            if (selectOption == "policy" || selectOption == "alert" || selectOption == "triggers") {
                 for (i = 0; i < containerDiv.childNodes.length; i++) {
                     var dataJson = jsonPath(getData(), "$.menu[?(@.listOptionID=='" + containerDiv.childNodes[i].id + "')]");
                     newRuleText += dataJson[0].listOption;

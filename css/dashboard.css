@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Cairo');
+/*@import url('https://fonts.googleapis.com/css?family=Cairo');*/
+
+@import url('file:/fonts/Cairo/Cairo-Regular.ttf');
 body,
 html {
     font-family: 'Cairo', sans-serif;
@@ -40,7 +42,7 @@ h1 {
 }
 
 .pieChart {
-    float:left;
+    float: left;
     width: 50%;
     height: 500px;
 }
