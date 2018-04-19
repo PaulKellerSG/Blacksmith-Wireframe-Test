@@ -7,54 +7,58 @@
     <script type="text/javascript" src="/scriptFiles/jsonpath-0.8.0.js"></script>
     <title>Rule Configuration</title>
     <link rel="icon" href="/images/swords-crossed.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<body>
-    <h1>Blacksmith Due Diligence Configuration</h1>
-    <select id="config" size="4" onchange="selectChange()">
-        <option value="policy" selected>Configure Your CDD Policy</option>
-        <option value="level">Configure Your Customer CDD Level</option>
-        <option value="alert">Configure Your Alert Flags</option>
-        <option value="triggers">Configure Your Enhanced CDD Triggers</option>
-    </select>
-    <div id="ruleConstruction">
-        <div id="ruleZone">
-            <div id="ruleZoneTitle">Rule Zone
+<body class="bg">
+    <div class="transbox">
+        <div class="thisText">
+            <h1>Blacksmith Due Diligence Configuration</h1>
+            <select id="config" size="4" onchange="selectChange()">
+                <option value="policy" selected>Configure Your CDD Policy</option>
+                <option value="level">Configure Your Customer CDD Level</option>
+                <option value="alert">Configure Your Alert Flags</option>
+                <option value="triggers">Configure Your Enhanced CDD Triggers</option>
+            </select>
+            <div id="ruleConstruction">
+                <div id="ruleZone">
+                    <div id="ruleZoneTitle">Rule Zone
 
+                    </div>
+                    <div id="ruleZoneContent" ondrop="handleDrop(event)" ondragover="handleDragOver(event)" data-id='[{"id":""}]'></div>
+                </div>
+
+                <div id="ruleDetail">
+                    <div id="ruleDetailTitle">Rule Detail
+                        <div id="backButton" onclick="levelBackOptions(event)" data-parentid='[{"parent":""}]'>reset</div>
+                    </div>
+                    <div id="ruleDetailContent">
+                        <ul id="contentList">
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <div id="ruleZoneContent" ondrop="handleDrop(event)" ondragover="handleDragOver(event)" data-id='[{"id":""}]'></div>
-        </div>
-
-        <div id="ruleDetail">
-            <div id="ruleDetailTitle">Rule Detail
-                <div id="backButton" onclick="levelBackOptions(event)" data-parentid='[{"parent":""}]'>reset</div>
+            <div id="dueDilligenceType">
+                <div id="dueDilligenceTypeTitle">Due Dilligence Type</div>
+                <div id="dueDilligenceContent">
+                    <div id="ddSimplified" class="ddType" onclick="selectDiv('ddSimplified')">Simplified</div>
+                    <div id="ddStandard" class="ddType" onclick="selectDiv('ddStandard')">Standard</div>
+                    <div id="ddEnhanced" class="ddType" onclick="selectDiv('ddEnhanced')">Enhanced</div>
+                    <div id="ddAlert" class="ddType" onclick="selectDiv('ddAlert')">Alert Flags</div>
+                    <div id="ddEdd" class="ddType" onclick="selectDiv('ddEdd')">Enhanced Due Diligence Triggers</div>
+                </div>
             </div>
-            <div id="ruleDetailContent">
-                <ul id="contentList">
-                </ul>
+
+            <div id="ruleName">
+                <div id="addRule" onclick="addRuleClick()">Add Rule</div>
+            </div>
+
+            <div id="completedRules">
+                <div id="completedRulesTitle">Completed Rules</div>
+                <div id="completedRulesContent"></div>
             </div>
         </div>
     </div>
-    <div id="dueDilligenceType">
-        <div id="dueDilligenceTypeTitle">Due Dilligence Type</div>
-        <div id="dueDilligenceContent">
-            <div id="ddSimplified" class="ddType" onclick="selectDiv('ddSimplified')">Simplified</div>
-            <div id="ddStandard" class="ddType" onclick="selectDiv('ddStandard')">Standard</div>
-            <div id="ddEnhanced" class="ddType" onclick="selectDiv('ddEnhanced')">Enhanced</div>
-            <div id="ddAlert" class="ddType" onclick="selectDiv('ddAlert')">Alert Flags</div>
-            <div id="ddEdd" class="ddType" onclick="selectDiv('ddEdd')">Enhanced Due Diligence Triggers</div>
-        </div>
-    </div>
-
-    <div id="ruleName">
-        <div id="addRule" onclick="addRuleClick()">Add Rule</div>
-    </div>
-
-    <div id="completedRules">
-        <div id="completedRulesTitle">Completed Rules</div>
-        <div id="completedRulesContent"></div>
-    </div>
-
     <script>
         var dragSrcEl = null;
 
@@ -815,6 +819,7 @@
 
         }
     </script>
+
 </body>
 
 </html>

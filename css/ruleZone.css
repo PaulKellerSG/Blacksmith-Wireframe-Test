@@ -1,9 +1,9 @@
-/*@import url('https://fonts.googleapis.com/css?family=Cairo');*/
-
-@import url('file:/fonts/Cairo/Cairo-Regular.ttf');
+@import url('https://fonts.googleapis.com/css?family=Cairo');
+/*@import url('http://127.0.0.1:50061/fonts/Cairo/Cairo-Regular.ttf');*/
 html {
     font-family: 'Cairo', sans-serif;
     font-size: 14pt;
+    height:100%;
 }
 
 
@@ -13,6 +13,32 @@ body {
     background-image: linear-gradient(red, yellow);
 }
 */
+
+.bg {
+    /* The image used */
+    background-image: url("/images/singapore_4.jpg");
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.transbox {
+    margin: 30px;
+    background-color: #ffffff;
+    border: 1px solid black;
+    opacity: 0.85;
+    filter: alpha(opacity=60);
+}
+
+.thisText {
+    margin: 5%;
+    font-weight: bold;
+    color: #000000;
+    height: 1100px;
+}
 
 #ruleZone {
     float: left;

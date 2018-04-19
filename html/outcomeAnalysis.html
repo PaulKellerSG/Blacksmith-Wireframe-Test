@@ -7,117 +7,121 @@
     <link rel="stylesheet" type="text/css" href="/css/gapAnalysis.css">
 </head>
 
-<body>
-    <header>Outcome of the Analysis</header>
-    <table id="summaryInfo">
-        <tr>
-            <th class="outcomeHeader">Customer</th>
-            <td>Blacksmith Singapore</td>
-        </tr>
-        <tr>
-            <th class="outcomeHeader">Customer Location</th>
-            <td>1 Wallich Street, #12-01 Guoco Tower, Singapore, 078881</td>
-        </tr>
-        <tr>
-            <th class="outcomeHeader">Customer Type</th>
-            <td>Financial institution regulated by a recognised regulator</td>
-        </tr>
-        <tr>
-            <th class="outcomeHeader">Products Offered</th>
-            <td>Trade Finance, Real Estate Finance, Correspondant Banking</td>
-        </tr>
-        <tr>
-            <th class="outcomeHeader">Purpose and intended nature of relationship</th>
-            <td>Correspondant Banking</td>
-        </tr>
-        <tr>
-            <th class="outcomeHeader">Final level of Due Diligence</th>
-            <td>Enhanced Due Diligence</td>
-        </tr>
-        <tr>
-            <th class="outcomeHeader">Reason for Assessment</th>
-            <td>Periodic Review</td>
-        </tr>
-        <tr>
-            <th class="outcomeHeader">Start Date</th>
-            <td>01-03-2018</td>
-        </tr>
-        <tr>
-            <th class="outcomeHeader">Date of Customer Consent</th>
-            <td>03-03-2018</td>
-        </tr>
-        <tr>
-            <th class="outcomeHeader">Completion Date</th>
-            <td>In Progress</td>
-        </tr>
-        <tr>
-            <th class="outcomeHeader">Number of Red Flags</th>
-            <td id="flagsCount">2</td>
-        </tr>
-    </table>
+<body class="bg">
+    <div class="transbox">
+        <div class="thisText">
+            <header>Outcome of the Analysis</header>
+            <table id="summaryInfo">
+                <tr>
+                    <th class="outcomeHeader">Customer</th>
+                    <td class="outcomeHeaderContent">Blacksmith Singapore</td>
+                </tr>
+                <tr>
+                    <th class="outcomeHeader">Customer Location</th>
+                    <td class="outcomeHeaderContent">1 Wallich Street, #12-01 Guoco Tower, Singapore, 078881</td>
+                </tr>
+                <tr>
+                    <th class="outcomeHeader">Customer Type</th>
+                    <td class="outcomeHeaderContent">Financial institution regulated by a recognised regulator</td>
+                </tr>
+                <tr>
+                    <th class="outcomeHeader">Products Offered</th>
+                    <td class="outcomeHeaderContent">Trade Finance, Real Estate Finance, Correspondant Banking</td>
+                </tr>
+                <tr>
+                    <th class="outcomeHeader">Purpose and intended nature of relationship</th>
+                    <td class="outcomeHeaderContent">Correspondant Banking</td>
+                </tr>
+                <tr>
+                    <th class="outcomeHeader">Final level of Due Diligence</th>
+                    <td class="outcomeHeaderContent">Enhanced Due Diligence</td>
+                </tr>
+                <tr>
+                    <th class="outcomeHeader">Reason for Assessment</th>
+                    <td class="outcomeHeaderContent">Periodic Review</td>
+                </tr>
+                <tr>
+                    <th class="outcomeHeader">Start Date</th>
+                    <td class="outcomeHeaderContent">01-03-2018</td>
+                </tr>
+                <tr>
+                    <th class="outcomeHeader">Date of Customer Consent</th>
+                    <td class="outcomeHeaderContent">03-03-2018</td>
+                </tr>
+                <tr>
+                    <th class="outcomeHeader">Completion Date</th>
+                    <td class="outcomeHeaderContent">In Progress</td>
+                </tr>
+                <tr>
+                    <th class="outcomeHeader">Number of Red Flags</th>
+                    <td id="flagsCount" class="outcomeHeaderContent">2</td>
+                </tr>
+            </table>
 
-    <table>
-        <tr>
-            <th>Applied Profile Requirements</th>
-            <th>Evidence</th>
-            <th>Red Flags</th>
-            <th>Analysis Results</th>
-        </tr>
-        <tr>
-            <td>Legal Existence</td>
-            <td class="tdGreen"><a href="acraExtract.html" target="_blank">Complete</a></td>
-            <td></td>
-            <td>No anomalies found</td>
-        </tr>
-        <tr>
-            <td>Ownership Structure</td>
-            <td class="tdGreen"><a href="acraExtract.html" target="_blank">Complete</a></td>
-            <td></td>
-            <td>Ownership Structure Mapped</td>
-        </tr>
-        <tr>
-            <td>Legal Representation</td>
-            <td class="tdYellow"><a href="#" target="_blank">Waivered</a></td>
-            <td></td>
-            <td>No anomalies found</td>
-        </tr>
-        <tr>
-            <td>Ultimate Beneficial Owner</td>
-            <td class="tdGreen"><a href="uboExample.html" target="_blank">Complete</a></td>
-            <td></td>
-            <td>UBO Identified</td>
-        </tr>
-        <tr>
-            <td>Business Activity & Industry Type</td>
-            <td class="tdGreen"><a href="#" target="_blank">Complete</a></td>
-            <td></td>
-            <td>No anomalies found</td>
-        </tr>
-        <tr>
-            <td>Link parent, branches, and subsidiaries</td>
-            <td class="tdRed"><a href="#" target="_blank">Incomplete</a></td>
-            <td></td>
-            <td>Waiting for Evidences</td>
-        </tr>
-        <tr>
-            <td>Politically Exposed Person's</td>
-            <td class="tdGreen"><a href="#" target="_blank">Complete</a></td>
-            <td class="tdImg"><img class="check" src="/images/redFlag.png"></td>
-            <td>We have found one of the companies representatives is a PEP <a href="https://en.wikipedia.org/wiki/Politically_exposed_person" target="_blank">More information</a></td>
-        </tr>
-        <tr>
-            <td>Ultra High Risk Country Nexus</td>
-            <td class="tdGreen"><a href="#" target="_blank">Complete</a></td>
-            <td class="tdImg"><img class="check" src="/images/redFlag.png"></td>
-            <td>We have found a possible link with business activities in Syria <a href="https://jam-news.net/?p=46526" target="_blank">More information</a></td>
-        </tr>
-        <tr>
-            <td>Name Screening</td>
-            <td class="tdGreen"><a href="#" target="_blank">Complete</a></td>
-            <td class="tdImg"></td>
-            <td>No anomalies found</td>
-        </tr>
-    </table>
+            <table>
+                <tr>
+                    <th>Applied Profile Requirements</th>
+                    <th>Evidence</th>
+                    <th>Red Flags</th>
+                    <th>Analysis Results</th>
+                </tr>
+                <tr>
+                    <td>Legal Existence</td>
+                    <td class="tdGreen"><a href="acraExtract.html" target="_blank">Complete</a></td>
+                    <td></td>
+                    <td>No anomalies found</td>
+                </tr>
+                <tr>
+                    <td>Ownership Structure</td>
+                    <td class="tdGreen"><a href="acraExtract.html" target="_blank">Complete</a></td>
+                    <td></td>
+                    <td>Ownership Structure Mapped</td>
+                </tr>
+                <tr>
+                    <td>Legal Representation</td>
+                    <td class="tdYellow"><a href="#" target="_blank">Waivered</a></td>
+                    <td></td>
+                    <td>No anomalies found</td>
+                </tr>
+                <tr>
+                    <td>Ultimate Beneficial Owner</td>
+                    <td class="tdGreen"><a href="uboExample.html" target="_blank">Complete</a></td>
+                    <td></td>
+                    <td>UBO Identified</td>
+                </tr>
+                <tr>
+                    <td>Business Activity & Industry Type</td>
+                    <td class="tdGreen"><a href="#" target="_blank">Complete</a></td>
+                    <td></td>
+                    <td>No anomalies found</td>
+                </tr>
+                <tr>
+                    <td>Link parent, branches, and subsidiaries</td>
+                    <td class="tdRed"><a href="#" target="_blank">Incomplete</a></td>
+                    <td></td>
+                    <td>Waiting for Evidences</td>
+                </tr>
+                <tr>
+                    <td>Politically Exposed Person's</td>
+                    <td class="tdGreen"><a href="#" target="_blank">Complete</a></td>
+                    <td class="tdImg"><img class="check" src="/images/redFlag.png"></td>
+                    <td>We have found one of the companies representatives is a PEP <a href="https://en.wikipedia.org/wiki/Politically_exposed_person" target="_blank">More information</a></td>
+                </tr>
+                <tr>
+                    <td>Ultra High Risk Country Nexus</td>
+                    <td class="tdGreen"><a href="#" target="_blank">Complete</a></td>
+                    <td class="tdImg"><img class="check" src="/images/redFlag.png"></td>
+                    <td>We have found a possible link with business activities in Syria <a href="https://jam-news.net/?p=46526" target="_blank">More information</a></td>
+                </tr>
+                <tr>
+                    <td>Name Screening</td>
+                    <td class="tdGreen"><a href="#" target="_blank">Complete</a></td>
+                    <td class="tdImg"></td>
+                    <td>No anomalies found</td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </body>
 
 </html>
