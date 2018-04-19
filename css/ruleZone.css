@@ -24,6 +24,7 @@ body {
     border-color: black;
     border-style: solid;
     padding-top: 20px;
+    margin: 5px;
 }
 
 #ruleDetail {
@@ -34,6 +35,10 @@ body {
 
 #ruleDetailTitle {
     padding-left: 5px;
+}
+
+#ruleDetailContent {
+    width: 250px;
 }
 
 ul {

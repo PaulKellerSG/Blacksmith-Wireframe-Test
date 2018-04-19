@@ -13,16 +13,16 @@
     <h1>Blacksmith Due Diligence Configuration</h1>
     <select id="config" size="4" onchange="selectChange()">
         <option value="policy" selected>Configure Your CDD Policy</option>
-        <option value="working">Configure Your Customer CDD Level</option>
-        <option value="working">Configure Your Alert Flags</option>
-        <option value="working">Configure Your Enhanced CDD Triggers</option>
+        <option value="level">Configure Your Customer CDD Level</option>
+        <option value="alert">Configure Your Alert Flags</option>
+        <option value="triggers">Configure Your Enhanced CDD Triggers</option>
     </select>
     <div id="ruleConstruction">
         <div id="ruleZone">
             <div id="ruleZoneTitle">Rule Zone
 
             </div>
-            <div id="ruleZoneContent" class="dnd" ondrop="handleDrop(event)" ondragover="handleDragOver(event)" data-id='[{"id":""}]'></div>
+            <div id="ruleZoneContent" ondrop="handleDrop(event)" ondragover="handleDragOver(event)" data-id='[{"id":""}]'></div>
         </div>
 
         <div id="ruleDetail">
@@ -65,17 +65,40 @@
 
         function selectChange() {
             var selectOption = document.getElementById("config").value
+            var simplifiedDiv = document.getElementById("ddSimplified");
+            var standardDiv = document.getElementById("ddStandard");
+            var enhancedDiv = document.getElementById("ddEnhanced");
             var alertDiv = document.getElementById("ddAlert");
             var eddDiv = document.getElementById("ddEdd");
 
             if (selectOption == "policy") {
+                simplifiedDiv.style.display = "block";
+                standardDiv.style.display = "block";
+                enhancedDiv.style.display = "block";
                 alertDiv.style.display = "none";
                 eddDiv.style.display = "none";
-            } else {
+            } else if (selectOption == "level") {
+                simplifiedDiv.style.display = "block";
+                standardDiv.style.display = "block";
+                enhancedDiv.style.display = "block";
+                alertDiv.style.display = "none";
+                eddDiv.style.display = "none";
+            } else if (selectOption == "alert") {
+                simplifiedDiv.style.display = "none";
+                standardDiv.style.display = "none";
+                enhancedDiv.style.display = "none";
                 alertDiv.style.display = "block";
+                eddDiv.style.display = "none";
+            } else if (selectOption == "triggers") {
+                simplifiedDiv.style.display = "none";
+                standardDiv.style.display = "none";
+                enhancedDiv.style.display = "none";
+                alertDiv.style.display = "none";
                 eddDiv.style.display = "block";
             }
 
+            var ruleZone = document.getElementById("ruleZoneContent");
+            ruleZone.innerHTML = "";
             var completedRules = document.getElementById("completedRulesContent");
             completedRules.innerHTML = "";
 
@@ -225,8 +248,12 @@
                 newRuleText = "Simplified \= ";
             } else if (document.getElementById("ddStandard").classList.contains("selectedDiv")) {
                 newRuleText = "Standard \= ";
-            } else {
+            } else if (document.getElementById("ddEnhanced").classList.contains("selectedDiv")) {
                 newRuleText = "Enhanced \= ";
+            } else if (document.getElementById("ddAlert").classList.contains("selectedDiv")) {
+                newRuleText = "Alert Flags \= ";
+            } else if (document.getElementById("ddEdd").classList.contains("selectedDiv")) {
+                newRuleText = "Enhanced DD Triggers \= ";
             }
 
             var containerDiv = document.getElementById("ruleZoneContent");
@@ -263,20 +290,6 @@
         }
 
         function levelBackOptions(e) {
-            /*
-            var backButton = document.getElementById("backButton");
-            var parentJson = JSON.parse(backButton.getAttribute("data-parentid"));
-            if (parentJson.length - 1 == 0) {
-                setNewOptions("");
-            } else {
-                var indexNo = parentJson.length - 1;
-                var backParentID = parentJson[indexNo];
-                setNewOptions(backParentID);
-                parentJson.splice(indexNo, 1);
-                backButton.setAttribute("data-parentid", JSON.stringify(parentJson));
-            }
-            */
-
             setNewOptions("");
         }
 
@@ -656,78 +669,6 @@
                         "listOption": "Products"
                     },
                     {
-                        "id": "19",
-                        "parentID": "",
-                        "listOptionID": "alertFlags",
-                        "listOption": "Alert Flags"
-                    },
-                    {
-                        "id": "20",
-                        "parentID": "",
-                        "listOptionID": "eddTriggers",
-                        "listOption": "Enhanced Due Diligence Triggers"
-                    },
-                    {
-                        "id": "21",
-                        "parentID": "20",
-                        "listOptionID": "highProfileCustomer",
-                        "listOption": "High Profile Customer"
-                    },
-                    {
-                        "id": "22",
-                        "parentID": "20",
-                        "listOptionID": "nomineeShareholders",
-                        "listOption": "Nominee Shareholders"
-                    },
-                    {
-                        "id": "23",
-                        "parentID": "20",
-                        "listOptionID": "personalAssetHoldings",
-                        "listOption": "Personal Asset Holdings"
-                    },
-                    {
-                        "id": "24",
-                        "parentID": "20",
-                        "listOptionID": "gatekeeperAccounts",
-                        "listOption": "Gatekeeper Accounts"
-                    },
-                    {
-                        "id": "25",
-                        "parentID": "20",
-                        "listOptionID": "unusualOwnershipStructure",
-                        "listOption": "Unusual Ownership Structure"
-                    },
-                    {
-                        "id": "26",
-                        "parentID": "19",
-                        "listOptionID": "sanctionsTarget",
-                        "listOption": "Sanctions Target"
-                    },
-                    {
-                        "id": "27",
-                        "parentID": "19",
-                        "listOptionID": "politicallyExposedPerson",
-                        "listOption": "Politically Exposed Person"
-                    },
-                    {
-                        "id": "28",
-                        "parentID": "19",
-                        "listOptionID": "bearerShares",
-                        "listOption": "Bearer Shares"
-                    },
-                    {
-                        "id": "29",
-                        "parentID": "19",
-                        "listOptionID": "adverseNews",
-                        "listOption": "Adverse News"
-                    },
-                    {
-                        "id": "30",
-                        "parentID": "19",
-                        "listOptionID": "anonymousAccounting",
-                        "listOption": "Anonymous Accounting"
-                    },
-                    {
                         "id": "31",
                         "parentID": "18",
                         "listOptionID": "tradeFinance",
@@ -790,12 +731,86 @@
                 ]
             };
 
+            var alertFlags = {
+                "menu": [
+                    {
+                        "id": "2",
+                        "parentID": "",
+                        "listOptionID": "sanctionsTarget",
+                        "listOption": "Sanctions Target"
+                    },
+                    {
+                        "id": "3",
+                        "parentID": "",
+                        "listOptionID": "politicallyExposedPerson",
+                        "listOption": "Politically Exposed Person"
+                    },
+                    {
+                        "id": "4",
+                        "parentID": "",
+                        "listOptionID": "bearerShares",
+                        "listOption": "Bearer Shares"
+                    },
+                    {
+                        "id": "5",
+                        "parentID": "",
+                        "listOptionID": "adverseNews",
+                        "listOption": "Adverse News"
+                    },
+                    {
+                        "id": "6",
+                        "parentID": "",
+                        "listOptionID": "anonymousAccounting",
+                        "listOption": "Anonymous Accounting"
+                    }
+                ]
+            };
+
+            var eddTriggers = {
+                "menu": [
+                    {
+                        "id": "2",
+                        "parentID": "",
+                        "listOptionID": "highProfileCustomer",
+                        "listOption": "High Profile Customer"
+                    },
+                    {
+                        "id": "3",
+                        "parentID": "",
+                        "listOptionID": "nomineeShareholders",
+                        "listOption": "Nominee Shareholders"
+                    },
+                    {
+                        "id": "4",
+                        "parentID": "",
+                        "listOptionID": "personalAssetHoldings",
+                        "listOption": "Personal Asset Holdings"
+                    },
+                    {
+                        "id": "5",
+                        "parentID": "",
+                        "listOptionID": "gatekeeperAccounts",
+                        "listOption": "Gatekeeper Accounts"
+                    },
+                    {
+                        "id": "6",
+                        "parentID": "",
+                        "listOptionID": "unusualOwnershipStructure",
+                        "listOption": "Unusual Ownership Structure"
+                    }
+                ]
+            };
+
 
             var selectOption = document.getElementById("config").value
             if (selectOption == "policy") {
                 return cddMenus;
-            } else {
+            } else if (selectOption == "level") {
                 return cddRequirements;
+            } else if (selectOption == "alert") {
+                return alertFlags;
+            } else if (selectOption == "triggers") {
+                return eddTriggers;
             }
 
         }

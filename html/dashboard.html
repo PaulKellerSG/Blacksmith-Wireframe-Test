@@ -9,9 +9,9 @@
     <script type="text/javascript">
         window.onload = function () {
             CanvasJS.addColorSet("redAmberGreen", [
-                "red",
-                "gold",
-                "green"
+                "#e23b4e", //red
+                "#fff766", //yellow
+                "#27c615" //green
             ]);
             CanvasJS.addColorSet("greenShades", [ //colorSet Array
 
@@ -21,6 +21,20 @@
                 "#3CB371",
                 "#90EE90"
                 ]);
+            CanvasJS.addColorSet("blueShades", [
+               "#3e7399",
+                "#3184bf",
+                "#5fa6d8",
+                "#9ccbed",
+                "#cde2f2"
+            ]);
+            CanvasJS.addColorSet("redShades", [
+                "#914e5a",
+                "#af2840",
+                "#ef0932",
+                "#f28ea0",
+                "#efc4cc"
+            ]);
 
             /*
             var chart = new CanvasJS.Chart("chartContainer", {
@@ -203,7 +217,7 @@
                 axisX: {
                     labelFontFamily: "'Cairo'"
                 },
-                colorSet: "greenShades",
+                colorSet: "blueShades",
                 data: [
                     {
                         // Change type to "doughnut", "line", "splineArea", etc.
@@ -277,7 +291,7 @@
                 axisX: {
                     labelFontFamily: "'Cairo'"
                 },
-                colorSet: "greenShades",
+                colorSet: "redShades",
                 data: [
                     {
                         // Change type to "doughnut", "line", "splineArea", etc.
