@@ -13,12 +13,19 @@
 <body class="bg">
     <div class="transbox">
         <div class="thisText">
-            <h1>Blacksmith Due Diligence Configuration</h1>
-            <select id="config" size="4" onchange="selectChange()">
-                <option value="policy" selected>Configure Your CDD Policy</option>
-                <option value="level">Configure Your Customer CDD Level</option>
-                <option value="alert">Configure Your Alert Flags</option>
-                <option value="triggers">Configure Your Enhanced CDD Triggers</option>
+            <h1>Blacksmith Digital Policy Manager</h1>
+            <select id="config" size="1" onchange="selectChange()">
+                <option value="customerType" selected>Configure Due Diligence Level of Customer Type</option>
+                <option value="country">Configure Due Diligence Level of Country</option>
+                <option value="product">Configure Due Diligence Level of Product</option>
+                <option value="modules">Configure Due Diligence Level of CDD Modules</option>
+                <option value="evidence">Configure the Needed Evidence per Module</option>
+                <option value="triggers">Configure Automatic Enhanced Due Diligence Triggers</option>
+                <option value="alerts">Configure Red Flags</option>
+                <option value="screening">Configure Screening per Due Diligence Level</option>
+                <option value="sources">Configure List of Trusted Sources</option>
+                <option value="regulators">Configure List of Recognised Regulators</option>
+                <option value="stocks">Configure List of Recognised Stock Exchanges</option>
             </select>
             <div id="ruleConstruction">
                 <div id="ruleZone">
@@ -30,7 +37,7 @@
 
                 <div id="ruleDetail">
                     <div id="ruleDetailTitle">Rule Detail
-                        <div id="backButton" onclick="levelBackOptions(event)" data-parentid='[{"parent":""}]'>reset</div>
+                        <div id="backButton" onclick="levelBackOptions(event)" data-parentid='[{"parent":""}]'>Reset</div>
                     </div>
                     <div id="ruleDetailContent">
                         <ul id="contentList">
@@ -39,13 +46,19 @@
                 </div>
             </div>
             <div id="dueDilligenceType">
-                <div id="dueDilligenceTypeTitle">Due Dilligence Type</div>
+                <div id="dueDilligenceTypeTitle">Due Dilligence Level</div>
                 <div id="dueDilligenceContent">
                     <div id="ddSimplified" class="ddType" onclick="selectDiv('ddSimplified')">Simplified</div>
                     <div id="ddStandard" class="ddType" onclick="selectDiv('ddStandard')">Standard</div>
                     <div id="ddEnhanced" class="ddType" onclick="selectDiv('ddEnhanced')">Enhanced</div>
                     <div id="ddAlert" class="ddType" onclick="selectDiv('ddAlert')">Alert Flags</div>
                     <div id="ddEdd" class="ddType" onclick="selectDiv('ddEdd')">Enhanced Due Diligence Triggers</div>
+                    <div id="ddLegal" class="ddType" onclick="selectDiv('ddLegal')">Legal Existence</div>
+                    <div id="ddOwnership" class="ddType" onclick="selectDiv('ddOwnership')">Ownership Structure</div>
+                    <div id="ddLegalRep" class="ddType" onclick="selectDiv('ddLegalRep')">Legal Representative</div>
+                    <div id="ddScreening" class="ddType" onclick="selectDiv('ddScreening')">Screening</div>
+                    <div id="ddFunds" class="ddType" onclick="selectDiv('ddFunds')">Source of Funds</div>
+                    <div id="ddWealth" class="ddType" onclick="selectDiv('ddWealth')">Source of Wealth</div>
                 </div>
             </div>
 
@@ -74,31 +87,74 @@
             var enhancedDiv = document.getElementById("ddEnhanced");
             var alertDiv = document.getElementById("ddAlert");
             var eddDiv = document.getElementById("ddEdd");
+            var legalDiv = document.getElementById("ddLegal");
+            var ownershipDiv = document.getElementById("ddOwnership");
+            var legalRepDiv = document.getElementById("ddLegalRep");
+            var screeningDiv = document.getElementById("ddScreening");
+            var fundsDiv = document.getElementById("ddFunds");
+            var wealthDiv = document.getElementById("ddWealth");
 
+            //Need to rejig this whole function...
             if (selectOption == "policy") {
                 simplifiedDiv.style.display = "block";
                 standardDiv.style.display = "block";
                 enhancedDiv.style.display = "block";
                 alertDiv.style.display = "none";
                 eddDiv.style.display = "none";
+                legalDiv.style.display = "none";
+                ownershipDiv.style.display = "none";
+                legalRepDiv.style.display = "none";
+                screeningDiv.style.display = "none";
+                fundsDiv.style.display = "none";
+                wealthDiv.style.display = "none";
             } else if (selectOption == "level") {
                 simplifiedDiv.style.display = "block";
                 standardDiv.style.display = "block";
                 enhancedDiv.style.display = "block";
                 alertDiv.style.display = "none";
                 eddDiv.style.display = "none";
+                legalDiv.style.display = "none";
+                ownershipDiv.style.display = "none";
+                legalRepDiv.style.display = "none";
+                screeningDiv.style.display = "none";
+                fundsDiv.style.display = "none";
+                wealthDiv.style.display = "none";
             } else if (selectOption == "alert") {
                 simplifiedDiv.style.display = "none";
                 standardDiv.style.display = "none";
                 enhancedDiv.style.display = "none";
                 alertDiv.style.display = "block";
                 eddDiv.style.display = "none";
+                legalDiv.style.display = "none";
+                ownershipDiv.style.display = "none";
+                legalRepDiv.style.display = "none";
+                screeningDiv.style.display = "none";
+                fundsDiv.style.display = "none";
+                wealthDiv.style.display = "none";
             } else if (selectOption == "triggers") {
                 simplifiedDiv.style.display = "none";
                 standardDiv.style.display = "none";
                 enhancedDiv.style.display = "none";
                 alertDiv.style.display = "none";
                 eddDiv.style.display = "block";
+                legalDiv.style.display = "none";
+                ownershipDiv.style.display = "none";
+                legalRepDiv.style.display = "none";
+                screeningDiv.style.display = "none";
+                fundsDiv.style.display = "none";
+                wealthDiv.style.display = "none";
+            } else if (selectOption == "") {
+                simplifiedDiv.style.display = "none";
+                standardDiv.style.display = "none";
+                enhancedDiv.style.display = "none";
+                alertDiv.style.display = "none";
+                eddDiv.style.display = "block";
+                legalDiv.style.display = "none";
+                ownershipDiv.style.display = "none";
+                legalRepDiv.style.display = "none";
+                screeningDiv.style.display = "none";
+                fundsDiv.style.display = "none";
+                wealthDiv.style.display = "none";
             }
 
             var ruleZone = document.getElementById("ruleZoneContent");
