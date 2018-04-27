@@ -29,9 +29,7 @@
             </select>
             <div id="ruleConstruction">
                 <div id="ruleZone">
-                    <div id="ruleZoneTitle">Rule Zone
-
-                    </div>
+                    <div id="ruleZoneTitle">Rule Zone</div>
                     <div id="ruleZoneContent" ondrop="handleDrop(event)" ondragover="handleDragOver(event)" data-id='[{"id":""}]'></div>
                 </div>
 
@@ -95,7 +93,7 @@
             var wealthDiv = document.getElementById("ddWealth");
 
             //Need to rejig this whole function...
-            if (selectOption == "policy") {
+            if (selectOption == "customerType") {
                 simplifiedDiv.style.display = "block";
                 standardDiv.style.display = "block";
                 enhancedDiv.style.display = "block";
@@ -107,7 +105,7 @@
                 screeningDiv.style.display = "none";
                 fundsDiv.style.display = "none";
                 wealthDiv.style.display = "none";
-            } else if (selectOption == "level") {
+            } else if (selectOption == "country") {
                 simplifiedDiv.style.display = "block";
                 standardDiv.style.display = "block";
                 enhancedDiv.style.display = "block";
@@ -119,11 +117,47 @@
                 screeningDiv.style.display = "none";
                 fundsDiv.style.display = "none";
                 wealthDiv.style.display = "none";
-            } else if (selectOption == "alert") {
+            } else if (selectOption == "product") {
+                simplifiedDiv.style.display = "block";
+                standardDiv.style.display = "block";
+                enhancedDiv.style.display = "block";
+                alertDiv.style.display = "none";
+                eddDiv.style.display = "none";
+                legalDiv.style.display = "none";
+                ownershipDiv.style.display = "none";
+                legalRepDiv.style.display = "none";
+                screeningDiv.style.display = "none";
+                fundsDiv.style.display = "none";
+                wealthDiv.style.display = "none";
+            } else if (selectOption == "modules") {
+                simplifiedDiv.style.display = "block";
+                standardDiv.style.display = "block";
+                enhancedDiv.style.display = "block";
+                alertDiv.style.display = "none";
+                eddDiv.style.display = "none";
+                legalDiv.style.display = "none";
+                ownershipDiv.style.display = "none";
+                legalRepDiv.style.display = "none";
+                screeningDiv.style.display = "none";
+                fundsDiv.style.display = "none";
+                wealthDiv.style.display = "none";
+            } else if (selectOption == "evidence") {
                 simplifiedDiv.style.display = "none";
                 standardDiv.style.display = "none";
                 enhancedDiv.style.display = "none";
-                alertDiv.style.display = "block";
+                alertDiv.style.display = "none";
+                eddDiv.style.display = "none";
+                legalDiv.style.display = "block";
+                ownershipDiv.style.display = "block";
+                legalRepDiv.style.display = "block";
+                screeningDiv.style.display = "block";
+                fundsDiv.style.display = "block";
+                wealthDiv.style.display = "block";
+            } else if (selectOption == "triggers") {
+                simplifiedDiv.style.display = "none";
+                standardDiv.style.display = "none";
+                enhancedDiv.style.display = "none";
+                alertDiv.style.display = "none";
                 eddDiv.style.display = "none";
                 legalDiv.style.display = "none";
                 ownershipDiv.style.display = "none";
@@ -131,7 +165,47 @@
                 screeningDiv.style.display = "none";
                 fundsDiv.style.display = "none";
                 wealthDiv.style.display = "none";
-            } else if (selectOption == "triggers") {
+
+                selectDiv("ddEdd");
+            } else if (selectOption == "alerts") {
+                simplifiedDiv.style.display = "none";
+                standardDiv.style.display = "none";
+                enhancedDiv.style.display = "none";
+                alertDiv.style.display = "none";
+                eddDiv.style.display = "none";
+                legalDiv.style.display = "none";
+                ownershipDiv.style.display = "none";
+                legalRepDiv.style.display = "none";
+                screeningDiv.style.display = "none";
+                fundsDiv.style.display = "none";
+                wealthDiv.style.display = "none";
+
+                selectDiv("ddAlert");
+            } else if (selectOption == "screening") {
+                simplifiedDiv.style.display = "block";
+                standardDiv.style.display = "block";
+                enhancedDiv.style.display = "block";
+                alertDiv.style.display = "none";
+                eddDiv.style.display = "none";
+                legalDiv.style.display = "none";
+                ownershipDiv.style.display = "none";
+                legalRepDiv.style.display = "none";
+                screeningDiv.style.display = "none";
+                fundsDiv.style.display = "none";
+                wealthDiv.style.display = "none";
+            } else if (selectOption == "sources") {
+                simplifiedDiv.style.display = "none";
+                standardDiv.style.display = "none";
+                enhancedDiv.style.display = "none";
+                alertDiv.style.display = "none";
+                eddDiv.style.display = "none";
+                legalDiv.style.display = "block";
+                ownershipDiv.style.display = "none";
+                legalRepDiv.style.display = "none";
+                screeningDiv.style.display = "none";
+                fundsDiv.style.display = "none";
+                wealthDiv.style.display = "none";
+            } else if (selectOption == "regulators") {
                 simplifiedDiv.style.display = "none";
                 standardDiv.style.display = "none";
                 enhancedDiv.style.display = "none";
@@ -143,7 +217,7 @@
                 screeningDiv.style.display = "none";
                 fundsDiv.style.display = "none";
                 wealthDiv.style.display = "none";
-            } else if (selectOption == "") {
+            } else if (selectOption == "stocks") {
                 simplifiedDiv.style.display = "none";
                 standardDiv.style.display = "none";
                 enhancedDiv.style.display = "none";
@@ -285,12 +359,24 @@
             var enhanced = document.getElementById("ddEnhanced");
             var alertDiv = document.getElementById("ddAlert");
             var eddDiv = document.getElementById("ddEdd");
+            var legalDiv = document.getElementById("ddLegal");
+            var ownershipDiv = document.getElementById("ddOwnership");
+            var legalRepDiv = document.getElementById("ddLegalRep");
+            var screeningDiv = document.getElementById("ddScreening");
+            var fundsDiv = document.getElementById("ddFunds");
+            var wealthDiv = document.getElementById("ddWealth");
 
             simplified.classList.remove("selectedDiv");
             standard.classList.remove("selectedDiv");
             enhanced.classList.remove("selectedDiv");
             alertDiv.classList.remove("selectedDiv");
             eddDiv.classList.remove("selectedDiv");
+            legalDiv.classList.remove("selectedDiv");
+            ownershipDiv.classList.remove("selectedDiv");
+            legalRepDiv.classList.remove("selectedDiv");
+            screeningDiv.classList.remove("selectedDiv");
+            fundsDiv.classList.remove("selectedDiv");
+            wealthDiv.classList.remove("selectedDiv");
 
             if (selectedDivId != "unselectAll") {
                 var selected = document.getElementById(selectedDivId);
@@ -314,12 +400,24 @@
                 newRuleText = "Alert Flags \= ";
             } else if (document.getElementById("ddEdd").classList.contains("selectedDiv")) {
                 newRuleText = "Enhanced DD Triggers \= ";
+            } else if (document.getElementById("ddLegal").classList.contains("selectedDiv")) {
+                newRuleText = "Legal Existence \= ";
+            } else if (document.getElementById("ddOwnership").classList.contains("selectedDiv")) {
+                newRuleText = "Ownership Structure \= ";
+            } else if (document.getElementById("ddLegalRep").classList.contains("selectedDiv")) {
+                newRuleText = "Legal Representative \= ";
+            } else if (document.getElementById("ddScreening").classList.contains("selectedDiv")) {
+                newRuleText = "Screening \= ";
+            } else if (document.getElementById("ddFunds").classList.contains("selectedDiv")) {
+                newRuleText = "Source of Funds \= ";
+            } else if (document.getElementById("ddWealth").classList.contains("selectedDiv")) {
+                newRuleText = "Source of Wealth \= ";
             }
 
             var containerDiv = document.getElementById("ruleZoneContent");
 
             var selectOption = document.getElementById("config").value
-            if (selectOption == "policy" || selectOption == "alert" || selectOption == "triggers") {
+            if (selectOption == "country" || selectOption == "product" || selectOption == "modules" || selectOption == "evidence" || selectOption == "alerts" || selectOption == "screening" || selectOption == "sources") {
                 for (i = 0; i < containerDiv.childNodes.length; i++) {
                     var dataJson = jsonPath(getData(), "$.menu[?(@.listOptionID=='" + containerDiv.childNodes[i].id + "')]");
                     newRuleText += dataJson[0].listOption;
@@ -729,36 +827,6 @@
                         "listOption": "Products"
                     },
                     {
-                        "id": "31",
-                        "parentID": "18",
-                        "listOptionID": "tradeFinance",
-                        "listOption": "Trade Finance"
-                    },
-                    {
-                        "id": "32",
-                        "parentID": "18",
-                        "listOptionID": "realEstate",
-                        "listOption": "Real Estate Finance"
-                    },
-                    {
-                        "id": "33",
-                        "parentID": "18",
-                        "listOptionID": "privateBanking",
-                        "listOption": "Private Banking"
-                    },
-                    {
-                        "id": "34",
-                        "parentID": "18",
-                        "listOptionID": "correspondentBanking",
-                        "listOption": "Correspondent Banking"
-                    },
-                    {
-                        "id": "35",
-                        "parentID": "18",
-                        "listOptionID": "cashPooling",
-                        "listOption": "Cash Pooling"
-                    },
-                    {
                         "id": "36",
                         "parentID": "17",
                         "listOptionID": "armsDealer",
@@ -861,18 +929,499 @@
                 ]
             };
 
+            var customerType = {
+                "menu": [
+                    {
+                        "id": "1",
+                        "parentID": "",
+                        "listOptionID": "plc",
+                        "listOption": "Publicly Listed Company"
+                    },
+                    {
+                        "id": "2",
+                        "parentID": "1",
+                        "listOptionID": "plcReg",
+                        "listOption": "Recognised Regulator"
+                    },
+                    {
+                        "id": "3",
+                        "parentID": "1",
+                        "listOptionID": "plcUnReg",
+                        "listOption": "Unrecognised Regulator"
+                    },
+                    {
+                        "id": "4",
+                        "parentID": "",
+                        "listOptionID": "regulatedFI",
+                        "listOption": "Regulated FI"
+                    },
+                    {
+                        "id": "5",
+                        "parentID": "4",
+                        "listOptionID": "regFI",
+                        "listOption": "Recognised Regulator"
+                    },
+                    {
+                        "id": "6",
+                        "parentID": "4",
+                        "listOptionID": "unregFI",
+                        "listOption": "Unrecognised Regulator"
+                    },
+                    {
+                        "id": "7",
+                        "parentID": "",
+                        "listOptionID": "centralBank",
+                        "listOption": "Central Bank"
+                    },
+                    {
+                        "id": "8",
+                        "parentID": "",
+                        "listOptionID": "fund",
+                        "listOption": "Fund"
+                    },
+                    {
+                        "id": "9",
+                        "parentID": "8",
+                        "listOptionID": "regFI",
+                        "listOption": "Recognised Regulator"
+                    },
+                    {
+                        "id": "10",
+                        "parentID": "8",
+                        "listOptionID": "unregFI",
+                        "listOption": "Unrecognised Regulator"
+                    },
+                    {
+                        "id": "11",
+                        "parentID": "",
+                        "listOptionID": "privateCompany",
+                        "listOption": "Private Company"
+                    },
+                    {
+                        "id": "12",
+                        "parentID": "",
+                        "listOptionID": "nonProfit",
+                        "listOption": "Non Profit / Charity"
+                    },
+                    {
+                        "id": "13",
+                        "parentID": "12",
+                        "listOptionID": "registeredAuthority",
+                        "listOption": "Registered by Public Authority"
+                    },
+                    {
+                        "id": "14",
+                        "parentID": "12",
+                        "listOptionID": "unregAuth",
+                        "listOption": "Not Registered by a Public Authority"
+                    },
+                    {
+                        "id": "15",
+                        "parentID": "",
+                        "listOptionID": "publicAuth",
+                        "listOption": "Public Authority"
+                    }
+                ]
+            };
+
+            var country = {
+                "menu": [
+                    {
+                        "id": "1",
+                        "parentID": "",
+                        "listOptionID": "DE",
+                        "listOption": "Germany"
+                    },
+                    {
+                        "id": "2",
+                        "parentID": "",
+                        "listOptionID": "JP",
+                        "listOption": "Japan"
+                    },
+                    {
+                        "id": "3",
+                        "parentID": "",
+                        "listOptionID": "NL",
+                        "listOption": "Netherlands"
+                    },
+                    {
+                        "id": "4",
+                        "parentID": "",
+                        "listOptionID": "BR",
+                        "listOption": "Brazil"
+                    },
+                    {
+                        "id": "5",
+                        "parentID": "",
+                        "listOptionID": "CM",
+                        "listOption": "China"
+                    },
+                    {
+                        "id": "6",
+                        "parentID": "",
+                        "listOptionID": "IN",
+                        "listOption": "India"
+                    },
+                    {
+                        "id": "7",
+                        "parentID": "",
+                        "listOptionID": "EH",
+                        "listOption": "Vietnam"
+                    },
+                    {
+                        "id": "8",
+                        "parentID": "",
+                        "listOptionID": "MM",
+                        "listOption": "Myanmar"
+                    },
+                    {
+                        "id": "9",
+                        "parentID": "",
+                        "listOptionID": "PH",
+                        "listOption": "Philippines"
+                    }
+                ]
+            };
+
+            var products = {
+                "menu": [
+                    {
+                        "id": "1",
+                        "parentID": "",
+                        "listOptionID": "tradeFinance",
+                        "listOption": "Trade Finance"
+                    },
+                    {
+                        "id": "2",
+                        "parentID": "",
+                        "listOptionID": "realEstate",
+                        "listOption": "Real Estate Finance"
+                    },
+                    {
+                        "id": "3",
+                        "parentID": "",
+                        "listOptionID": "privateBanking",
+                        "listOption": "Private Banking"
+                    },
+                    {
+                        "id": "4",
+                        "parentID": "",
+                        "listOptionID": "correspondentBanking",
+                        "listOption": "Correspondent Banking"
+                    },
+                    {
+                        "id": "5",
+                        "parentID": "",
+                        "listOptionID": "cashPooling",
+                        "listOption": "Cash Pooling"
+                    }
+                ]
+            };
+
+            var modules = {
+                "menu": [
+                    {
+                        "id": "1",
+                        "parentID": "",
+                        "listOptionID": "legalExistence",
+                        "listOption": "Legal Existence"
+                    },
+                    {
+                        "id": "2",
+                        "parentID": "",
+                        "listOptionID": "ownershipStructure",
+                        "listOption": "Ownership Structure"
+                    },
+                    {
+                        "id": "3",
+                        "parentID": "",
+                        "listOptionID": "legalRep",
+                        "listOption": "Legal Representative"
+                    },
+                    {
+                        "id": "4",
+                        "parentID": "",
+                        "listOptionID": "screening",
+                        "listOption": "Screening"
+                    },
+                    {
+                        "id": "5",
+                        "parentID": "",
+                        "listOptionID": "sourceOfWealth",
+                        "listOption": "Source of Wealth"
+                    },
+                    {
+                        "id": "6",
+                        "parentID": "",
+                        "listOptionID": "sourceOfFunds",
+                        "listOption": "Source of Funds"
+                    }
+                ]
+            };
+
+            var evidences = {
+                "menu": [
+                    {
+                        "id": "1",
+                        "parentID": "",
+                        "listOptionID": "identification",
+                        "listOption": "Identification"
+                    },
+                    {
+                        "id": "2",
+                        "parentID": "1",
+                        "listOptionID": "fullname",
+                        "listOption": "Full Name"
+                    },
+                    {
+                        "id": "3",
+                        "parentID": "1",
+                        "listOptionID": "dob",
+                        "listOption": "Date of Birth"
+                    },
+                    {
+                        "id": "4",
+                        "parentID": "1",
+                        "listOptionID": "address",
+                        "listOption": "Address"
+                    },
+                    {
+                        "id": "17",
+                        "parentID": "1",
+                        "listOptionID": "citizenship",
+                        "listOption": "Proof of Citizenship"
+                    },
+                    {
+                        "id": "5",
+                        "parentID": "",
+                        "listOptionID": "incorporationDate",
+                        "listOption": "Incorporation Date"
+                    },
+                    {
+                        "id": "6",
+                        "parentID": "",
+                        "listOptionID": "registrationNumber",
+                        "listOption": "Registration Number"
+                    },
+                    {
+                        "id": "7",
+                        "parentID": "",
+                        "listOptionID": "ubo",
+                        "listOption": "Ultimate Beneficial Owner"
+                    },
+                    {
+                        "id": "8",
+                        "parentID": "7",
+                        "listOptionID": "ubo10",
+                        "listOption": "Threshold - 10%"
+                    },
+                    {
+                        "id": "9",
+                        "parentID": "7",
+                        "listOptionID": "ubo15",
+                        "listOption": "Threshold - 15%"
+                    },
+                    {
+                        "id": "10",
+                        "parentID": "7",
+                        "listOptionID": "ubo20",
+                        "listOption": "Threshold - 20%"
+                    },
+                    {
+                        "id": "11",
+                        "parentID": "7",
+                        "listOptionID": "ubo25",
+                        "listOption": "Threshold - 25%"
+                    },
+                    {
+                        "id": "12",
+                        "parentID": "",
+                        "listOptionID": "principals",
+                        "listOption": "Principals"
+                    },
+                    {
+                        "id": "13",
+                        "parentID": "12",
+                        "listOptionID": "ubo10",
+                        "listOption": "Threshold - 10%"
+                    },
+                    {
+                        "id": "14",
+                        "parentID": "12",
+                        "listOptionID": "ubo15",
+                        "listOption": "Threshold - 15%"
+                    },
+                    {
+                        "id": "15",
+                        "parentID": "12",
+                        "listOptionID": "ubo20",
+                        "listOption": "Threshold - 20%"
+                    },
+                    {
+                        "id": "16",
+                        "parentID": "12",
+                        "listOptionID": "ubo25",
+                        "listOption": "Threshold - 25%"
+                    },
+                    {
+                        "id": "18",
+                        "parentID": "",
+                        "listOptionID": "annualReport",
+                        "listOption": "Annual Report"
+                    },
+                    {
+                        "id": "19",
+                        "parentID": "",
+                        "listOptionID": "secReport",
+                        "listOption": "SEC Report"
+                    },
+                    {
+                        "id": "20",
+                        "parentID": "",
+                        "listOptionID": "auditedAnnualReport",
+                        "listOption": "Audited Annual Report"
+                    },
+                    {
+                        "id": "21",
+                        "parentID": "",
+                        "listOptionID": "tradeRegistryExtracts",
+                        "listOption": "Trade Registry Extract"
+                    },
+                    {
+                        "id": "22",
+                        "parentID": "",
+                        "listOptionID": "customerStatement",
+                        "listOption": "Customer Statement"
+                    }
+                ]
+            };
+
+            var screening = {
+                "menu": [
+                    {
+                        "id": "1",
+                        "parentID": "",
+                        "listOptionID": "internalNameScreening",
+                        "listOption": "Internal Name Screening"
+                    },
+                    {
+                        "id": "2",
+                        "parentID": "1",
+                        "listOptionID": "blacksmithScreeningList",
+                        "listOption": "Blacksmith Screening List"
+                    },
+                    {
+                        "id": "3",
+                        "parentID": "1",
+                        "listOptionID": "internalList",
+                        "listOption": "Internal Screening List"
+                    },
+                    {
+                        "id": "4",
+                        "parentID": "",
+                        "listOptionID": "externalNameScreening",
+                        "listOption": "External Name Screening"
+                    },
+                    {
+                        "id": "5",
+                        "parentID": "4",
+                        "listOptionID": "worldCheck",
+                        "listOption": "Thomson Reuters World Check"
+                    },
+                    {
+                        "id": "6",
+                        "parentID": "4",
+                        "listOptionID": "globalNewsCheck",
+                        "listOption": "Global News Check"
+                    },
+                    {
+                        "id": "7",
+                        "parentID": "",
+                        "listOptionID": "adverseNewsCheck",
+                        "listOption": "Adverse News Check"
+                    },
+                    {
+                        "id": "8",
+                        "parentID": "7",
+                        "listOptionID": "thomsonReutersWorldCheck",
+                        "listOption": "Thomson Reuters World Check"
+                    },
+                    {
+                        "id": "9",
+                        "parentID": "7",
+                        "listOptionID": "dowJones",
+                        "listOption": "Dow Jones"
+                    }
+                ]
+            };
+
+            var sources = {
+                "menu": [
+                    {
+                        "id": "1",
+                        "parentID": "",
+                        "listOptionID": "mint",
+                        "listOption": "Mint Global"
+                    },
+                    {
+                        "id": "2",
+                        "parentID": "",
+                        "listOptionID": "dandb",
+                        "listOption": "Dun and Bradstreet"
+                    },
+                    {
+                        "id": "3",
+                        "parentID": "",
+                        "listOptionID": "worldCheck",
+                        "listOption": "World Check"
+                    },
+                    {
+                        "id": "4",
+                        "parentID": "",
+                        "listOptionID": "bankersAlmanac",
+                        "listOption": "Bankers Almanac"
+                    },
+                    {
+                        "id": "5",
+                        "parentID": "",
+                        "listOptionID": "swift",
+                        "listOption": "Swift KYC Registry"
+                    },
+                    {
+                        "id": "6",
+                        "parentID": "",
+                        "listOptionID": "markit",
+                        "listOption": "Markit Doc Exchange"
+                    },
+                    {
+                        "id": "7",
+                        "parentID": "",
+                        "listOptionID": "acra",
+                        "listOption": "ACRA"
+                    }
+                ]
+            };
 
             var selectOption = document.getElementById("config").value
-            if (selectOption == "policy") {
-                return cddMenus;
-            } else if (selectOption == "level") {
-                return cddRequirements;
-            } else if (selectOption == "alert") {
+            if (selectOption == "customerType") {
+                return customerType;
+            } else if (selectOption == "country") {
+                return country;
+            } else if (selectOption == "alerts") {
                 return alertFlags;
             } else if (selectOption == "triggers") {
                 return eddTriggers;
+            } else if (selectOption == "product") {
+                return products;
+            } else if (selectOption == "modules") {
+                return modules;
+            } else if (selectOption == "evidence") {
+                return evidences;
+            } else if (selectOption == "screening") {
+                return screening;
+            } else if (selectOption == "sources") {
+                return sources;
             }
-
         }
     </script>
 
