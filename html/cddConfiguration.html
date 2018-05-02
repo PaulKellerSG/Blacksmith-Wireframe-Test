@@ -14,19 +14,22 @@
     <div class="transbox">
         <div class="thisText">
             <h1>Blacksmith Digital Policy Manager</h1>
-            <select id="config" size="1" onchange="selectChange()">
-                <option value="customerType" selected>Configure Due Diligence Level of Customer Type</option>
-                <option value="country">Configure Due Diligence Level of Country</option>
-                <option value="product">Configure Due Diligence Level of Product</option>
-                <option value="modules">Configure Due Diligence Level of CDD Modules</option>
-                <option value="evidence">Configure the Needed Evidence per Module</option>
-                <option value="triggers">Configure Automatic Enhanced Due Diligence Triggers</option>
-                <option value="alerts">Configure Red Flags</option>
-                <option value="screening">Configure Screening per Due Diligence Level</option>
-                <option value="sources">Configure List of Trusted Sources</option>
-                <option value="regulators">Configure List of Recognised Regulators</option>
-                <option value="stocks">Configure List of Recognised Stock Exchanges</option>
-            </select>
+            <div id="selectDiv">
+                <select id="config" size="1" onchange="selectChange()">
+                    <option value="customerType" selected>Configure Due Diligence Level of Customer Type</option>
+                    <option value="country">Configure Due Diligence Level of Country</option>
+                    <option value="product">Configure Due Diligence Level of Product</option>
+                    <option value="modules">Configure Due Diligence Level of CDD Modules</option>
+                    <option value="evidence">Configure the Needed Evidence per Module</option>
+                    <option value="triggers">Configure Automatic Enhanced Due Diligence Triggers</option>
+                    <option value="alerts">Configure Red Flags</option>
+                    <option value="screening">Configure Screening per Due Diligence Level</option>
+                    <option value="sources">Configure List of Trusted Sources</option>
+                    <option value="regulators">Configure List of Recognised Regulators</option>
+                    <option value="stocks">Configure List of Recognised Stock Exchanges</option>
+                </select>
+                <div id="importButton">Import List</div>
+            </div>
             <div id="ruleConstruction">
                 <div id="ruleZone">
                     <div id="ruleZoneTitle">Rule Zone</div>
@@ -99,6 +102,7 @@
             var stocksDiv = document.getElementById("ddStocks");
 
             var ddLevel = document.getElementById("dueDilligenceTypeTitle");
+            var importButton = document.getElementById("importButton");
 
             simplifiedDiv.style.display = "none";
             standardDiv.style.display = "none";
@@ -115,6 +119,7 @@
             regulatorsDiv.style.display = "none";
             stocksDiv.style.display = "none";
             ddLevel.style.display = "none";
+            importButton.style.display = "none";
 
             //Need to rejig this whole function...
             if (selectOption == "customerType" || selectOption == "country" || selectOption == "product" || selectOption == "modules" || selectOption == "screening") {
@@ -137,10 +142,13 @@
                     selectDiv("ddAlert");
                 } else if (selectOption == "regulators") {
                     selectDiv("ddRegulators");
+                    importButton.style.display = "block";
                 } else if (selectOption == "stocks") {
                     selectDiv("ddStocks");
+                    importButton.style.display = "block";
                 } else if (selectOption == "sources") {
                     selectDiv("ddSources");
+                    importButton.style.display = "block";
                 }
             }
 
@@ -1389,6 +1397,100 @@
                 ]
             };
 
+            var regulators = {
+                "menu": [
+                    {
+                        "id": "1",
+                        "parentID": "",
+                        "listOptionID": "mas",
+                        "listOption": "Monetary Authority of Singapore"
+                    },
+                    {
+                        "id": "2",
+                        "parentID": "",
+                        "listOptionID": "dnb",
+                        "listOption": "Dutch Central Bank"
+                    },
+                    {
+                        "id": "3",
+                        "parentID": "",
+                        "listOptionID": "gfb",
+                        "listOption": "German Federal Bank"
+                    },
+                    {
+                        "id": "4",
+                        "parentID": "",
+                        "listOptionID": "ffsa",
+                        "listOption": "Federal Financial Supervisory Authority"
+                    },
+                    {
+                        "id": "5",
+                        "parentID": "",
+                        "listOptionID": "fca",
+                        "listOption": "Financial Conduct Authority"
+                    },
+                    {
+                        "id": "6",
+                        "parentID": "",
+                        "listOptionID": "sec",
+                        "listOption": "SEC"
+                    },
+                    {
+                        "id": "7",
+                        "parentID": "",
+                        "listOptionID": "fed",
+                        "listOption": "Federal Reserve System"
+                    }
+                ]
+            };
+
+            var exchanges = {
+                "menu": [
+                    {
+                        "id": "1",
+                        "parentID": "",
+                        "listOptionID": "sge",
+                        "listOption": "Singapore Exchange"
+                    },
+                    {
+                        "id": "2",
+                        "parentID": "",
+                        "listOptionID": "nyse",
+                        "listOption": "NYSE Euronext Exchange"
+                    },
+                    {
+                        "id": "3",
+                        "parentID": "",
+                        "listOptionID": "mse",
+                        "listOption": "Munich Stock Exchange"
+                    },
+                    {
+                        "id": "4",
+                        "parentID": "",
+                        "listOptionID": "bse",
+                        "listOption": "Berlin Stock Exchange"
+                    },
+                    {
+                        "id": "5",
+                        "parentID": "",
+                        "listOptionID": "lse",
+                        "listOption": "London Stock Exchange"
+                    },
+                    {
+                        "id": "6",
+                        "parentID": "",
+                        "listOptionID": "nsd",
+                        "listOption": "NASDAQ"
+                    },
+                    {
+                        "id": "7",
+                        "parentID": "",
+                        "listOptionID": "hk",
+                        "listOption": "Hong Kong Exchanges and Clearing"
+                    }
+                ]
+            };
+
             var selectOption = document.getElementById("config").value
             if (selectOption == "customerType") {
                 return customerType;
@@ -1408,6 +1510,10 @@
                 return screening;
             } else if (selectOption == "sources") {
                 return sources;
+            } else if (selectOption == "regulators") {
+                return regulators;
+            } else if (selectOption == "stocks") {
+                return exchanges;
             }
         }
     </script>

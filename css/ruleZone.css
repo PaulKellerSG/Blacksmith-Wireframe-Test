@@ -44,6 +44,7 @@ body {
 
 #ruleZone {
     float: left;
+    clear: left;
     width: 50%;
 }
 
@@ -152,7 +153,25 @@ li {
     cursor: pointer;
 }
 
+#importButton {
+    float: right;
+    background-color: black;
+    color: white;
+    padding: 0px 5px 0px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+}
+
 #config {
+    float: left;
     font-size: 14pt;
     padding-left: 8px;
+    height: 35px;
+    width: 75%;
+}
+
+#selectDiv {
+    width: 50%;
+    padding-bottom: 50px;
 }
