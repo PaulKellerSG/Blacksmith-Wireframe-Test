@@ -57,6 +57,9 @@
                     <div id="ddScreening" class="ddType" onclick="selectDiv('ddScreening')">Screening</div>
                     <div id="ddFunds" class="ddType" onclick="selectDiv('ddFunds')">Source of Funds</div>
                     <div id="ddWealth" class="ddType" onclick="selectDiv('ddWealth')">Source of Wealth</div>
+                    <div id="ddSources" class="ddType" onclick="selectDiv('ddSources')">Recognised Sources</div>
+                    <div id="ddRegulators" class="ddType" onclick="selectDiv('ddRegulators')">Recognised Regulators</div>
+                    <div id="ddStocks" class="ddType" onclick="selectDiv('ddStocks')">Recognised Stock Exchanges</div>
                 </div>
             </div>
 
@@ -91,144 +94,54 @@
             var screeningDiv = document.getElementById("ddScreening");
             var fundsDiv = document.getElementById("ddFunds");
             var wealthDiv = document.getElementById("ddWealth");
+            var sourcesDiv = document.getElementById("ddSources");
+            var regulatorsDiv = document.getElementById("ddRegulators");
+            var stocksDiv = document.getElementById("ddStocks");
+
+            var ddLevel = document.getElementById("dueDilligenceTypeTitle");
+
+            simplifiedDiv.style.display = "none";
+            standardDiv.style.display = "none";
+            enhancedDiv.style.display = "none";
+            alertDiv.style.display = "none";
+            eddDiv.style.display = "none";
+            legalDiv.style.display = "none";
+            ownershipDiv.style.display = "none";
+            legalRepDiv.style.display = "none";
+            screeningDiv.style.display = "none";
+            fundsDiv.style.display = "none";
+            wealthDiv.style.display = "none";
+            sourcesDiv.style.display = "none";
+            regulatorsDiv.style.display = "none";
+            stocksDiv.style.display = "none";
+            ddLevel.style.display = "none";
 
             //Need to rejig this whole function...
-            if (selectOption == "customerType") {
+            if (selectOption == "customerType" || selectOption == "country" || selectOption == "product" || selectOption == "modules" || selectOption == "screening") {
                 simplifiedDiv.style.display = "block";
                 standardDiv.style.display = "block";
                 enhancedDiv.style.display = "block";
-                alertDiv.style.display = "none";
-                eddDiv.style.display = "none";
-                legalDiv.style.display = "none";
-                ownershipDiv.style.display = "none";
-                legalRepDiv.style.display = "none";
-                screeningDiv.style.display = "none";
-                fundsDiv.style.display = "none";
-                wealthDiv.style.display = "none";
-            } else if (selectOption == "country") {
-                simplifiedDiv.style.display = "block";
-                standardDiv.style.display = "block";
-                enhancedDiv.style.display = "block";
-                alertDiv.style.display = "none";
-                eddDiv.style.display = "none";
-                legalDiv.style.display = "none";
-                ownershipDiv.style.display = "none";
-                legalRepDiv.style.display = "none";
-                screeningDiv.style.display = "none";
-                fundsDiv.style.display = "none";
-                wealthDiv.style.display = "none";
-            } else if (selectOption == "product") {
-                simplifiedDiv.style.display = "block";
-                standardDiv.style.display = "block";
-                enhancedDiv.style.display = "block";
-                alertDiv.style.display = "none";
-                eddDiv.style.display = "none";
-                legalDiv.style.display = "none";
-                ownershipDiv.style.display = "none";
-                legalRepDiv.style.display = "none";
-                screeningDiv.style.display = "none";
-                fundsDiv.style.display = "none";
-                wealthDiv.style.display = "none";
-            } else if (selectOption == "modules") {
-                simplifiedDiv.style.display = "block";
-                standardDiv.style.display = "block";
-                enhancedDiv.style.display = "block";
-                alertDiv.style.display = "none";
-                eddDiv.style.display = "none";
-                legalDiv.style.display = "none";
-                ownershipDiv.style.display = "none";
-                legalRepDiv.style.display = "none";
-                screeningDiv.style.display = "none";
-                fundsDiv.style.display = "none";
-                wealthDiv.style.display = "none";
+                ddLevel.style.display = "block";
             } else if (selectOption == "evidence") {
-                simplifiedDiv.style.display = "none";
-                standardDiv.style.display = "none";
-                enhancedDiv.style.display = "none";
-                alertDiv.style.display = "none";
-                eddDiv.style.display = "none";
                 legalDiv.style.display = "block";
                 ownershipDiv.style.display = "block";
                 legalRepDiv.style.display = "block";
                 screeningDiv.style.display = "block";
                 fundsDiv.style.display = "block";
                 wealthDiv.style.display = "block";
-            } else if (selectOption == "triggers") {
-                simplifiedDiv.style.display = "none";
-                standardDiv.style.display = "none";
-                enhancedDiv.style.display = "none";
-                alertDiv.style.display = "none";
-                eddDiv.style.display = "none";
-                legalDiv.style.display = "none";
-                ownershipDiv.style.display = "none";
-                legalRepDiv.style.display = "none";
-                screeningDiv.style.display = "none";
-                fundsDiv.style.display = "none";
-                wealthDiv.style.display = "none";
-
-                selectDiv("ddEdd");
-            } else if (selectOption == "alerts") {
-                simplifiedDiv.style.display = "none";
-                standardDiv.style.display = "none";
-                enhancedDiv.style.display = "none";
-                alertDiv.style.display = "none";
-                eddDiv.style.display = "none";
-                legalDiv.style.display = "none";
-                ownershipDiv.style.display = "none";
-                legalRepDiv.style.display = "none";
-                screeningDiv.style.display = "none";
-                fundsDiv.style.display = "none";
-                wealthDiv.style.display = "none";
-
-                selectDiv("ddAlert");
-            } else if (selectOption == "screening") {
-                simplifiedDiv.style.display = "block";
-                standardDiv.style.display = "block";
-                enhancedDiv.style.display = "block";
-                alertDiv.style.display = "none";
-                eddDiv.style.display = "none";
-                legalDiv.style.display = "none";
-                ownershipDiv.style.display = "none";
-                legalRepDiv.style.display = "none";
-                screeningDiv.style.display = "none";
-                fundsDiv.style.display = "none";
-                wealthDiv.style.display = "none";
-            } else if (selectOption == "sources") {
-                simplifiedDiv.style.display = "none";
-                standardDiv.style.display = "none";
-                enhancedDiv.style.display = "none";
-                alertDiv.style.display = "none";
-                eddDiv.style.display = "none";
-                legalDiv.style.display = "block";
-                ownershipDiv.style.display = "none";
-                legalRepDiv.style.display = "none";
-                screeningDiv.style.display = "none";
-                fundsDiv.style.display = "none";
-                wealthDiv.style.display = "none";
-            } else if (selectOption == "regulators") {
-                simplifiedDiv.style.display = "none";
-                standardDiv.style.display = "none";
-                enhancedDiv.style.display = "none";
-                alertDiv.style.display = "none";
-                eddDiv.style.display = "block";
-                legalDiv.style.display = "none";
-                ownershipDiv.style.display = "none";
-                legalRepDiv.style.display = "none";
-                screeningDiv.style.display = "none";
-                fundsDiv.style.display = "none";
-                wealthDiv.style.display = "none";
-            } else if (selectOption == "stocks") {
-                simplifiedDiv.style.display = "none";
-                standardDiv.style.display = "none";
-                enhancedDiv.style.display = "none";
-                alertDiv.style.display = "none";
-                eddDiv.style.display = "block";
-                legalDiv.style.display = "none";
-                ownershipDiv.style.display = "none";
-                legalRepDiv.style.display = "none";
-                screeningDiv.style.display = "none";
-                fundsDiv.style.display = "none";
-                wealthDiv.style.display = "none";
+                ddLevel.style.display = "block";
+            } else if (selectOption == "triggers" || selectOption == "alerts" || selectOption == "regulators" || selectOption == "stocks" || selectOption == "sources") {
+                if (selectOption == "triggers") {
+                    selectDiv("ddEdd");
+                } else if (selectOption == "alerts") {
+                    selectDiv("ddAlert");
+                } else if (selectOption == "regulators") {
+                    selectDiv("ddRegulators");
+                } else if (selectOption == "stocks") {
+                    selectDiv("ddStocks");
+                } else if (selectOption == "sources") {
+                    selectDiv("ddSources");
+                }
             }
 
             var ruleZone = document.getElementById("ruleZoneContent");
@@ -365,6 +278,9 @@
             var screeningDiv = document.getElementById("ddScreening");
             var fundsDiv = document.getElementById("ddFunds");
             var wealthDiv = document.getElementById("ddWealth");
+            var sourcesDiv = document.getElementById("ddSources");
+            var regulatorsDiv = document.getElementById("ddRegulators");
+            var stocksDiv = document.getElementById("ddStocks");
 
             simplified.classList.remove("selectedDiv");
             standard.classList.remove("selectedDiv");
@@ -377,6 +293,9 @@
             screeningDiv.classList.remove("selectedDiv");
             fundsDiv.classList.remove("selectedDiv");
             wealthDiv.classList.remove("selectedDiv");
+            sourcesDiv.classList.remove("selectedDiv");
+            regulatorsDiv.classList.remove("selectedDiv");
+            stocksDiv.classList.remove("selectedDiv");
 
             if (selectedDivId != "unselectAll") {
                 var selected = document.getElementById(selectedDivId);
@@ -389,6 +308,7 @@
 
             var newRuleElement = document.createElement("div");
             var newRuleText = "";
+            var reselectDiv = "unselectAll";
 
             if (document.getElementById("ddSimplified").classList.contains("selectedDiv")) {
                 newRuleText = "Simplified \= ";
@@ -398,8 +318,10 @@
                 newRuleText = "Enhanced \= ";
             } else if (document.getElementById("ddAlert").classList.contains("selectedDiv")) {
                 newRuleText = "Alert Flags \= ";
+                reselectDiv = "ddAlert";
             } else if (document.getElementById("ddEdd").classList.contains("selectedDiv")) {
                 newRuleText = "Enhanced DD Triggers \= ";
+                reselectDiv = "ddEdd";
             } else if (document.getElementById("ddLegal").classList.contains("selectedDiv")) {
                 newRuleText = "Legal Existence \= ";
             } else if (document.getElementById("ddOwnership").classList.contains("selectedDiv")) {
@@ -412,18 +334,45 @@
                 newRuleText = "Source of Funds \= ";
             } else if (document.getElementById("ddWealth").classList.contains("selectedDiv")) {
                 newRuleText = "Source of Wealth \= ";
+            } else if (document.getElementById("ddSources").classList.contains("selectedDiv")) {
+                newRuleText = "Trusted Sources \= ";
+                reselectDiv = "ddSources";
+            } else if (document.getElementById("ddRegulators").classList.contains("selectedDiv")) {
+                newRuleText = "Recognised Regulators \= ";
+                reselectDiv = "ddRegulators";
+            } else if (document.getElementById("ddStocks").classList.contains("selectedDiv")) {
+                newRuleText = "Recognised Stock Exchanges \= ";
+                reselectDiv = "ddStocks";
             }
 
-            var containerDiv = document.getElementById("ruleZoneContent");
-
-            var selectOption = document.getElementById("config").value
-            if (selectOption == "country" || selectOption == "product" || selectOption == "modules" || selectOption == "evidence" || selectOption == "alerts" || selectOption == "screening" || selectOption == "sources") {
-                for (i = 0; i < containerDiv.childNodes.length; i++) {
-                    var dataJson = jsonPath(getData(), "$.menu[?(@.listOptionID=='" + containerDiv.childNodes[i].id + "')]");
-                    newRuleText += dataJson[0].listOption;
-                    newRuleText += "; ";
-                }
+            if (newRuleText == "") {
+                alert("You must select a due diligence level to add a rule.")
             } else {
+                var containerDiv = document.getElementById("ruleZoneContent");
+
+                var selectOption = document.getElementById("config").value;
+
+                /*
+                if (selectOption == "country" || selectOption == "product" || selectOption == "modules" || selectOption == "evidence" || selectOption == "alerts" || selectOption == "screening" || selectOption == "sources") {
+                    for (i = 0; i < containerDiv.childNodes.length; i++) {
+                        var dataJson = jsonPath(getData(), "$.menu[?(@.listOptionID=='" + containerDiv.childNodes[i].id + "')]");
+                        newRuleText += dataJson[0].listOption;
+                        newRuleText += "; ";
+                    }
+                } else {
+                    var txtArray = containerDiv.innerText.split(/[\n\r]/);
+                    if (txtArray[txtArray.length - 1] == "") {
+                        txtArray.splice(-1, 1);
+                    }
+                    for (i = 0; i < txtArray.length; i++) {
+                        newRuleText += txtArray[i]
+                        if (i != txtArray.length - 1) {
+                            newRuleText += " > "
+                        }
+                    }
+                }
+                */
+
                 var txtArray = containerDiv.innerText.split(/[\n\r]/);
                 if (txtArray[txtArray.length - 1] == "") {
                     txtArray.splice(-1, 1);
@@ -431,20 +380,22 @@
                 for (i = 0; i < txtArray.length; i++) {
                     newRuleText += txtArray[i]
                     if (i != txtArray.length - 1) {
-                        newRuleText += " > "
+                        newRuleText += " - "
                     }
                 }
+
+                newRuleElement.innerHTML = newRuleText;
+                var rulesBox = document.getElementById("completedRulesContent");
+                rulesBox.appendChild(newRuleElement);
+
+                var ruleContent = document.getElementById("ruleZoneContent");
+                ruleContent.innerHTML = "";
+                setNewOptions("startUp");
+                selectDiv(reselectDiv);
+                levelBackOptions('');
             }
 
-            newRuleElement.innerHTML = newRuleText;
-            var rulesBox = document.getElementById("completedRulesContent");
-            rulesBox.appendChild(newRuleElement);
 
-            var ruleContent = document.getElementById("ruleZoneContent");
-            ruleContent.innerHTML = "";
-            setNewOptions("startUp");
-            selectDiv("unselectAll");
-            levelBackOptions('');
         }
 
         function levelBackOptions(e) {
@@ -941,13 +892,13 @@
                         "id": "2",
                         "parentID": "1",
                         "listOptionID": "plcReg",
-                        "listOption": "Recognised Regulator"
+                        "listOption": "Recognised Stock Exchange"
                     },
                     {
                         "id": "3",
                         "parentID": "1",
                         "listOptionID": "plcUnReg",
-                        "listOption": "Unrecognised Regulator"
+                        "listOption": "Unrecognised Stock Exchange"
                     },
                     {
                         "id": "4",
@@ -1155,6 +1106,24 @@
                         "parentID": "",
                         "listOptionID": "sourceOfFunds",
                         "listOption": "Source of Funds"
+                    },
+                    {
+                        "id": "7",
+                        "parentID": "4",
+                        "listOptionID": "internalScreening",
+                        "listOption": "Internal Screening"
+                    },
+                    {
+                        "id": "8",
+                        "parentID": "4",
+                        "listOptionID": "externalScreening",
+                        "listOption": "External Screening"
+                    },
+                    {
+                        "id": "9",
+                        "parentID": "4",
+                        "listOptionID": "adverseIntelligence",
+                        "listOption": "Adverse Intelligence Check"
                     }
                 ]
             };
@@ -1292,6 +1261,24 @@
                         "parentID": "",
                         "listOptionID": "customerStatement",
                         "listOption": "Customer Statement"
+                    },
+                    {
+                        "id": "23",
+                        "parentID": "",
+                        "listOptionID": "internalNameS",
+                        "listOption": "Blacksmith Name Screening"
+                    },
+                    {
+                        "id": "24",
+                        "parentID": "",
+                        "listOptionID": "externalName",
+                        "listOption": "Thomson Reuters World Check"
+                    },
+                    {
+                        "id": "25",
+                        "parentID": "",
+                        "listOptionID": "adverseNews",
+                        "listOption": "Dow Jones"
                     }
                 ]
             };
