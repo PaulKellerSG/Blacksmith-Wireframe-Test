@@ -12,7 +12,7 @@
 
 <body class="bg">
     <div class="transbox">
-        <div class="thisText">
+        <div class="thisText" ondrop="handleDisposeDiv(event)" ondragover="handleDragOver(event)">
             <h1>Blacksmith Digital Policy Manager</h1>
             <table>
                 <tr>
@@ -64,7 +64,7 @@
             <div id="ruleConstruction">
                 <div id="ruleZone">
                     <div id="ruleZoneTitle">Rule Zone</div>
-                    <div id="ruleZoneContent" ondrop="handleDrop(event)" ondragover="handleDragOver(event)" data-id='[{"id":""}]'></div>
+                    <div id="ruleZoneContent" ondrag="handleDragStart(event)" ondrop="handleDrop(event)" ondragover="handleDragOver(event)" data-id='[{"id":""}]'></div>
                 </div>
 
                 <div id="ruleDetail">
@@ -273,6 +273,17 @@
             //Drill down options on click of div
             //var dataJson = jsonPath(getData(), "$.menu[?(@.parentID=='" + sourceElement.getAttribute("data-id") + "')]");
             setNewOptions(e.target.getAttribute("data-id"));
+        }
+
+        function handleDisposeDiv(e) {
+            if (e.stopPropagation) {
+                e.stopPropagation(); // Stops some browsers from redirecting.
+            }
+
+            var data = e.dataTransfer.getData("text");
+            var sourceElement = document.getElementById(data);
+            sourceElement.remove();
+            setNewOptions("");
         }
 
         function setNewOptions(dataMenuOptions) {
