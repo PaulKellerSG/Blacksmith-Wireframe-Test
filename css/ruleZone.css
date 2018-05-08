@@ -175,3 +175,24 @@ li {
     width: 50%;
     padding-bottom: 50px;
 }
+
+table {
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+    border-width: thin;
+    border-color: black;
+    border-style: solid;
+    width: 50%;
+}
+
+th {
+    text-align: left;
+}
+
+.check {
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    vertical-align: middle;
+    padding-right: 10px;
+}

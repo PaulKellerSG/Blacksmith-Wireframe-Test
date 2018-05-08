@@ -14,13 +14,44 @@
     <div class="transbox">
         <div class="thisText">
             <h1>Blacksmith Digital Policy Manager</h1>
+            <table>
+                <tr>
+                    <th>Configured:</th>
+                </tr>
+                <tr>
+                    <th>Customer Type</th>
+                    <td><img id="imgcustomerType" class="check" src="../images/crossNo.png"></td>
+                    <th>Country</th>
+                    <td><img id="imgcountry" class="check" src="../images/crossNo.png"></td>
+                    <th>Products</th>
+                    <td><img id="imgproduct" class="check" src="../images/crossNo.png"></td>
+                    <th>CDD Modules</th>
+                    <td><img id="imgmodules" class="check" src="../images/crossNo.png"></td>
+                    <th>Required Evidence</th>
+                    <td><img id="imgevidence" class="check" src="../images/crossNo.png"></td>
+                    <th>EDD Triggers</th>
+                    <td><img id="imgtriggers" class="check" src="../images/crossNo.png"></td>
+                </tr>
+                <tr>
+                    <th>Red Flags</th>
+                    <td><img id="imgalerts" class="check" src="../images/crossNo.png"></td>
+                    <th>Sceening</th>
+                    <td><img id="imgscreening" class="check" src="../images/crossNo.png"></td>
+                    <th>Trusted Sources</th>
+                    <td><img id="imgsources" class="check" src="../images/crossNo.png"></td>
+                    <th>Regulators</th>
+                    <td><img id="imgregulators" class="check" src="../images/crossNo.png"></td>
+                    <th>Stock Exchanges</th>
+                    <td><img id="imgstocks" class="check" src="../images/crossNo.png"></td>
+                </tr>
+            </table>
             <div id="selectDiv">
                 <select id="config" size="1" onchange="selectChange()">
                     <option value="customerType" selected>Configure Due Diligence Level of Customer Type</option>
                     <option value="country">Configure Due Diligence Level of Country</option>
-                    <option value="product">Configure Due Diligence Level of Product</option>
+                    <option value="product">Configure Due Diligence Level of Products</option>
                     <option value="modules">Configure Due Diligence Level of CDD Modules</option>
-                    <option value="evidence">Configure the Needed Evidence per Module</option>
+                    <option value="evidence">Configure the Required Evidence per Module</option>
                     <option value="triggers">Configure Automatic Enhanced Due Diligence Triggers</option>
                     <option value="alerts">Configure Red Flags</option>
                     <option value="screening">Configure Screening per Due Diligence Level</option>
@@ -403,7 +434,8 @@
                 levelBackOptions('');
             }
 
-
+            var changeImage = document.getElementById("img" + document.getElementById("config").value);
+            changeImage.setAttribute("src", "../images/checkYes.png");
         }
 
         function levelBackOptions(e) {
