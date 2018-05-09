@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Cairo');
+
 /*@import url('http://127.0.0.1:50061/fonts/Cairo/Cairo-Regular.ttf');*/
+
 html {
     font-family: 'Cairo', sans-serif;
 }
@@ -175,6 +177,7 @@ html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
 }
 
 .transbox {
