@@ -13,7 +13,7 @@
 <body class="bg">
     <div class="transbox">
         <div class="thisText" ondrop="handleDisposeDiv(event)" ondragover="handleDragOver(event)">
-            <h1>Blacksmith Digital Policy Manager</h1>
+            <h1>Digital Policy Manager</h1>
             <table>
                 <tr>
                     <th>Configured:</th>
@@ -59,7 +59,7 @@
                     <option value="regulators">Configure List of Recognised Regulators</option>
                     <option value="stocks">Configure List of Recognised Stock Exchanges</option>
                 </select>
-                <div id="importButton">Import List</div>
+                <div id="importButton" onclick="importListClick()">Import List</div>
             </div>
             <div id="ruleConstruction">
                 <div id="ruleZone">
@@ -1558,6 +1558,20 @@
             } else if (selectOption == "stocks") {
                 return exchanges;
             }
+        }
+
+        function importListClick() {
+            var selectOption = document.getElementById("config").value;
+            var message = "";
+
+            if (selectOption == "regulators") {
+                message = "recognised regulators";
+            } else if (selectOption == "stocks") {
+                message = "recognised stock exchanges"
+            }
+
+            alert("You will be able to import list of " + message + " here.");
+
         }
     </script>
 
