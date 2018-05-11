@@ -367,7 +367,7 @@
             } else if (document.getElementById("ddEnhanced").classList.contains("selectedDiv")) {
                 newRuleText = "Enhanced \= ";
             } else if (document.getElementById("ddAlert").classList.contains("selectedDiv")) {
-                newRuleText = "Alert Flags \= ";
+                newRuleText = "Red Flags \= ";
                 reselectDiv = "ddAlert";
             } else if (document.getElementById("ddEdd").classList.contains("selectedDiv")) {
                 newRuleText = "Enhanced DD Triggers \= ";
@@ -451,6 +451,20 @@
 
         function levelBackOptions(e) {
             setNewOptions("");
+        }
+
+        function importListClick() {
+            var selectOption = document.getElementById("config").value;
+            var message = "";
+
+            if (selectOption == "regulators") {
+                message = "recognised regulators";
+            } else if (selectOption == "stocks") {
+                message = "recognised stock exchanges"
+            }
+
+            alert("You will be able to import list of " + message + " here.");
+
         }
 
         function getData() {
@@ -1346,7 +1360,7 @@
                         "id": "2",
                         "parentID": "1",
                         "listOptionID": "blacksmithScreeningList",
-                        "listOption": "Blacksmith Screening List"
+                        "listOption": "Utility Screening List"
                     },
                     {
                         "id": "3",
@@ -1558,20 +1572,6 @@
             } else if (selectOption == "stocks") {
                 return exchanges;
             }
-        }
-
-        function importListClick() {
-            var selectOption = document.getElementById("config").value;
-            var message = "";
-
-            if (selectOption == "regulators") {
-                message = "recognised regulators";
-            } else if (selectOption == "stocks") {
-                message = "recognised stock exchanges"
-            }
-
-            alert("You will be able to import list of " + message + " here.");
-
         }
     </script>
 
