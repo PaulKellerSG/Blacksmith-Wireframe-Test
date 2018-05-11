@@ -90,7 +90,8 @@ header {
     margin-left: 30px;
 }
 
-#summaryInfo {
+#summaryInfo,
+#legalExistenceTable {
     width: 60%;
 }
 
@@ -102,4 +103,25 @@ header {
     text-align: left;
     padding-left: 8px;
     width: 500px;
+}
+
+.superHeader {}
+
+.overviewHeader {
+    background-color: grey;
+    color: white;
+}
+
+.sse {
+    width: 25%;
+}
+
+.lolsfw {
+    width: 16%;
+}
+
+#countryTable {}
+
+.indent1 {
+    padding-left: 50px;
 }
