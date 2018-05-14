@@ -199,3 +199,22 @@ th {
     vertical-align: middle;
     padding-right: 10px;
 }
+
+#pageHeader {
+    width: 50%;
+}
+
+#headerText {
+    display: inline;
+}
+
+#policyOverviewButton {
+    float: right;
+    margin-top: 25px;
+    background-color: black;
+    color: white;
+    padding: 0px 5px 0px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}

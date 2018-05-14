@@ -125,3 +125,15 @@ header {
 .indent1 {
     padding-left: 50px;
 }
+
+#oneColumnContainer {}
+
+.oneColumn {
+    width: 50%;
+    float: left;
+}
+
+.oneColumn2 {
+    width: 33.3%;
+    float: left;
+}
