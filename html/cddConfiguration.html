@@ -90,7 +90,7 @@
                     <div id="ddEdd" class="ddType" onclick="selectDiv('ddEdd')">Enhanced Due Diligence Triggers</div>
                     <div id="ddLegal" class="ddType" onclick="selectDiv('ddLegal')">Legal Existence</div>
                     <div id="ddOwnership" class="ddType" onclick="selectDiv('ddOwnership')">Ownership Structure</div>
-                    <div id="ddLegalRep" class="ddType" onclick="selectDiv('ddLegalRep')">Legal Representative</div>
+                    <div id="ddLegalRep" class="ddType" onclick="selectDiv('ddLegalRep')">Legal Representation</div>
                     <div id="ddScreening" class="ddType" onclick="selectDiv('ddScreening')">Screening</div>
                     <div id="ddFunds" class="ddType" onclick="selectDiv('ddFunds')">Source of Funds</div>
                     <div id="ddWealth" class="ddType" onclick="selectDiv('ddWealth')">Source of Wealth</div>
@@ -380,7 +380,7 @@
             } else if (document.getElementById("ddOwnership").classList.contains("selectedDiv")) {
                 newRuleText = "Ownership Structure \= ";
             } else if (document.getElementById("ddLegalRep").classList.contains("selectedDiv")) {
-                newRuleText = "Legal Representative \= ";
+                newRuleText = "Legal Representation \= ";
             } else if (document.getElementById("ddScreening").classList.contains("selectedDiv")) {
                 newRuleText = "Screening \= ";
             } else if (document.getElementById("ddFunds").classList.contains("selectedDiv")) {
@@ -664,7 +664,7 @@
                         "id": "25",
                         "parentID": "",
                         "listOptionID": "legalRep",
-                        "listOption": "Legal Representative"
+                        "listOption": "Legal Representation"
                     },
                     {
                         "id": "26",
@@ -1155,7 +1155,7 @@
                         "id": "3",
                         "parentID": "",
                         "listOptionID": "legalRep",
-                        "listOption": "Legal Representative"
+                        "listOption": "Legal Representation"
                     },
                     {
                         "id": "4",
@@ -1307,6 +1307,12 @@
                         "listOption": "Annual Report"
                     },
                     {
+                        "id": "26",
+                        "parentID": "",
+                        "listOptionID": "articlesOfInc",
+                        "listOption": "Articles of Incorporation"
+                    },
+                    {
                         "id": "19",
                         "parentID": "",
                         "listOptionID": "secReport",
@@ -1321,8 +1327,14 @@
                     {
                         "id": "21",
                         "parentID": "",
-                        "listOptionID": "tradeRegistryExtracts",
+                        "listOptionID": "tradeRegistryExtract",
                         "listOption": "Trade Registry Extract"
+                    },
+                    {
+                        "id": "28",
+                        "parentID": "",
+                        "listOptionID": "proofOfLegal",
+                        "listOption": "Proof of Legal Authority"
                     },
                     {
                         "id": "22",
@@ -1347,6 +1359,12 @@
                         "parentID": "",
                         "listOptionID": "adverseNews",
                         "listOption": "Dow Jones"
+                    },
+                    {
+                        "id": "27",
+                        "parentID": "",
+                        "listOptionID": "utilityResearch",
+                        "listOption": "Utility Research"
                     }
                 ]
             };
@@ -1453,6 +1471,30 @@
                         "parentID": "",
                         "listOptionID": "acra",
                         "listOption": "ACRA"
+                    },
+                    {
+                        "id": "8",
+                        "parentID": "",
+                        "listOptionID": "companyWebsite",
+                        "listOption": "Company Website"
+                    },
+                    {
+                        "id": "9",
+                        "parentID": "",
+                        "listOptionID": "tradeExtracts",
+                        "listOption": "Trade Extracts"
+                    },
+                    {
+                        "id": "10",
+                        "parentID": "",
+                        "listOptionID": "straitsTimes",
+                        "listOption": "Straits Times"
+                    },
+                    {
+                        "id": "11",
+                        "parentID": "",
+                        "listOptionID": "usaToday",
+                        "listOption": "USA Today"
                     }
                 ]
             };
