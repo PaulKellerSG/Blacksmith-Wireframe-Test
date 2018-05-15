@@ -5,7 +5,7 @@
     <link rel="stylesheet" type="text/css" href="../css/ruleZone.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="../scriptFiles/jsonpath-0.8.0.js"></script>
-    <title>Rule Configuration</title>
+    <title>Digital Policy Manager</title>
     <link rel="icon" href="../images/swords-crossed.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -14,7 +14,7 @@
     <div class="transbox">
         <div class="thisText" ondrop="handleDisposeDiv(event)" ondragover="handleDragOver(event)">
             <div id="pageHeader">
-                <h1 id="headerText">Digital Policy Manager</h1>
+                <h1 id="headerText">Digital Policy Manager for ABC Bank</h1>
                 <a id="policyOverviewButton" href="profileXYZ.html" target="_blank">Policy Overview</a>
             </div>
             <table>
@@ -155,6 +155,8 @@
             ddLevel.style.display = "none";
             importButton.style.display = "none";
 
+            ddLevel.innerHTML = "Due Diligence Level"
+
             //Need to rejig this whole function...
             if (selectOption == "customerType" || selectOption == "country" || selectOption == "product" || selectOption == "modules" || selectOption == "screening") {
                 simplifiedDiv.style.display = "block";
@@ -165,10 +167,11 @@
                 legalDiv.style.display = "block";
                 ownershipDiv.style.display = "block";
                 legalRepDiv.style.display = "block";
-                screeningDiv.style.display = "block";
+                //screeningDiv.style.display = "block";
                 fundsDiv.style.display = "block";
                 wealthDiv.style.display = "block";
                 ddLevel.style.display = "block";
+                ddLevel.innerHTML = "Customer Due Diligence Module"
             } else if (selectOption == "triggers" || selectOption == "alerts" || selectOption == "regulators" || selectOption == "stocks" || selectOption == "sources") {
                 if (selectOption == "triggers") {
                     selectDiv("ddEdd");
