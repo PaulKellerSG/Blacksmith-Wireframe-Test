@@ -74,7 +74,7 @@
                     text: "Gap Analysis",
                     fontFamily: "'Hind Guntur'"
                 },
-                colorSet: "redAmberGreen",
+                colorSet: "blueShades",
                 data: [
                     {
                         // Change type to "doughnut", "line", "splineArea", etc.
@@ -83,20 +83,39 @@
                         dataPoints: [
                             {
                                 label: "Pending Utility",
-                                y: 6
+                                y: 6,
+                                link: "drillDownData.html"
                             },
                             {
                                 label: "Pending Requester",
-                                y: 12
+                                y: 12,
+                                link: "drillDownData.html"
                             },
                             {
                                 label: "Pending Customer",
-                                y: 10
+                                y: 10,
+                                link: "drillDownData.html"
                             }
 			         ]
 		          }
 		      ]
             });
+            chartGap.options.data[0].click = function (e) {
+                var dataSeries = e.dataSeries;
+                var dataPoint = e.dataPoint;
+                var dataPointIndex = e.dataPointIndex;
+
+                if (!dataPoint.exploded)
+                    window.open(dataPoint.link, '_blank');
+
+                for (var i = 0; i < dataSeries.dataPoints.length; i++) {
+                    if (i === dataPointIndex) {
+                        continue;
+                    }
+
+                    dataSeries.dataPoints[i].exploded = false;
+                }
+            };
             chartGap.render();
 
             var chartDue = new CanvasJS.Chart("dueDates", {
@@ -105,7 +124,7 @@
                     text: "KYC Due",
                     fontFamily: "'Hind Guntur'"
                 },
-                colorSet: "redAmberGreen",
+                colorSet: "blueShades",
                 data: [
                     {
                         // Change type to "doughnut", "line", "splineArea", etc.
@@ -114,22 +133,40 @@
                         dataPoints: [
                             {
                                 label: "3 Months",
-                                y: 16
+                                y: 16,
+                                link: "drillDownData.html"
                             },
                             {
                                 label: "6 Months",
-                                y: 51
+                                y: 51,
+                                link: "drillDownData.html"
                             },
                             {
                                 label: "9 Months",
-                                y: 121
+                                y: 121,
+                                link: "drillDownData.html"
                             }
 			             ]
 		              }
 		      ]
             });
-            chartDue.render();
+            chartDue.options.data[0].click = function (e) {
+                var dataSeries = e.dataSeries;
+                var dataPoint = e.dataPoint;
+                var dataPointIndex = e.dataPointIndex;
 
+                if (!dataPoint.exploded)
+                    window.open(dataPoint.link, '_blank');
+
+                for (var i = 0; i < dataSeries.dataPoints.length; i++) {
+                    if (i === dataPointIndex) {
+                        continue;
+                    }
+
+                    dataSeries.dataPoints[i].exploded = false;
+                }
+            };
+            chartDue.render();
 
             var chartClosure = new CanvasJS.Chart("closureRate", {
                 animationEnabled: true,
@@ -143,61 +180,73 @@
                 axisX: {
                     labelFontFamily: "'Hind Guntur'"
                 },
-                colorSet: "greenShades",
+                colorSet: "blueShades",
                 data: [
                     {
                         // Change type to "doughnut", "line", "splineArea", etc.
                         type: "column",
                         indexLabelFontFamily: "'Hind Guntur'",
-
+                        click: onClick,
                         dataPoints: [
                             {
                                 label: "Apr",
-                                y: 5
+                                y: 5,
+                                link: "drillDownData.html"
                             },
                             {
                                 label: "May",
-                                y: 12
+                                y: 12,
+                                link: "drillDownData.html"
                             },
                             {
                                 label: "Jun",
-                                y: 6
+                                y: 6,
+                                link: "drillDownData.html"
                             },
                             {
                                 label: "Jul",
-                                y: 2
+                                y: 2,
+                                link: "drillDownData.html"
                             },
                             {
                                 label: "Aug",
-                                y: 19
+                                y: 19,
+                                link: "drillDownData.html"
                             },
                             {
                                 label: "Sep",
-                                y: 12
+                                y: 12,
+                                link: "drillDownData.html"
                             },
                             {
                                 label: "Oct",
-                                y: 19
+                                y: 19,
+                                link: "drillDownData.html"
                             },
                             {
                                 label: "Nov",
-                                y: 19
+                                y: 19,
+                                link: "drillDownData.html"
                             },
                             {
                                 label: "Dec",
-                                y: 27
+                                y: 27,
+                                link: "drillDownData.html"
                             },
                             {
                                 label: "Jan",
-                                y: 9
+                                y: 9,
+                                link: "drillDownData.html"
                             },
                             {
                                 label: "Feb",
-                                y: 19
+                                y: 19,
+                                link: "drillDownData.html"
                             },
                             {
                                 label: "Mar",
-                                y: 35
+                                y: 35,
+                                link: "drillDownData.html"
                             }
 			         ]
 		          }
@@ -223,55 +272,67 @@
                         // Change type to "doughnut", "line", "splineArea", etc.
                         type: "column",
                         indexLabelFontFamily: "'Hind Guntur'",
-
+                        click: onClick,
                         dataPoints: [
                             {
                                 label: "Apr",
-                                y: 6
+                                y: 6,
+                                link: "drillDownData.html"
                             },
                             {
                                 label: "May",
-                                y: 9
+                                y: 9,
+                                link: "drillDownData.html"
                             },
                             {
                                 label: "Jun",
-                                y: 21
+                                y: 21,
+                                link: "drillDownData.html"
                             },
                             {
                                 label: "Jul",
-                                y: 22
+                                y: 22,
+                                link: "drillDownData.html"
                             },
                             {
                                 label: "Aug",
-                                y: 9
+                                y: 9,
+                                link: "drillDownData.html"
                             },
                             {
                                 label: "Sep",
-                                y: 19
+                                y: 19,
+                                link: "drillDownData.html"
                             },
                             {
                                 label: "Oct",
-                                y: 1
+                                y: 1,
+                                link: "drillDownData.html"
                             },
                             {
                                 label: "Nov",
-                                y: 8
+                                y: 8,
+                                link: "drillDownData.html"
                             },
                             {
                                 label: "Dec",
-                                y: 19
+                                y: 19,
+                                link: "drillDownData.html"
                             },
                             {
                                 label: "Jan",
-                                y: 25
+                                y: 25,
+                                link: "drillDownData.html"
                             },
                             {
                                 label: "Feb",
-                                y: 6
+                                y: 6,
+                                link: "drillDownData.html"
                             },
                             {
                                 label: "Mar",
-                                y: 12
+                                y: 12,
+                                link: "drillDownData.html"
                             }
 			         ]
 		          }
@@ -291,67 +352,83 @@
                 axisX: {
                     labelFontFamily: "'Hind Guntur'"
                 },
-                colorSet: "redShades",
+                colorSet: "blueShades",
                 data: [
                     {
                         // Change type to "doughnut", "line", "splineArea", etc.
                         type: "column",
                         indexLabelFontFamily: "'Hind Guntur'",
-
+                        click: onClick,
                         dataPoints: [
                             {
                                 label: "Apr",
-                                y: 13
+                                y: 13,
+                                link: "drillDownData.html"
                             },
                             {
                                 label: "May",
-                                y: 15
+                                y: 15,
+                                link: "drillDownData.html"
                             },
                             {
                                 label: "Jun",
-                                y: 1
+                                y: 1,
+                                link: "drillDownData.html"
                             },
                             {
                                 label: "Jul",
-                                y: 22
+                                y: 22,
+                                link: "drillDownData.html"
                             },
                             {
                                 label: "Aug",
-                                y: 6
+                                y: 6,
+                                link: "drillDownData.html"
                             },
                             {
                                 label: "Sep",
-                                y: 35
+                                y: 35,
+                                link: "drillDownData.html"
                             },
                             {
                                 label: "Oct",
-                                y: 19
+                                y: 19,
+                                link: "drillDownData.html"
                             },
                             {
                                 label: "Nov",
-                                y: 19
+                                y: 19,
+                                link: "drillDownData.html"
                             },
                             {
                                 label: "Dec",
-                                y: 25
+                                y: 25,
+                                link: "drillDownData.html"
                             },
                             {
                                 label: "Jan",
-                                y: 7
+                                y: 7,
+                                link: "drillDownData.html"
                             },
                             {
                                 label: "Feb",
-                                y: 38
+                                y: 38,
+                                link: "drillDownData.html"
                             },
                             {
                                 label: "Mar",
-                                y: 12
+                                y: 12,
+                                link: "drillDownData.html"
                             }
 			         ]
 		          }
 		      ]
             });
             chartInProgress.render();
+
+            function onClick(e) {
+                window.open(e.dataPoint.link, '_blank');
+            };
         }
     </script>
 </head>
@@ -365,7 +442,6 @@
             <div id="closureRate" class="columnChart"></div>
             <div id="inProgress" class="columnChart"></div>
             <div id="dueToBegin" class="columnChart"></div>
-
         </div>
     </div>
 </body>
