@@ -1,9 +1,57 @@
-@import url('https://fonts.googleapis.com/css?family=Cairo');
+@import url('https://fonts.googleapis.com/css?family=Hind+Guntur');
 
 /*@import url('http://127.0.0.1:50061/fonts/Cairo/Cairo-Regular.ttf');*/
 
 html {
-    font-family: 'Cairo', sans-serif;
+    font-family: 'Hind Guntur', sans-serif;
+}
+
+.selectBox {
+    width: 200px;
+    font-family: 'Hind Guntur', sans-serif;
+    /*font-family: 'Rye', cursive;*/
+    font-size: 10pt;
+}
+
+.cell {
+    display: table-cell;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-family: 'Hind Guntur', sans-serif;
+    /*font-family: 'Rye', cursive;*/
+}
+
+.pageHeader {
+    text-align: center;
+    font-family: 'Hind Guntur', sans-serif;
+}
+
+.indexPage {
+    /*font-family: 'Permanent Marker', cursive;*/
+    font-family: 'Hind Guntur', sans-serif;
+    margin: 5%;
+    font-weight: bold;
+    color: #000000;
+}
+
+.indexPageFont {
+    font-family: 'Hind Guntur', sans-serif;
+    /*font-family: 'Rye', cursive;*/
+    font-size: 16pt
+}
+
+.selectBox {
+    /*font-family: 'Permanent Marker', cursive;*/
+    font-family: 'Hind Guntur', sans-serif;
+}
+
+h1 {
+    text-align: center;
+    font-size: 36pt;
+    font-family: 'Hind Guntur', sans-serif;
+    font-weight: bold;
 }
 
 .table {
@@ -13,16 +61,6 @@ html {
 
 .row {
     display: table-row;
-}
-
-.cell {
-    display: table-cell;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    font-family: 'Cairo', sans-serif;
-    /*font-family: 'Rye', cursive;*/
 }
 
 .cellHeader {
@@ -155,13 +193,6 @@ html {
     }
 }
 
-.selectBox {
-    width: 200px;
-    font-family: 'Cairo', sans-serif;
-    /*font-family: 'Rye', cursive;*/
-    font-size: 10pt;
-}
-
 body,
 html {
     height: 100%;
@@ -200,11 +231,6 @@ html {
     border-style: solid;
 }
 
-.pageHeader {
-    text-align: center;
-    font-family: 'Cairo', sans-serif;
-}
-
 .headerImage {
     height: 50px;
     display: inline-block;
@@ -216,20 +242,6 @@ html {
 
 .imageRight {
     float: left;
-}
-
-.indexPage {
-    /*font-family: 'Permanent Marker', cursive;*/
-    font-family: 'Cairo', sans-serif;
-    margin: 5%;
-    font-weight: bold;
-    color: #000000;
-}
-
-.indexPageFont {
-    font-family: 'Cairo', sans-serif;
-    /*font-family: 'Rye', cursive;*/
-    font-size: 16pt
 }
 
 .indexLink {
@@ -256,18 +268,6 @@ a:hover {
 
 a:active {
     color: aqua;
-}
-
-.selectBox {
-    /*font-family: 'Permanent Marker', cursive;*/
-    font-family: 'Cairo', sans-serif;
-}
-
-h1 {
-    text-align: center;
-    font-size: 36pt;
-    font-family: 'Cairo', sans-serif;
-    font-weight: bold;
 }
 
 .pieChart {
