@@ -219,3 +219,7 @@ th {
     cursor: pointer;
     text-decoration: none;
 }
+
+.optionStyle {
+    color: black;
+}
