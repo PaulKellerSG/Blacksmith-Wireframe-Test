@@ -12,7 +12,7 @@
         <div class="thisText">
             <?php
     
-        $entityName = $_POST['entityName'];
+        $uen = $_POST['uen'];
         
         $serverName = "db736790258.db.1and1.com"; //serverName\instanceName
         $connectionInfo = array( "Database"=>"db736790258", "UID"=>"dbo736790258", "PWD"=>"Harry2010!");
@@ -25,8 +25,8 @@
              die( print_r( sqlsrv_errors(), true));
         }
 
-        $sql = "EXEC sp_blacksmith_companyName_GETLIST @entityName=?";
-        $params = array($entityName);
+        $sql = "EXEC sp_blacksmith_companyUEN_GET @uen=?";
+        $params = array($uen);
         $stmt = sqlsrv_query( $conn, $sql, $params);
 
         if( $stmt === false ) {

@@ -1,0 +1,11 @@
+input[type="text"] {
+    width: 500px;
+    height: 50px;
+    font-size: 14pt;
+}
+
+input[type="submit"] {
+    width: 120px;
+    height: 50px;
+    font-size: 16pt;
+}

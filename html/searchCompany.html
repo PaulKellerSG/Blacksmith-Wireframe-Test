@@ -1,20 +1,30 @@
 <html>
 
 <head>
-    <title>Blacksmith</title>
-
+    <title>ACRA Search</title>
+    <link rel="stylesheet" type="text/css" href="../css/gapAnalysis.css">
+    <link rel="stylesheet" type="text/css" href="../css/searchACRA.css">
+    <link rel="icon" href="../images/swords-crossed.png">
 </head>
 
-<body>
-    <h1>
-        Search ACRA Download:
-    </h1>
-
-    <div class="mainText">
-        <form action="http://www.gratuityp.com/Blacksmith/php/companyNameGETLIST.php" method="post">
-            <input class="inputBox" type="text" name="entityName">
-            <input type="submit" name="submit" value="Submit">
-        </form>
+<body class="bg">
+    <div class="transbox">
+        <div class="thisText">
+            <h1>Search ACRA Download:</h1>
+            <div class="mainText">
+                <div>Search by Company Name:</div>
+                <form action="http://www.gratuityp.com/Blacksmith/php/companyNameGETLIST.php" method="post">
+                    <input class="inputBox" type="text" name="entityName">
+                    <input type="submit" name="submit" value="Submit">
+                </form>
+                <div>Search by UEN (Registration Number):</div>
+                <form action="http://www.gratuityp.com/Blacksmith/php/companyUENGET.php" method="post">
+                    <input class="inputBox" type="text" name="uen">
+                    <input type="submit" name="submit2" value="Submit">
+                </form>
+            </div>
+            <div></div>
+        </div>
     </div>
 </body>
 
