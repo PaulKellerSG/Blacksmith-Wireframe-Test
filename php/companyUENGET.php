@@ -32,6 +32,8 @@
         if( $stmt === false ) {
             die( print_r( sqlsrv_errors(), true));
         }
+            
+        echo "<h3>Showing results for: " . $uen . "</h3>";
 
         echo "<table>";
         echo "<tr>";

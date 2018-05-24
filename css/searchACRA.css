@@ -9,3 +9,7 @@ input[type="submit"] {
     height: 50px;
     font-size: 16pt;
 }
+
+#foreignCheck {
+    width: 300px;
+}

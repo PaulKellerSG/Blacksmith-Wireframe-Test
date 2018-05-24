@@ -11,8 +11,7 @@
     <div class="transbox">
         <div class="thisText">
             <?php
-                $entityName = $_POST['entityName'];
-
+        
                 $serverName = "db736790258.db.1and1.com"; //serverName\instanceName
                 $connectionInfo = array( "Database"=>"db736790258", "UID"=>"dbo736790258", "PWD"=>"Harry2010!");
                 $conn = sqlsrv_connect( $serverName, $connectionInfo);
@@ -24,15 +23,15 @@
                      die( print_r( sqlsrv_errors(), true));
                 }
 
-                $sql = "EXEC sp_blacksmith_companyName_GETLIST @entityName=?";
-                $params = array($entityName);
+                $sql = "EXEC sp_blacksmith_statusCheck_GETLIST";
+                $params = array();
                 $stmt = sqlsrv_query( $conn, $sql, $params);
 
                 if( $stmt === false ) {
                     die( print_r( sqlsrv_errors(), true));
                 }
-            
-                echo "<h3>Showing results for: " . $entityName . "</h3>";
+
+                echo "<h3>Showing results for all Foreign and NA Companies</h3>";
 
                 echo "<table>";
                 echo "<tr>";
@@ -65,6 +64,7 @@
                 }
 
                 echo "</table>";
+        
             ?>
         </div>
     </div>
