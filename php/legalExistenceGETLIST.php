@@ -11,7 +11,7 @@
     <div class="transbox">
         <div class="thisText">
             <?php
-        
+                
                 $serverName = "db736790258.db.1and1.com"; //serverName\instanceName
                 $connectionInfo = array( "Database"=>"db736790258", "UID"=>"dbo736790258", "PWD"=>"Harry2010!");
                 $conn = sqlsrv_connect( $serverName, $connectionInfo);
@@ -22,16 +22,32 @@
                      echo "Connection to database could not be established.<br />";
                      die( print_r( sqlsrv_errors(), true));
                 }
-
-                $sql = "EXEC sp_blacksmith_statusCheck_GETLIST";
+            
+                $entityName = $uen = $sql = $searchTitle = "";
                 $params = array();
+
+                if (isset($_POST["submitCompanyName"])) {
+                    $entityName = $_POST['entityName'];    
+                    $params = array($entityName);
+                    $sql = "EXEC sp_blacksmith_companyName_GETLIST @entityName=?";
+                    $searchTitle = $entityName;
+                } elseif (isset($_POST["submitUen"])) {
+                    $uen = $_POST['uen'];    
+                    $params = array($uen);
+                    $sql = "EXEC sp_blacksmith_companyUEN_GET @uen=?";
+                    $searchTitle = $uen;
+                } else {
+                    $sql = "EXEC sp_blacksmith_statusCheck_GETLIST";
+                    $searchTitle = "Foreign Companies";
+                }
+            
                 $stmt = sqlsrv_query( $conn, $sql, $params);
 
                 if( $stmt === false ) {
                     die( print_r( sqlsrv_errors(), true));
                 }
-
-                echo "<h3>Showing results for all Foreign and NA Companies</h3>";
+            
+                echo "<h3>Showing results for: " . $searchTitle . "</h3>";
 
                 echo "<table>";
                 echo "<tr>";
@@ -64,7 +80,6 @@
                 }
 
                 echo "</table>";
-        
             ?>
         </div>
     </div>
