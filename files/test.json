@@ -1,0 +1,450 @@
+{
+    "OrderProductResponse": {
+        "TransactionDetail": {
+            "ApplicationTransactionID": "Complete-3219-Today-RPT-IY-1",
+            "ServiceTransactionID": "Id-0b8a655ac3c19b66e7a4e750-2",
+            "TransactionTimestamp": "2018-01-22T01:51:55.219-05:00"
+        },
+        "TransactionResult": {
+            "SeverityText": "Information",
+            "ResultID": "CM000",
+            "ResultText": "Success",
+            "ResultMessage": [
+                {
+                    "ResultDescription": "Success"
+                }
+            ]
+        },
+        "OrderProductResponseDetail": {
+            "InquiryDetail": {
+                "DUNSNumber": "214567885",
+                "CountryISOAlpha2Code": "GB"
+            },
+            "Product": {
+                "DNBProductID": "KYC",
+                "Organization": {
+                    "SubjectHeader": {
+                        "DUNSNumber": "214567885",
+                        "StopDistributionIndicator": false,
+                        "CurrencyISOAlpha3Code": "GBP"
+                    },
+                    "Telecommunication": {
+                        "TelephoneNumber": [
+                            {
+                                "TelecommunicationNumber": "01628 492000",
+                                "InternationalDialingCode": "44"
+                            }
+                        ],
+                        "FacsimileNumber": [
+                            {
+                                "TelecommunicationNumber": "01628 492260"
+                            }
+                        ]
+                    },
+                    "Location": {
+                        "PrimaryAddress": [
+                            {
+                                "StreetAddressLine": [
+                                    {
+                                        "LineText": "MARLOW INTERNATIONAL PARKWAY",
+                                        "DisplaySequence": 1
+                                    }
+                                ],
+                                "PrimaryTownName": "MARLOW",
+                                "CountryISOAlpha2Code": "GB",
+                                "TerritoryName": "BUCKINGHAMSHIRE",
+                                "PostalCode": "SL7 1AJ"
+                            }
+                        ]
+                    },
+                    "Financial": {
+                        "KeyFinancialFiguresOverview": [
+                            {
+                                "StatementHeaderDetails": {
+                                    "FinancialStatementToDate": {
+                                        "$": "2015-12-31"
+                                    }
+                                },
+                                "CashAndLiquidAssetsAmount": {
+                                    "@CurrencyISOAlpha3Code": "GBP",
+                                    "@ReliabilityText": "Actual",
+                                    "$": 15128000
+                                },
+                                "SalesRevenueAmount": [
+                                    {
+                                        "@CurrencyISOAlpha3Code": "GBP",
+                                        "@ReliabilityText": "Actual",
+                                        "$": 200253000
+                                    }
+                                ],
+                                "TotalCurrentAssetsAmount": {
+                                    "@CurrencyISOAlpha3Code": "GBP",
+                                    "@ReliabilityText": "Actual",
+                                    "$": 68745000
+                                },
+                                "TotalAssetsAmount": {
+                                    "@CurrencyISOAlpha3Code": "GBP",
+                                    "@ReliabilityText": "Actual",
+                                    "$": 84616000
+                                },
+                                "TotalEquityAmount": {
+                                    "@CurrencyISOAlpha3Code": "GBP",
+                                    "@ReliabilityText": "Actual",
+                                    "$": 24459000
+                                },
+                                "TotalCurrentLiabilitiesAmount": {
+                                    "@CurrencyISOAlpha3Code": "GBP",
+                                    "@ReliabilityText": "Actual",
+                                    "$": 52933000
+                                },
+                                "TotalLiabilitiesAmount": {
+                                    "@CurrencyISOAlpha3Code": "GBP",
+                                    "@ReliabilityText": "Actual",
+                                    "$": 60157000
+                                },
+                                "ProfitOrLossAmount": [
+                                    {
+                                        "@CurrencyISOAlpha3Code": "GBP",
+                                        "@ReliabilityText": "Actual",
+                                        "$": 2809000
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "OrganizationName": {
+                        "OrganizationPrimaryName": [
+                            {
+                                "OrganizationName": {
+                                    "$": "D & B SAMPLE CO LTD"
+                                }
+                            }
+                        ]
+                    },
+                    "OrganizationDetail": {
+                        "OutofBusinessIndicator": false,
+                        "OrganizationStartYear": "1984"
+                    },
+                    "RegisteredDetail": {
+                        "LegalFormDetails": {
+                            "LegalFormText": {
+                                "@DNBCodeValue": 2547,
+                                "$": "Private Limited Liability Company"
+                            }
+                        },
+                        "OrganizationIdentificationNumberDetail": [
+                            {
+                                "@DNBCodeValue": 2541,
+                                "@TypeText": "CRO Number",
+                                "OrganizationIdentificationNumber": "434567"
+                            }
+                        ]
+                    },
+                    "IndustryCode": {
+                        "IndustryCode": [
+                            {
+                                "@DNBCodeValue": 12901,
+                                "@TypeText": "Nace code",
+                                "IndustryCode": {
+                                    "$": "9300 7480 7484"
+                                },
+                                "DisplaySequence": 1
+                            },
+                            {
+                                "@DNBCodeValue": 12901,
+                                "@TypeText": "Nace code",
+                                "IndustryCode": {
+                                    "$": "7260 7200 7210"
+                                },
+                                "DisplaySequence": 2
+                            },
+                            {
+                                "@DNBCodeValue": 1016,
+                                "@TypeText": "US SIC (1972)",
+                                "IndustryCode": {
+                                    "$": "7399"
+                                },
+                                "DisplaySequence": 1
+                            },
+                            {
+                                "@DNBCodeValue": 19295,
+                                "@TypeText": "UK SIC 2007",
+                                "IndustryCode": {
+                                    "$": "62090"
+                                },
+                                "DisplaySequence": 2
+                            }
+                        ]
+                    },
+                    "Linkage": {
+                        "LinkageSummary": {
+                            "GlobalUltimateFamilyTreeLinkageCount": 1,
+                            "ChildrenSummary": [
+                                {
+                                    "ChildrenTypeText": {
+                                        "@DNBCodeValue": 12769,
+                                        "$": "Branch"
+                                    },
+                                    "ChildrenQuantity": 1
+                                }
+                            ],
+                            "SubjectFamilyTreeLinkageCount": 1
+                        },
+                        "GlobalUltimateOrganization": {
+                            "CountryISOAlpha2Code": "GB",
+                            "DUNSNumber": "214567885",
+                            "OrganizationPrimaryName": [
+                                {
+                                    "OrganizationName": {
+                                        "$": "D & B SAMPLE CO LTD"
+                                    }
+                                }
+                            ]
+                        },
+                        "DomesticUltimateOrganization": {
+                            "DUNSNumber": "214567885",
+                            "OrganizationPrimaryName": [
+                                {
+                                    "OrganizationName": {
+                                        "$": "D & B SAMPLE CO LTD"
+                                    }
+                                }
+                            ]
+                        },
+                        "ParentOrganization": {
+                            "ForeignIndicator": false,
+                            "CountryISOAlpha2Code": "GB",
+                            "DUNSNumber": "214567885",
+                            "OrganizationPrimaryName": [
+                                {
+                                    "OrganizationName": {
+                                        "$": "D & B SAMPLE CO LTD"
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "PrincipalsAndManagement": {
+                        "CurrentPrincipal": [
+                            {
+                                "GenderText": {
+                                    "$": "female"
+                                },
+                                "PrincipalName": {
+                                    "@type": "com:IndividualNameType",
+                                    "NamePrefix": {
+                                        "NamePrefixText": "Mrs"
+                                    },
+                                    "FirstName": "Laurens",
+                                    "LastName": "Franklyn"
+                                },
+                                "Position": [
+                                    {
+                                        "PositionText": {
+                                            "$": "Chairman"
+                                        },
+                                        "DisplaySequence": 1
+                                    }
+                                ],
+                                "MostSeniorPrincipalIndicator": true
+                            },
+                            {
+                                "GenderText": {
+                                    "$": "female"
+                                },
+                                "PrincipalName": {
+                                    "@type": "com:IndividualNameType",
+                                    "NamePrefix": {
+                                        "NamePrefixText": "Mrs"
+                                    },
+                                    "FirstName": "Julie anmol",
+                                    "LastName": "Whittaker"
+                                },
+                                "DisplaySequence": 1
+                            }
+                        ]
+                    },
+                    "ComplianceDetail": {
+                        "SanctionDetail": {
+                            "CountrySanctionDetail": [
+                                {
+                                    "SanctionListName": "UN SECURITY COUNCIL SANCTIONS COMMITTEE",
+                                    "SanctionsAuthorityWebPageAddress": {
+                                        "TelecommunicationAddress": "http://www.un.org/sc/committees/index.shtml"
+                                    },
+                                    "MatchedIndicator": false
+                                },
+                                {
+                                    "SanctionListName": "FOREIGN AFFAIRS AND INTERNATIONAL TRADE CANADA",
+                                    "SanctionsAuthorityWebPageAddress": {
+                                        "TelecommunicationAddress": "http://www.international.gc.ca/trade/sanctions-en.asp"
+                                    },
+                                    "MatchedIndicator": false
+                                },
+                                {
+                                    "SanctionListName": "UK FOREIGN & COMMONWEALTH OFFICE",
+                                    "SanctionsAuthorityWebPageAddress": {
+                                        "TelecommunicationAddress": "http://www.fco.gov.uk/"
+                                    },
+                                    "MatchedIndicator": false
+                                },
+                                {
+                                    "SanctionListName": "AUSTRALIAN DEPARTMENT OF FOREIGN AFFAIRS AND TRADE",
+                                    "SanctionsAuthorityWebPageAddress": {
+                                        "TelecommunicationAddress": "http://www.dfat.gov.au/un/unsc_sanctions/index.html"
+                                    },
+                                    "MatchedIndicator": false
+                                },
+                                {
+                                    "SanctionListName": "EU CONSOLIDATED SANCTIONS",
+                                    "SanctionsAuthorityWebPageAddress": {
+                                        "TelecommunicationAddress": "http://ec.europa.eu/external_relations/cfsp/sanctions/measures.htm"
+                                    },
+                                    "MatchedIndicator": false
+                                },
+                                {
+                                    "SanctionListName": "HM TREASURY",
+                                    "SanctionsAuthorityWebPageAddress": {
+                                        "TelecommunicationAddress": "http://www.hm-treasury.gov.uk/fin_sanctions_currentindex.htm"
+                                    },
+                                    "MatchedIndicator": false
+                                },
+                                {
+                                    "SanctionListName": "US Department of State",
+                                    "SanctionsAuthorityWebPageAddress": {
+                                        "TelecommunicationAddress": "http://www.pmddtc.state.gov/embargoed_countries/index.html"
+                                    },
+                                    "MatchedIndicator": false
+                                }
+                            ],
+                            "CompanySanctionDetail": [
+                                {
+                                    "SanctionsTypeText": "11",
+                                    "SanctionsListName": "OFFICE OF FOREIGN ASSETS CONTROL, SDN AND BLOCKED PERSONS",
+                                    "SanctionsListWebPageAddress": {
+                                        "TelecommunicationAddress": "http://www.ustreas.gov/offices/enforcement/ofac/"
+                                    },
+                                    "SanctionsAuthorityRegionText": "USA",
+                                    "SanctionsHomeWebPageAddress": {
+                                        "TelecommunicationAddress": "http://www.ustreas.gov/"
+                                    },
+                                    "SanctionsStockExchangeAbbreviatedName": "us_dott1",
+                                    "ActiveSanctionsIndicator": true,
+                                    "MatchedIndicator": false
+                                },
+                                {
+                                    "SanctionsTypeText": "17",
+                                    "SanctionsListName": "EU CONSOLIDATED SANCTIONS",
+                                    "SanctionsListWebPageAddress": {
+                                        "TelecommunicationAddress": "http://ec.europa.eu/external_relations/cfsp/sanctions/list/consol-list.htm"
+                                    },
+                                    "SanctionsAuthorityRegionText": "Europe",
+                                    "SanctionsHomeWebPageAddress": {
+                                        "TelecommunicationAddress": "http://ec.europa.eu"
+                                    },
+                                    "SanctionsStockExchangeAbbreviatedName": "conso_sanc1",
+                                    "ActiveSanctionsIndicator": true,
+                                    "MatchedIndicator": false
+                                },
+                                {
+                                    "SanctionsTypeText": "19",
+                                    "SanctionsListName": "POLITICALLY EXPOSED PERSONS",
+                                    "SanctionsAuthorityRegionText": "Global",
+                                    "ActiveSanctionsIndicator": true,
+                                    "MatchedIndicator": false
+                                },
+                                {
+                                    "SanctionsTypeText": "5",
+                                    "SanctionsListName": "HM TREASURY",
+                                    "SanctionsListWebPageAddress": {
+                                        "TelecommunicationAddress": "http://www.hm-treasury.gov.uk/fin_sanctions_index.htm"
+                                    },
+                                    "SanctionsAuthorityRegionText": "UK",
+                                    "SanctionsHomeWebPageAddress": {
+                                        "TelecommunicationAddress": "http://www.hm-treasury.gov.uk/"
+                                    },
+                                    "SanctionsStockExchangeAbbreviatedName": "hmt1",
+                                    "ActiveSanctionsIndicator": true,
+                                    "MatchedIndicator": false
+                                }
+                            ]
+                        }
+                    }
+                },
+                "CountryRiskDetails": {
+                    "CountryISOAlpha2Code": "GB",
+                    "CountryISONumeric3Code": "826",
+                    "CountryOfficialName": "United Kingdom",
+                    "CountryGroupName": "Western Europe",
+                    "CountrySanctionDetail": [
+                        {
+                            "SanctionListWebPageAddress": {
+                                "TelecommunicationAddress": "http://www.un.org/sc/committees/index.shtml"
+                            }
+                        },
+                        {
+                            "SanctionListWebPageAddress": {
+                                "TelecommunicationAddress": "http://www.international.gc.ca/trade/sanctions-en.asp"
+                            }
+                        },
+                        {
+                            "SanctionListWebPageAddress": {
+                                "TelecommunicationAddress": "http://www.fco.gov.uk/"
+                            }
+                        },
+                        {
+                            "SanctionListWebPageAddress": {
+                                "TelecommunicationAddress": "http://www.dfat.gov.au/un/unsc_sanctions/index.html"
+                            }
+                        },
+                        {
+                            "SanctionListWebPageAddress": {
+                                "TelecommunicationAddress": "http://ec.europa.eu/external_relations/cfsp/sanctions/measures.htm"
+                            }
+                        },
+                        {
+                            "SanctionListWebPageAddress": {
+                                "TelecommunicationAddress": "http://www.hm-treasury.gov.uk/fin_sanctions_currentindex.htm"
+                            }
+                        },
+                        {
+                            "SanctionListWebPageAddress": {
+                                "TelecommunicationAddress": "http://www.pmddtc.state.gov/embargoed_countries/index.html"
+                            }
+                        }
+                    ],
+                    "WorldWatchHeadlineDetails": {
+                        "LastUpdateDate": {
+                            "$": "2015-12-08"
+                        },
+                        "ShelfLifeClassText": {
+                            "$": "N"
+                        },
+                        "ImportanceLevel": 1,
+                        "WorldWatchHeadlineText": "Insolvency risk is falling amid solid economic performance."
+                    },
+                    "DNBRatingDetails": {
+                        "RiskTrendText": {
+                            "@DNBCodeValue": 1177,
+                            "$": "Down"
+                        },
+                        "DNBRatingTrendText": {
+                            "@DNBCodeValue": 9083,
+                            "$": "Down"
+                        },
+                        "DNBStandardRating": {
+                            "$": "DB2a"
+                        },
+                        "LastUpdateDate": {
+                            "$": "2013-11-25"
+                        },
+                        "RatingUpdatedIndicator": true
+                    }
+                },
+                "ArchiveDetail": {
+                    "PortfolioAssetID": 78986485
+                }
+            }
+        }
+    }
+}
