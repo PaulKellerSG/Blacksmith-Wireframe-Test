@@ -15,7 +15,14 @@
             <div id="root"></div>
         </div>
     </div>
-    <script src="../scriptFiles/apiTest.js"></script>
+    <script>
+        function httpGet(theUrl) {
+            var xmlHttp = new XMLHttpRequest();
+            xmlHttp.open("GET", theUrl, false);
+            xmlHttp.send(null);
+            document.getElementById("root").innerHTML = xmlHttp.responseText;
+        }
+    </script>
 </body>
 
 </html>
